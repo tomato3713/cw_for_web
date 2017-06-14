@@ -1,0 +1,10 @@
+.key {
+    display:table;
+    table-layout: fixed;
+    text-align: center;
+    width:100%;
+}
+.key div{
+    display: table-cell;
+    vertical-align: auto;
+    }

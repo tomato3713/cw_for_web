@@ -1,0 +1,15 @@
+CWのweb上で使える練習機を作る
+
+wpmのミリ秒、秒への変換式
+
+
+function
+longBeep(float time) 長点を鳴らす
+shortBeep(float time) 短点を鳴らす
+loadText() Textファイルを読み込む.CW_Freakと同じ書き方
+ring(char c) ローマ字を符号化して順番にlongBeep(), shortBeep()を呼び出す。
+
+
+problem
+audiocontentを一つで再生、停止を行う方法
+keyboardの実装
