@@ -2,7 +2,6 @@
 // wpm :speed
 //i :short-0, long-1
 
-function Signal(i, wpm) {
   // Web Audio APIが使えるか確認しつつ、contextをつくる
   var SupportedAudioContext;
   try {
@@ -19,21 +18,32 @@ function Signal(i, wpm) {
 
   // 音量調節用のnodeを作成
   var gainNode = context.createGain();
-  gainNode.gain.value = 10;
+  gainNode.gain.value = 0;
 
   // もろもろつなげる
   oscNode.connect(gainNode);
   gainNode.connect(context.destination);
 
+  oscNode.start(0);
+
+function Play(i, wpm) {
   if (i == 0) {
     // play the shorter signal
-    oscNode.start(0);
-    oscNode.stop(wpm / (25 * 30));
+    gainNode.gain.value=10;
+    var start_Time = new Date();
+    do{
+      var end_Time = new Date();
+    } while ((end_Time - start_Time) < wpm /25 *10)
+      gainNode.gain.value=0;
   }
 
   // play the longer signal
   if (i == 1) {
-    oscNode.start(0);
-    oscNode.stop(wpm / (25 * 10));
+        gainNode.gain.value=10;
+    var start_Time = new Date();
+    do{
+      var end_Time = new Date();
+    } while ((end_Time - start_Time) < wpm / 25 * 10 * 3)
+      gainNode.gain.value=0;
   }
 }
