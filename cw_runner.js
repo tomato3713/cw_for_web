@@ -6,7 +6,6 @@
 
   // Web Audio APIが使えるか確認しつつ、contextをつくる
   var wpm=25;
-  var call_name = new Array( 'A' ,'B','R', 'T', 3, 'J', '/');
   var SupportedAudioContext;
   try {
     SupportedAudioContext = window.AudioContext || window.webkitAudioContext;
