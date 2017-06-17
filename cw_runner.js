@@ -1,11 +1,12 @@
 // this function is to ring the signal
 //play(i, wpm)
 // wpm :speed
-//i :short-0, long-1
+//i :playOn-0, playOff 1;
+// duration_time: time 1, 3, 7
 
   // Web Audio APIが使えるか確認しつつ、contextをつくる
   var wpm=25;
-  var call_name = new Array( 'A' ,'B');
+  var call_name = new Array( 'A' ,'B','R', 'T', 3, 'J', '/');
   var SupportedAudioContext;
   try {
     SupportedAudioContext = window.AudioContext || window.webkitAudioContext;
@@ -16,7 +17,7 @@
 
   // オシレーターをつくる
   var oscNode = context.createOscillator();
-  oscNode.frequency.value = 700;
+  oscNode.frequency.value = 630;
   oscNode.type = 'sine';
 
   // 音量調節用のnodeを作成
@@ -53,7 +54,7 @@ function Play(i, duration_time) {
       gainNode.gain.value=0;
   }
 */
-  if (i == 2){
+  if (i == 1){
     gainNode.gain.value=0;
     //stop beep sound time
     var start_Time = new Date();
