@@ -3,7 +3,7 @@
 var call_name = new Array;
 var call_answer;
 var turn = 1;
-function select_signal() {
+function select_signal_play() {
     var row = Math.floor(Math.random() * (call_name.length));
     call_answer = call_name[row];
     for (var column = 0; call_name[row][column] != 'END'; column++) {
@@ -194,7 +194,7 @@ function answerCheck() {
         var myAnswer = document.getElementById("Box").value.split('');
         myAnswer.push('END');
 
-        var result =0;
+        var result = 0;
         var result_dif = new Array();
         for (i = 0; i <= call_answer.length - 1 && i <= myAnswer.length - 1; i++) {
             if (call_answer[i] == myAnswer[i]) {
@@ -206,16 +206,14 @@ function answerCheck() {
         }
 
         var Num = parseInt(document.getElementById("Result_Num").value);
-        if (result==0) {
+        if (result == 0) {
             document.getElementById("Result_Now").value = 'R';
             document.getElementById("Result_Num").value = Num + 1;
         }
         if (result != 0) {
-            document.getElementById("Result_Now").value = 'W'+ result_dif.join(',');
-            document.getElementById("Result_Num").value = Num + 1;
-
+            document.getElementById("Result_Now").value = 'W_' + result_dif.join(',');
         }
-        document.getElementById('Box').value= '';
+        document.getElementById('Box').value = '';
         turn = 1;
     }
 }
