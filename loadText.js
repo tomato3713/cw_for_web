@@ -7,14 +7,15 @@ function loadText() {
         ['V'], ['W'], ['X'], ['Y'], ['Z'], ['/'], ['?']];
     }
     if (call_type == 'ja') {
-        console.log('select japan');
+        // console.log('select japan');
         call_name = [['J', 'A', '1', 'Z', 'G', 'P'],
                      ['J', 'H', '1', 'X', 'E', 'X'],
                      ['J', 'G', '1', 'M', 'J', 'Z'],
+                     ['J', 'J', '1', 'K', 'K', 'X']
                      ];
     }
     if (call_type == 'DX') {
-        console.log('select DX');
+        // console.log('select DX');
     }
     addEndmark(call_name);
     return call_name;

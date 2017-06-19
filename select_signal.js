@@ -2,6 +2,7 @@
 //by call_name which registered alphabet and number
 var call_name = new Array;
 var call_answer;
+var turn = 1;
 function select_signal() {
     var row = Math.floor(Math.random() * (call_name.length));
     call_answer = call_name[row];
@@ -185,14 +186,36 @@ function select_signal() {
         }
         Play(1, 3); //stop signal
     }
+    turn = 0;
 }
 
 function answerCheck() {
-    var myAnswer = document.getElementById("Box").value.split('');
-    myAnswer.push('END');
-    for (i = 0; i <= call_answer.length - 1 && i <= myAnswer.length - 1; i++) {
-        if (call_answer[i] == myAnswer[i]) {
-            // console.log('maru');
+    if (turn == 0) {
+        var myAnswer = document.getElementById("Box").value.split('');
+        myAnswer.push('END');
+
+        var result =0;
+        var result_dif = new Array();
+        for (i = 0; i <= call_answer.length - 1 && i <= myAnswer.length - 1; i++) {
+            if (call_answer[i] == myAnswer[i]) {
+                result_dif[i] = '0';
+            } else {
+                result_dif[i] = '1';
+                result++;
+            }
         }
+
+        var Num = parseInt(document.getElementById("Result_Num").value);
+        if (result==0) {
+            document.getElementById("Result_Now").value = 'R';
+            document.getElementById("Result_Num").value = Num + 1;
+        }
+        if (result != 0) {
+            document.getElementById("Result_Now").value = 'W'+ result_dif.join(',');
+            document.getElementById("Result_Num").value = Num + 1;
+
+        }
+        document.getElementById('Box').value= '';
+        turn = 1;
     }
 }

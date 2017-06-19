@@ -12,7 +12,7 @@ function ClickOn(key){
 }
 
 function ClickOnDel(){
-    var Enter_Call = new Array(document.getElementById("Box").value);
+    var Enter_Call = (document.getElementById("Box").value).split('');
     //delete the last char
     Enter_Call.pop();
     document.getElementById("Box").value = Enter_Call.join('');
