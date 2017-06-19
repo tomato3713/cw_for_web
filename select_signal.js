@@ -192,7 +192,7 @@ function answerCheck() {
     myAnswer.push('END');
     for (i = 0; i <= call_answer.length - 1 && i <= myAnswer.length - 1; i++) {
         if (call_answer[i] == myAnswer[i]) {
-            console.log('maru');
+            // console.log('maru');
         }
     }
 }
