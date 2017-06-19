@@ -40,25 +40,12 @@ function Play(i, duration_time) {
     } while ((end_Time - start_Time) < (wpm /25) *30 *duration_time)
       gainNode.gain.value=0;
   }
-
-/*
-  // play the longer signal
-  if (i == 1) {
-        gainNode.gain.value=10;
-    //play beep sound time
-    var start_Time = new Date();
-    do{
-      var end_Time = new Date();
-    } while ((end_Time - start_Time) < (wpm / 25) * 30 * 3)
-      gainNode.gain.value=0;
-  }
-*/
   if (i == 1){
     gainNode.gain.value=0;
     //stop beep sound time
     var start_Time = new Date();
     do{
       var end_Time = new Date();
-    } while ((end_Time - start_Time) < (wpm / 25) * 30 * duration_time)
+    } while ((end_Time - start_Time) < (wpm / 25) * 50 * duration_time)
   }
 }

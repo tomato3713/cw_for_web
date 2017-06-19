@@ -12,17 +12,17 @@
     <script type="text/javascript" src=".\cw_runner.js"></script>
     <script type="text/javascript" src=".\keyboard.js"></script>
     <script type="text/javascript" src=".\select_signal.js"></script>
+    <script type="text/javascript" src=".\loadText.js"></script>
+    <script type="text/javascript" src=".\radio.js"></script>
     <link rel="styleshet" type="text/css" href=".\keyboard.css">
 
     <title>CW WEB RUNNER</title>
 </head>
 
-<body>
+<body onload="loadText()">
     <h1 class="title-h1">CW WEB RUNNER</h1>
-    <input type="button" value="Play">
-    <input type="button" value="Check">
-    <button type="button" onclick="var array = [2,3,'G'];select_signal(array)">shorterSignal</button>
-    <button type="button" onclick="Play(1)">longerSignal</button>
+    <button type="button" onclick="select_signal()">Play</button>
+    <button type="button" onclick="answerCheck()">Answer</button>
     <br>
     <input type="text" id="Box" value="">
     <br/>
@@ -80,9 +80,9 @@
         end of keyboard
     -->
     <p>type</p>
-    <input type="radio" name="logType" value="DX" checked>World
-    <input type="radio" name="logType" value="Ja">Japan
-    <input type="radio" name="logType" value="Basic">basic
+    <input type="radio" name="logType" value="DX" onclick="RadioButton_changed('DX')">World
+    <input type="radio" name="logType" value="Ja" onclick="RadioButton_changed('ja')">Japan
+    <input type="radio" name="logType" value="Basic" checked onclick="RadioButton_changed('basic')">basic
     <footer>
         <address>
             watanabe;

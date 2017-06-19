@@ -11,5 +11,5 @@ ring(char c) ローマ字を符号化して順番にlongBeep(), shortBeep()を呼び出す。
 
 
 problem
-audiocontentを一つで再生、停止を行う方法
-keyboardの実装
+再生中にキーボードのクリックができない
+答え合わせ。
