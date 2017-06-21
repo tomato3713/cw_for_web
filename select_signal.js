@@ -221,7 +221,7 @@ function answerCheck() {
 
         var history = new String();
         history = document.getElementById('History').value;
-            history += '\n';
+        history += '\n';
         history += call_answer.join('') + '-' + myAnswer.join('');
         document.getElementById('History').value = history;
 

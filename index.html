@@ -14,15 +14,16 @@
     <script type="text/javascript" src=".\select_signal.js"></script>
     <script type="text/javascript" src=".\loadText.js"></script>
     <script type="text/javascript" src=".\radio.js"></script>
+    <script type="text/javascript" src=".\event.js"></script>
     <link rel="styleshet" type="text/css" href=".\keyboard.css">
 
     <title>CW WEB RUNNER</title>
 </head>
 
-<body onload="loadText()">
+<body>
     <h1 class="title-h1">CW WEB RUNNER</h1>
-    <button type="button" onclick="select_signal() ">Play</button>
-    <button type="button" onclick="answerCheck()">Answer</button>
+    <button type="button" id="PlayButton" >Play</button>
+    <button type="button" id="AnswerButton">Answer</button>
     <input type="text" id="Result_Now" value='_' size="10">
     <p>Right <input type="text" id="RightCount" value=0 size="3"> </p>
     <p>Wrong <input type="text" id="WrongCount" value=0 size="3"> </p>
@@ -84,9 +85,10 @@
     <p>type</p>
     <input type="radio" name="logType" value="DX" onclick="RadioButton_changed('DX')">World
     <input type="radio" name="logType" value="Ja" onclick="RadioButton_changed('ja')">Japan
-    <input type="radio" name="logType" value="Basic" checked onclick="RadioButton_changed('basic')">basic
+    <input type="radio" name="logType" value="Basic" onclick="RadioButton_changed('basic') " checked >basic
     <br>
-    <textarea id="History" cols="30" rows="50" readonly>History of Training in the time.</textarea>
+    <p>speed<input type="text" id="Speed" value="25" size="3" ></p>
+    <textarea id="History" cols="30" rows="20" readonly>History of Training in the time.</textarea>
     <footer>
         2017/06/19
         made basic mode.

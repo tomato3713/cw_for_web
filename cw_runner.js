@@ -5,7 +5,7 @@
 // duration_time: time 1, 3, 7
 
 // Web Audio APIが使えるか確認しつつ、contextをつくる
-var wpm = 25;
+var wpm;
 var SupportedAudioContext;
 try {
   SupportedAudioContext = window.AudioContext || window.webkitAudioContext;
@@ -27,7 +27,10 @@ gainNode.gain.value = 0;
 oscNode.connect(gainNode);
 gainNode.connect(context.destination);
 
-oscNode.start(0);
+function cw_start() {
+  oscNode.start(0);
+  document.getElementById('PlayButton').removeEventListener('click', cw_start);
+}
 
 function signalOn(duration_time) {
   // play the shorter signal
@@ -36,7 +39,8 @@ function signalOn(duration_time) {
   var start_Time = new Date();
   do {
     var end_Time = new Date();
-  } while ((end_Time - start_Time) < (wpm / 25) * 30 * duration_time)
+  } while ((end_Time - start_Time) < (25 / wpm) * 30 * duration_time)
+  // console.log((25/wpm)*30*duration_time);
   gainNode.gain.value = 0;
 }
 function signalOff(duration_time) {
@@ -45,5 +49,11 @@ function signalOff(duration_time) {
   var start_Time = new Date();
   do {
     var end_Time = new Date();
-  } while ((end_Time - start_Time) < (wpm / 25) * 50 * duration_time)
+  } while ((end_Time - start_Time) < (25 / wpm) * 50 * duration_time)
+  // console.log((25/wpm)*50 *duration_time);
+}
+
+function speedChange() {
+  wpm = document.getElementById('Speed').value;
+  console.log('wpm changed');
 }
