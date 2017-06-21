@@ -1,0 +1,13 @@
+div.key {
+    max-width:100%;
+    height: auto;
+    text-align: center;
+}
+div.key div{
+    text-align: center;
+}
+div.key div input{
+    vertical-align: auto;
+    padding: 2px 1px;
+    margin: 1px 2px;
+    }
