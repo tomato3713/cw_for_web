@@ -15,6 +15,7 @@ function loadText() {
                      ['J', 'A', '3', 'K', 'L', '/' ,'2'],
                      ['J', 'I', '8', 'I', 'S', 'S'],
                      ['J', 'H', '3', 'A', 'N', 'U'],
+                     ['J', 'J', '1', 'X', 'Z', 'W']
                      ];
     }
     if (call_type == 'DX') {
@@ -24,10 +25,19 @@ function loadText() {
     return call_name;
 }
 
+// used by loadText()
 function addEndmark(call_name) {
     // add the END mark(delete?)
     for (var i = 0; i <= call_name.length - 1; i++) {
         var length = call_name[i].length;
         call_name[i][length] = 'END';
     }
+}
+
+//radio button
+var call_type='basic';
+
+function RadioButton_changed(value){
+    call_type = value;
+    loadText();
 }

@@ -13,7 +13,6 @@
     <script type="text/javascript" src="./keyboard.js"></script>
     <script type="text/javascript" src="./select_signal.js"></script>
     <script type="text/javascript" src="./loadText.js"></script>
-    <script type="text/javascript" src="./radio.js"></script>
     <script type="text/javascript" src="./event.js"></script>
     <link rel="stylesheet"  href="./styleKeyboard.css" type="text/css" />
 
@@ -94,7 +93,7 @@
     <input type="radio" name="logType" value="Ja" onclick="RadioButton_changed('ja')">Japan
     <input type="radio" name="logType" value="Basic" onclick="RadioButton_changed('basic') " checked>basic
     <br>
-    <p>speed<input type="text" id="Speed" value="25" size="3"></p>
+    <p>speed<input type="number" id="Speed" value="25" size="3" inputmode="numetic" ></p>
     <textarea id="History" cols="30" rows="20" readonly>History of Training in the time.</textarea>
     </span>
     <footer>

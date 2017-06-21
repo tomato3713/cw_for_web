@@ -53,7 +53,62 @@ function signalOff(duration_time) {
   // console.log((25/wpm)*50 *duration_time);
 }
 
+function isNumber(value) {
+  var result = Boolean(false);
+  if (value || value === 0) {
+    var typeValue = typeof (value);
+    if (typeValue.match(/^(number|string)$/) && value !== NaN) {
+      result = true;
+    }
+  }
+  return result;
+}
+
 function speedChange() {
-  wpm = document.getElementById('Speed').value;
-  console.log('wpm changed');
+  inputLine = document.getElementById('Speed').value;
+  if (isNumber(inputLine)) {
+    wpm = inputLine;
+    console.log('wpm changed');
+  } else {
+    document.getElementById('Speed').value = wpm;
+
+  }
+}
+
+
+function answerCheck() {
+  if (turn == 0) {
+    var myAnswer = document.getElementById("Box").value.split('');
+
+    var match_result = 0;
+    var result_dif = new Array();
+    for (i = 0; i <= call_answer.length - 1 && i <= myAnswer.length - 1; i++) {
+      if (call_answer[i] == myAnswer[i]) {
+        result_dif[i] = 'R';
+      } else {
+        result_dif[i] = 'W';
+        match_result++;
+      }
+    }
+
+    var right_counter = parseInt(document.getElementById("RightCount").value);
+    var wrong_counter = parseInt(document.getElementById("WrongCount").value);
+    if (match_result == 0) {
+      document.getElementById("Result_Now").value = 'R_' + result_dif.join(',');
+      document.getElementById("RightCount").value = right_counter + 1;
+    }
+    if (match_result != 0) {
+      document.getElementById("Result_Now").value = 'W_' + result_dif.join(',');
+      document.getElementById("WrongCount").value = wrong_counter + 1;
+    }
+    document.getElementById('Box').value = '';
+    turn = 1;
+
+    var history = new String();
+    history = document.getElementById('History').value;
+    history += '\n';
+    history += call_answer.join('') + '-' + myAnswer.join('');
+    document.getElementById('History').value = history;
+
+  }
 }
