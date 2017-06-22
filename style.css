@@ -11,8 +11,17 @@ div.key div input{
     padding: 3px 3px;
     margin: 2px auto;
 }
-
 #Box{
     text-align: left;
     text-align-last: left;
+}
+#PlayButton {
+    font-size: x-large;
+    height: 100%;
+    width: 100%;
+}
+#AnswerButton{
+    font-size: x-large;
+    height: 100%;
+    width: 100%;
 }
