@@ -7,27 +7,32 @@
 // Web Audio APIが使えるか確認しつつ、contextをつくる
 var wpm;
 var SupportedAudioContext;
+
+var context;
+var oscNode;
+var gainNode;
+
+function cw_start() {
 try {
   SupportedAudioContext = window.AudioContext || window.webkitAudioContext;
 } catch (e) {
   throw new Error('Web Audio API is not supported.');
 }
-var context = new SupportedAudioContext();
+context = new SupportedAudioContext();
 
 // オシレーターをつくる
-var oscNode = context.createOscillator();
+oscNode = context.createOscillator();
 oscNode.frequency.value = 630;
 oscNode.type = 'sine';
 
 // 音量調節用のnodeを作成
-var gainNode = context.createGain();
+gainNode = context.createGain();
 gainNode.gain.value = 0;
 
 // もろもろつなげる
 oscNode.connect(gainNode);
 gainNode.connect(context.destination);
 
-function cw_start() {
   oscNode.start(0);
   document.getElementById('PlayButton').removeEventListener('click', cw_start);
 }
