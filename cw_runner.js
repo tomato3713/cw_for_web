@@ -34,9 +34,11 @@ oscNode.connect(gainNode);
 gainNode.connect(context.destination);
 
   oscNode.start(0);
+  //remove event cw_start()
   document.getElementById('PlayButton').removeEventListener('click', cw_start);
 }
 
+//signal short signal:duration_time = 1, long signal:duration_time=3
 function signalOn(duration_time) {
   // play the shorter signal
   gainNode.gain.value = 10;
@@ -48,6 +50,7 @@ function signalOn(duration_time) {
   // console.log((25/wpm)*30*duration_time);
   gainNode.gain.value = 0;
 }
+//between signal.
 function signalOff(duration_time) {
   gainNode.gain.value = 0;
   //stop beep sound time
@@ -75,23 +78,26 @@ function speedChange() {
     wpm = inputLine;
     console.log('wpm changed');
   } else {
+    //write the textbox.
     document.getElementById('Speed').value = wpm;
-
   }
 }
 
 
 function answerCheck() {
   if (turn == 0) {
+    //get the user's answer
     var myAnswer = document.getElementById("Box").value.split('');
+
 
     var match_result = 0;
     var result_dif = new Array();
     for (i = 0; i <= call_answer.length - 1 && i <= myAnswer.length - 1; i++) {
-      if (call_answer[i] == myAnswer[i]) {
-        result_dif[i] = 'R';
+      //check answer
+      if (call_answer[i] == myAnswer[i].toUpperCase() ) {
+        result_dif[i] = 'R';//right
       } else {
-        result_dif[i] = 'W';
+        result_dif[i] = 'W';//wrong
         match_result++;
       }
     }
@@ -108,6 +114,7 @@ function answerCheck() {
     }
     document.getElementById('Box').value = '';
     turn = 1;
+
 
     var history = new String();
     history = document.getElementById('History').value;

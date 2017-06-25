@@ -2,9 +2,24 @@
 //by call_name which registered alphabet and number
 var call_name = new Array;
 var call_answer = new Array;
-var turn = 1;
+var turn = 1;//flag of answercheck() able:0 disable:1
+
 function select_signal() {
     var row = Math.floor(Math.random() * (call_name.length));
+
+    turn = 0;
+
+    //call_name[row] = ['---call---', 'END']
+    //remember the answer.
+    for (var i = 0; i <= call_name[row].length - 2; i++) {
+        call_answer[i] = call_name[row][i];
+    }
+    //delete the extra element
+    if (call_answer.length > call_name[row].length - 2) {
+        call_answer.splice(call_answer.length - (call_name.length - 1), call_answer.length - 1);
+    }
+
+    //play sound
     for (var column = 0; call_name[row][column] != 'END'; column++) {
         //alphabet
         if (call_name[row][column] == 'A') {
@@ -33,8 +48,8 @@ function select_signal() {
         }
         if (call_name[row][column] == 'F') {
             signalOn(1); signalOff(1);
-            signalOn(3); signalOff(1);
             signalOn(1); signalOff(1);
+            signalOn(3); signalOff(1);
             signalOn(1);
         }
         if (call_name[row][column] == 'G') {
@@ -65,8 +80,8 @@ function select_signal() {
         }
         if (call_name[row][column] == 'L') {
             signalOn(1); signalOff(1);
-            signalOn(1); signalOff(1);
             signalOn(3); signalOff(1);
+            signalOn(1); signalOff(1);
             signalOn(1);
         }
         if (call_name[row][column] == 'M') {
@@ -184,9 +199,5 @@ function select_signal() {
             signalOn(1);
         }
         signalOff(3); //stop signal
-    }
-    turn = 0;
-    for (var i = 0; i <= call_name[row].length - 2; i++) {
-        call_answer[i] = call_name[row][i];
     }
 }
