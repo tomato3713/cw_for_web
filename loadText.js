@@ -1,12 +1,12 @@
 function loadText() {
-    if (call_type == 'basic') {
+    if (call_type == 'Basic') {
         call_name = [['A'], ['B'], ['C'], ['D'],
         ['E'], ['F'], ['G'],
         ['H'], ['I'], ['J'], ['K'], ['L'], ['M'], ['N'],
         ['O'], ['P'], ['Q'], ['R'], ['S'], ['T'], ['U'],
         ['V'], ['W'], ['X'], ['Y'], ['Z'], ['/'], ['?']];
     }
-    if (call_type == 'ja') {
+    if (call_type == 'Ja') {
         // console.log('select japan');
         call_name = [['J', 'A', '1', 'Z', 'G', 'P'],
                      ['J', 'H', '1', 'X', 'E', 'X'],
@@ -35,9 +35,10 @@ function addEndmark(call_name) {
 }
 
 //radio button
-var call_type='basic';
+var call_type='Basic';
 
-function RadioButton_changed(value){
-    call_type = value;
+function RadioButton_changed(e) {
+    var target = e.target;
+    call_type = target.value;
     loadText();
 }

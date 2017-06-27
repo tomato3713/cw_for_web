@@ -35,63 +35,65 @@
     <!--
         there is the keyboard
     -->
-    <div class="key">
+    <div id="key">
         <div>
-            <input type="button" value="1" onclick="ClickOn(1)">
-            <input type="button" value="2" onclick="ClickOn(2)">
-            <input type="button" value="3" onclick="ClickOn(3)">
-            <input type="button" value="4" onclick="ClickOn(4)">
-            <input type="button" value="5" onclick="ClickOn(5)">
-            <input type="button" value="6" onclick="ClickOn(6)">
-            <input type="button" value="7" onclick="ClickOn(7)">
-            <input type="button" value="8" onclick="ClickOn(8)">
-            <input type="button" value="9" onclick="ClickOn(9)">
-            <input type="button" value="0" onclick="ClickOn(0)">
+            <input type="button" value="1">
+            <input type="button" value="2">
+            <input type="button" value="3">
+            <input type="button" value="4">
+            <input type="button" value="5">
+            <input type="button" value="6">
+            <input type="button" value="7">
+            <input type="button" value="8">
+            <input type="button" value="9">
+            <input type="button" value="0">
         </div>
         <div>
-            <input type="button" value="q" onclick="ClickOn('Q')">
-            <input type="button" value="w" onclick="ClickOn('W')">
-            <input type="button" value="e" onclick="ClickOn('E')">
-            <input type="button" value="r" onclick="ClickOn('R')">
-            <input type="button" value="t" onclick="ClickOn('T')">
-            <input type="button" value="y" onclick="ClickOn('Y')">
-            <input type="button" value="u" onclick="ClickOn('U')">
-            <input type="button" value="i" onclick="ClickOn('I')">
-            <input type="button" value="o" onclick="ClickOn('O')">
-            <input type="button" value="p" onclick="ClickOn('P')">
+            <input type="button" value="Q">
+            <input type="button" value="W">
+            <input type="button" value="E">
+            <input type="button" value="R">
+            <input type="button" value="t">
+            <input type="button" value="Y">
+            <input type="button" value="U">
+            <input type="button" value="I">
+            <input type="button" value="O">
+            <input type="button" value="P">
         </div>
         <div>
-            <input type="button" value="a" onclick="ClickOn('A')">
-            <input type="button" value="s" onclick="ClickOn('S')">
-            <input type="button" value="d" onclick="ClickOn('D')">
-            <input type="button" value="f" onclick="ClickOn('F')">
-            <input type="button" value="g" onclick="ClickOn('G')">
-            <input type="button" value="h" onclick="ClickOn('H')">
-            <input type="button" value="j" onclick="ClickOn('J')">
-            <input type="button" value="k" onclick="ClickOn('K')">
-            <input type="button" value="l" onclick="ClickOn('L')">
+            <input type="button" value="A">
+            <input type="button" value="S">
+            <input type="button" value="D">
+            <input type="button" value="F">
+            <input type="button" value="G">
+            <input type="button" value="H">
+            <input type="button" value="J">
+            <input type="button" value="K">
+            <input type="button" value="L">
         </div>
         <div>
-            <input type="button" value="z" onclick="ClickOn('Z')">
-            <input type="button" value="x" onclick="ClickOn('X')">
-            <input type="button" value="c" onclick="ClickOn('C')">
-            <input type="button" value="v" onclick="ClickOn('V')">
-            <input type="button" value="b" onclick="ClickOn('B')">
-            <input type="button" value="n" onclick="ClickOn('N')">
-            <input type="button" value="m" onclick="ClickOn('M')">
-            <input type="button" value="/" onclick="ClickOn('/')">
-            <input type="button" value="?" onclick="ClickOn('?')">
-            <input type="button" value="del" onclick="ClickOnDel()">
+            <input type="button" value="Z">
+            <input type="button" value="X">
+            <input type="button" value="C">
+            <input type="button" value="V">
+            <input type="button" value="B">
+            <input type="button" value="N">
+            <input type="button" value="M">
+            <input type="button" value="/">
+            <input type="button" value="?">
+            <input type="button" value="del">
         </div>
     </div>
     <!--
         end of keyboard
     -->
     <span>
-    <p>type</p>
-    <input type="radio" name="logType" value="DX" onclick="RadioButton_changed('DX')">World
-    <input type="radio" name="logType" value="Ja" onclick="RadioButton_changed('ja')">Japan
-    <input type="radio" name="logType" value="Basic" onclick="RadioButton_changed('basic') " checked>basic
+    <div>type</div>
+    <span id="radioButton">
+    <input type="radio" name="logType" value="DX">World
+    <input type="radio" name="logType" value="Ja">Japan
+    <input type="radio" name="logType" value="Basic" checked>Basic
+    </span>
     <br>
     <p>speed<input type="number" id="Speed" value="25" size="3" inputmode="numetic" ></p>
     <textarea id="History" cols="30" rows="20" readonly>History of Training in the time.</textarea>

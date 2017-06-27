@@ -2,11 +2,11 @@
     text-align: center;
     margin: 2px auto;
 }
-div.key {
+div#key {
     max-width:100%;
     height: auto;
 }
-div.key div input{
+div#key div input{
     vertical-align: auto;
     padding: 5px 3px;
     margin: 2px auto;

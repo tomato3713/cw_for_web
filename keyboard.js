@@ -1,4 +1,12 @@
-function ClickOn(key){
+function keyboardButtonCheck(e) {
+    var target = e.target;
+    if (target.value == "del") {
+        ClickOnDel();
+    } else {
+        ClickOn(target.value);
+    }
+}
+function ClickOn(key) {
     var Enter_Call = new Array(document.getElementById("Box").value);
     //add the char clicked
     if ( Enter_Call[0] == '' ){
