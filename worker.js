@@ -1,25 +1,37 @@
-//call the function play()
-//by call_name which registered alphabet and number
-var call_name = new Array;
-var call_answer = new Array;
-var turn = 1;//flag of answercheck() able:0 disable:1
+// this function is to ring the signal
+//play(i, wpm)
+// wpm :speed
+//i :playOn-0, playOff 1;
+// duration_time: time 1, 3, 7
 
-function select_signal() {
-    var row = Math.floor(Math.random() * (call_name.length));
+//まだできていない仕事
+//鳴らすタイミングを設定するようにsignaOn(), signalOff()変更する。
 
-    turn = 0;
-
-    //call_name[row] = ['---call---', 'END']
-    //remember the answer.
-    for (var i = 0; i <= call_name[row].length - 2; i++) {
-        call_answer[i] = call_name[row][i];
+    // if web audio API is able, meke the context
+    try {
+       var SupportedAudioContext = window.AudioContext || window.webkitAudioContext;
+    } catch (e) {
+        throw new Error('Web Audio API is not supported.');
     }
-    //delete the extra element
-    if (call_answer.length > call_name[row].length - 2) {
-        call_answer.splice(call_answer.length - (call_name.length - 1), call_answer.length - 1);
-    }
+    var context = new SupportedAudioContext();
 
-    //play sound
+//コールサインを受け取って、対応する符号を再生する
+function cw_start() {
+    //make the ocilitator
+    var oscNode = context.createOscillator();
+    oscNode.frequency.value = 630;
+    oscNode.type = 'sine';
+
+    // make the ocilitator to controll volume
+    var gainNode = context.createGain();
+    gainNode.gain.value = 10;
+
+    // connect the speaker
+    oscNode.connect(gainNode);
+    gainNode.connect(context.destination);
+
+
+    //鳴らすシグナルのタイミングを設定する
     for (var column = 0; call_name[row][column] != 'END'; column++) {
         //alphabet
         if (call_name[row][column] == 'A') {
@@ -200,4 +212,31 @@ function select_signal() {
         }
         signalOff(3); //stop signal
     }
+
+    //鳴らす
+    oscNode.start(0);
+    oscNode.stop(0);
+}
+
+//短音なら1を受け取る。調音の場合3を受け取る。
+function signalOn(duration_time) {
+    // play the shorter signal
+    gainNode.gain.value = 10;
+    //play beep sound time
+    var start_Time = new Date();
+    do {
+        var end_Time = new Date();
+    } while ((end_Time - start_Time) < (25 / wpm) * 30 * duration_time)
+    // console.log((25/wpm)*30*duration_time);
+    gainNode.gain.value = 0;
+}
+//音と音の間隔を設定する
+function signalOff(duration_time) {
+    gainNode.gain.value = 0;
+    //stop beep sound time
+    var start_Time = new Date();
+    do {
+        var end_Time = new Date();
+    } while ((end_Time - start_Time) < (25 / wpm) * 50 * duration_time)
+    // console.log((25/wpm)*50 *duration_time);
 }

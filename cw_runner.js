@@ -1,66 +1,27 @@
-// this function is to ring the signal
-//play(i, wpm)
-// wpm :speed
-//i :playOn-0, playOff 1;
-// duration_time: time 1, 3, 7
+//call the function play()
+//by call_name which registered alphabet and number
+var call_name = new Array;
+var call_answer = new Array;
+var turn = 1;//flag of answercheck() able, 答えのターン:0 disable:1
 
-// Web Audio API���g���邩�m�F���Acontext������
-var wpm;
-var SupportedAudioContext;
+function selectCallsign() {
+    var row = Math.floor(Math.random() * (call_name.length));
 
-var context;
-var oscNode;
-var gainNode;
+    turn = 0;
 
-function cw_start() {
-try {
-  SupportedAudioContext = window.AudioContext || window.webkitAudioContext;
-} catch (e) {
-  throw new Error('Web Audio API is not supported.');
-}
-context = new SupportedAudioContext();
+    //前の答えを消去する。
+    call_answer.splice(call_answer.length - 1, call_answer.length);
 
-// �I�V���[�^�[������
-oscNode = context.createOscillator();
-oscNode.frequency.value = 630;
-oscNode.type = 'sine';
-
-// ���ʒ��ߗp��node���쐬
-gainNode = context.createGain();
-gainNode.gain.value = 0;
-
-// �������Ȃ���
-oscNode.connect(gainNode);
-gainNode.connect(context.destination);
-
-  oscNode.start(0);
-  //remove event cw_start()
-  document.getElementById('PlayButton').removeEventListener('click', cw_start);
+    //call_name[row] = ['---call---', 'END']
+    //現在の答えをcall_nameからENDを除いてcall_answerに代入する.
+    for (var i = 0; i <= call_name[row].length - 2; i++) {
+        call_answer[i] = call_name[row][i];
+    }
 }
 
-//signal short signal:duration_time = 1, long signal:duration_time=3
-function signalOn(duration_time) {
-  // play the shorter signal
-  gainNode.gain.value = 10;
-  //play beep sound time
-  var start_Time = new Date();
-  do {
-    var end_Time = new Date();
-  } while ((end_Time - start_Time) < (25 / wpm) * 30 * duration_time)
-  // console.log((25/wpm)*30*duration_time);
-  gainNode.gain.value = 0;
-}
-//between signal.
-function signalOff(duration_time) {
-  gainNode.gain.value = 0;
-  //stop beep sound time
-  var start_Time = new Date();
-  do {
-    var end_Time = new Date();
-  } while ((end_Time - start_Time) < (25 / wpm) * 50 * duration_time)
-  // console.log((25/wpm)*50 *duration_time);
-}
-
+// 数字ならtrue,
+  // それ以外はfalse
+// を返す。
 function isNumber(value) {
   var result = Boolean(false);
   if (value || value === 0) {
@@ -72,35 +33,35 @@ function isNumber(value) {
   return result;
 }
 
-function speedChange() {
+function speedCheck() {
   inputLine = document.getElementById('Speed').value;
-  if (isNumber(inputLine)) {
-    wpm = inputLine;
-    console.log('wpm changed');
-  } else {
-    //write the textbox.
+  //入力された値が適正か判定する。
+  //数値でない場合、Speedのvalueに元の値を代入する。
+  if (!(isNumber(inputLine))) {
     document.getElementById('Speed').value = wpm;
   }
 }
 
 
+// ユーザーの回答が正しいか判断する。
 function answerCheck() {
   if (turn == 0) {
     //get the user's answer
     var myAnswer = document.getElementById("Box").value.split('');
 
-
     var match_result = 0;
     var result_dif = new Array();
     for (i = 0; i <= call_answer.length - 1 && i <= myAnswer.length - 1; i++) {
       //check answer
-      if (call_answer[i] == myAnswer[i].toUpperCase() ) {
+      // 答えと回答を比較する。
+      if (call_answer[i] == myAnswer[i].toUpperCase()) {
         result_dif[i] = 'R';//right
       } else {
         result_dif[i] = 'W';//wrong
         match_result++;
       }
     }
+
 
     var right_counter = parseInt(document.getElementById("RightCount").value);
     var wrong_counter = parseInt(document.getElementById("WrongCount").value);
@@ -116,6 +77,7 @@ function answerCheck() {
     turn = 1;
 
 
+// 過去の回答の記録に現在の回答を追加する。
     var history = new String();
     history = document.getElementById('History').value;
     history += '\n';
