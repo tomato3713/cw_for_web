@@ -1,6 +1,10 @@
 * {
     text-align: center;
-    margin: 2px auto;
+    /*margin: 2px auto;*/
+    margin-top: 3px;
+    marker-end: 3px;
+    margin-left: auto;
+    margin-right: auto;
 }
 div#key {
     max-width:100%;
@@ -24,4 +28,9 @@ div#key div input{
     font-size: x-large;
     height: 100%;
     width: 100%;
+}
+
+ol{
+    vertical-align: middle;
+    list-style: none;
 }

@@ -15,7 +15,7 @@ function selectCallsign() {
     //call_name[row] = ['---call---', 'END']
     //現在の答えをcall_nameからENDを除いてcall_answerに代入する.
     for (var i = 0; i <= call_name[row].length - 2; i++) {
-        call_answer[i] = call_name[row][i];
+      call_answer[i] = call_name[row][i];
     }
 }
 
@@ -77,7 +77,7 @@ function answerCheck() {
     turn = 1;
 
 
-// 過去の回答の記録に現在の回答を追加する。
+    // 過去の回答の記録に現在の回答を追加する。
     var history = new String();
     history = document.getElementById('History').value;
     history += '\n';

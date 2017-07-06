@@ -7,219 +7,228 @@
 //まだできていない仕事
 //鳴らすタイミングを設定するようにsignaOn(), signalOff()変更する。
 
-    // if web audio API is able, meke the context
-    try {
-       var SupportedAudioContext = window.AudioContext || window.webkitAudioContext;
-    } catch (e) {
-        throw new Error('Web Audio API is not supported.');
-    }
-    var context = new SupportedAudioContext();
+//[コールサイン+wpm]を受け取って、対応する符号を再生する
+try {
+    var SupportedAudioContext = window.AudioContext || window.webkitAudioContext;
+} catch (e) {
+    throw new Error('Web Audio API is not supported.');
+}
+var context = new SupportedAudioContext();
+var gainNode;
 
-//コールサインを受け取って、対応する符号を再生する
-function cw_start() {
+function cw_start(call, wpm) {
     //make the ocilitator
     var oscNode = context.createOscillator();
     oscNode.frequency.value = 630;
     oscNode.type = 'sine';
 
+
     // make the ocilitator to controll volume
-    var gainNode = context.createGain();
-    gainNode.gain.value = 10;
+    gainNode = context.createGain();
+    gainNode.gain.value = 0;
 
     // connect the speaker
     oscNode.connect(gainNode);
     gainNode.connect(context.destination);
 
+    //鳴らす
+    oscNode.start(0);
 
     //鳴らすシグナルのタイミングを設定する
-    for (var column = 0; call_name[row][column] != 'END'; column++) {
+    for (var column = 0; column <=  call.length -1; column++) {
         //alphabet
-        if (call_name[row][column] == 'A') {
-            signalOn(1); signalOff(1);//play short signal and stop
-            signalOn(3);//play long signal
+        if (call[column] == 'A') {
+            signalOn(1, wpm); signalOff(1, wpm);//play short signal and stop
+            signalOn(3, wpm);//play long signal
         }
-        if (call_name[row][column] == 'B') {
-            signalOn(3); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(1);
+        if (call[column] == 'B') {
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm);
         }
-        if (call_name[row][column] == 'C') {
-            signalOn(3); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(3); signalOff(1);
-            signalOn(1);
+        if (call[column] == 'C') {
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm);
         }
-        if (call_name[row][column] == 'D') {
-            signalOn(3); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(1);
+        if (call[column] == 'D') {
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm);
         }
-        if (call_name[row][column] == 'E') {
-            signalOn(1);
+        if (call[column] == 'E') {
+            signalOn(1, wpm);
         }
-        if (call_name[row][column] == 'F') {
-            signalOn(1); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(3); signalOff(1);
-            signalOn(1);
+        if (call[column] == 'F') {
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm);
         }
-        if (call_name[row][column] == 'G') {
-            signalOn(3); signalOff(1);
-            signalOn(3); signalOff(1);
-            signalOn(1);
+        if (call[column] == 'G') {
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm);
         }
-        if (call_name[row][column] == 'H') {
-            signalOn(1); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(1);
+        if (call[column] == 'H') {
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm);
         }
-        if (call_name[row][column] == 'I') {
-            signalOn(1); signalOff(1, 1);
-            signalOn(1);
+        if (call[column] == 'I') {
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm);
         }
-        if (call_name[row][column] == 'J') {
-            signalOn(1); signalOff(1);
-            signalOn(3); signalOff(1);
-            signalOn(3); signalOff(1);
-            signalOn(3);
+        if (call[column] == 'J') {
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(3, wpm);
         }
-        if (call_name[row][column] == 'K') {
-            signalOn(3); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(3);
+        if (call[column] == 'K') {
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(3, wpm);
         }
-        if (call_name[row][column] == 'L') {
-            signalOn(1); signalOff(1);
-            signalOn(3); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(1);
+        if (call[column] == 'L') {
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm);
         }
-        if (call_name[row][column] == 'M') {
-            signalOn(3); signalOff(1);
-            signalOn(3);
+        if (call[column] == 'M') {
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(3, wpm);
         }
-        if (call_name[row][column] == 'N') {
-            signalOn(3); signalOff(1);
-            signalOn(1);
+        if (call[column] == 'N') {
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm);
         }
-        if (call_name[row][column] == 'O') {
-            signalOn(3); signalOff(1);
-            signalOn(3); signalOff(1);
-            signalOn(3);
+        if (call[column] == 'O') {
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(3, wpm);
 
         }
-        if (call_name[row][column] == 'P') {
-            signalOn(1); signalOff(1);
-            signalOn(3); signalOff(1);
-            signalOn(3); signalOff(1);
-            signalOn(1);
+        if (call[column] == 'P') {
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm);
         }
-        if (call_name[row][column] == 'Q') {
-            signalOn(3); signalOff(1);
-            signalOn(3); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(3);
+        if (call[column] == 'Q') {
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(3, wpm);
         }
-        if (call_name[row][column] == 'R') {
-            signalOn(1); signalOff(1);
-            signalOn(3); signalOff(1);
-            signalOn(1);
+        if (call[column] == 'R') {
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm);
         }
-        if (call_name[row][column] == 'S') {
-            signalOn(1); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(1);
+        if (call[column] == 'S') {
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm);
         }
-        if (call_name[row][column] == 'T') {
-            signalOn(3);
+        if (call[column] == 'T') {
+            signalOn(3, wpm);
         }
-        if (call_name[row][column] == 'U') {
-            signalOn(1); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(3);
+        if (call[column] == 'U') {
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(3, wpm);
         }
-        if (call_name[row][column] == 'V') {
-            signalOn(1); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(3);
+        if (call[column] == 'V') {
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(3, wpm);
         }
-        if (call_name[row][column] == 'W') {
-            signalOn(1); signalOff(1);
-            signalOn(3); signalOff(1);
-            signalOn(3);
+        if (call[column] == 'W') {
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(3, wpm);
         }
-        if (call_name[row][column] == 'X') {
-            signalOn(3); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(3);
+        if (call[column] == 'X') {
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(3, wpm);
         }
-        if (call_name[row][column] == 'Y') {
-            signalOn(3); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(3); signalOff(1);
-            signalOn(3);
+        if (call[column] == 'Y') {
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(3, wpm);
         }
-        if (call_name[row][column] == 'Z') {
-            signalOn(3); signalOff(1);
-            signalOn(3); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(1);
+        if (call[column] == 'Z') {
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm);
         }
         //end alpahbet
 
         //Number
-        if (call_name[row][column] == 0) {
+        if (call[column] == 0) {
             for (var s = 1; s <= 4; s++) {
-                signalOn(3); signalOffal(1);
+                signalOn(3, wpm); signalOffal(1);
             }
-            signalOn(3);
+            signalOn(3, wpm);
         }
-        if (call_name[row][column] >= 1 && call_name[row][column] <= 4) {
-            for (var s = 1; s <= call_name[row][column]; s++) {
-                signalOn(1); signalOff(1, 1);
+        if (call[column] >= 1 && call[column] <= 4) {
+            for (var s = 1; s <= call[column]; s++) {
+                signalOn(1, wpm); signalOff(1, wpm);
             }
-            for (var l = 1; l <= (5 - call_name[row][column]); l++) {
-                signalOn(3); signalOff(1, 1);
+            for (var l = 1; l <= (5 - call[column]); l++) {
+                signalOn(3, wpm); signalOff(1, wpm);
             }
-            signalOn(3);
+            signalOn(3, wpm);
         }
-        if (call_name[row][column] == 5) {
+        if (call[column] == 5) {
             for (var s = 1; s <= 4; s++) {
-                signalOn(1); signalOff(1);
+                signalOn(1, wpm); signalOff(1, wpm);
             }
-            signalOn(1);
+            signalOn(1, wpm);
         }
 
-        if (call_name[row][column] >= 6 && call_name[row][column] <= 9) {
-            for (var s = 1; s <= (call_name[row][column] - 5); s++) {
-                signalOn(3); signalOff(1);
+        if (call[column] >= 6 && call[column] <= 9) {
+            for (var s = 1; s <= (call[column] - 5); s++) {
+                signalOn(3, wpm); signalOff(1, wpm);
             }
-            for (var l = 1; l <= (5 - (call_name[row][column] - 5) - 1); l++) {
-                signalOn(1); signalOff(1);
+            for (var l = 1; l <= (5 - (call[column] - 5) - 1); l++) {
+                signalOn(1, wpm); signalOff(1, wpm);
             }
-            signalOn(1);
+            signalOn(1, wpm);
         }
-        if (call_name[row][column] == '/') {
-            signalOn(3); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(1); signalOff(1);
-            signalOn(3); signalOff(1);
-            signalOn(1);
+        if (call[column] == '/') {
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm);
         }
-        signalOff(3); //stop signal
+        if (call[column] == '?') {
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(3, wpm); signalOff(1, wpm);
+            signalOn(1, wpm); signalOff(1, wpm);
+            signalOn(1, wpm);
+        }
+        signalOff(3, wpm); //stop signal
     }
 
-    //鳴らす
-    oscNode.start(0);
     oscNode.stop(0);
 }
 
-//短音なら1を受け取る。調音の場合3を受け取る。
-function signalOn(duration_time) {
+//短音なら1を受け取る。長音の場合3を受け取る。
+function signalOn(duration_time, wpm) {
     // play the shorter signal
     gainNode.gain.value = 10;
     //play beep sound time
@@ -231,7 +240,7 @@ function signalOn(duration_time) {
     gainNode.gain.value = 0;
 }
 //音と音の間隔を設定する
-function signalOff(duration_time) {
+function signalOff(duration_time, wpm) {
     gainNode.gain.value = 0;
     //stop beep sound time
     var start_Time = new Date();
