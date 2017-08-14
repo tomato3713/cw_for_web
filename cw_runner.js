@@ -12,11 +12,12 @@ function selectCallsign() {
     //前の答えを消去する。
     call_answer.splice(call_answer.length - 1, call_answer.length);
 
-    //call_name[row] = ['---call---', 'END']
-    //現在の答えをcall_nameからENDを除いてcall_answerに代入する.
-    for (var i = 0; i <= call_name[row].length - 2; i++) {
+  //現在の答えをcall_answerに代入する。 
+    for (var i = 0; i <= call_name[row].length -1 ; i++) {
       call_answer[i] = call_name[row][i];
     }
+//鳴らす  
+  cw_start(call_answer);
 }
 
 // 数字ならtrue,

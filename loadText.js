@@ -14,39 +14,24 @@ function loadText(call_type) {
     if (call_type == 'Ja') {
         // console.log('select japan');
         call_name = [
-            [('JA1ZGP').split],
-            [('JH1XEX').split],
-            [('JG1MJZ').split],
-            [('JJ1KKX').split],
-            [('JA3KL/2').split],
-            [('JI8ISS').split],
-            [('JH3ANU').split],
-            [('JJ1XZW').split],
-            [('JA2KSJ').split]
+            ['J', 'A', '1', 'Z', 'G', 'P'],
+            ['J', 'H', '1', 'X', 'E', 'X'],
+            ['J', 'G', '1', 'M', 'J', 'Z'],
+            ['J', 'J', '1', 'K', 'K', 'X'],
+            ['J', 'A', '3', 'K', 'L', '/', '2'],
+            ['J', 'I', '8', 'I', 'S','S'],
+            ['J', 'H', '3', 'A', 'N', 'U'],
+            ['J', 'J', '1', 'X', 'Z', 'W'],
+            ['J', 'A', '2', 'K', 'S', 'J']
         ];
     }
     //海外のコールサインを格納する。
     if (call_type == 'DX') {
         call_name = [
-            [('EI1JK').split],
-            [('KD7RFZ').split],
-            [('FR5DZ').split]
-          
-        ]
-    }
-    addEndmark(call_name);
-  //符号を覚えるモードにする
-  //入力された文字を再生するためにフラグを立てる。
-  if(call_type == 'Learn'){
-  }
-}
-
-// used by loadText()
-//コールサイン格納用の変数call_nameのそれぞれのコールサインの最後にENDをつける。
-function addEndmark(call_name) {
-    for (var i = 0; i <= call_name.length - 1; i++) {
-        var length = call_name[i].length;
-        call_name[i][length] = 'END';
+            ['E', 'I', '1', 'J', 'K'],
+            ['K', 'D', '7', 'R', 'F', 'Z'],
+            ['F', 'R', '5', 'D', 'Z']
+        ];
     }
 }
 
