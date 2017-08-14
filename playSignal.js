@@ -513,12 +513,17 @@ function cw_start(call ) {
         //Number
       //0の時は頂点を5回鳴らす
         if (call[column] == 0) {
-            for (var s = 1; s <= 5; s++) {
-          setTimeout( function() {gainNode.gain.value = 10; } , Time);
-          Time = Time + signal_duration * 3;
-          setTimeout( function() {gainNode.gain.value = 0; } , Time);
+            for (var s = 1; s <= 4; s++) {
+              setTimeout( function() {gainNode.gain.value = 10; } , Time);
+              Time = Time + signal_duration * 3;
+              setTimeout( function() {gainNode.gain.value = 0; } , Time);
+              Time = Time + signal_duration;
             }
+              setTimeout(function() { gainNode.gain.value = 10 }, Time);
+              Time = Time + signal_duration *3;
+              setTimeout(function() { gainNode.gain.value = 0 }, Time);
         }
+
           //1~4の時
         if (call[column] >= 1 && call[column] <= 4) {
             for (var s = 1; s <= call[column]; s++) {
@@ -527,18 +532,26 @@ function cw_start(call ) {
               setTimeout( function() {gainNode.gain.value = 0; } , Time);
               Time = Time + signal_duration;
             }
-            for (var l = 1; l <= (5 - call[column]); l++) {
+            for (var l = 1; l <= (5 - call[column] - 1); l++) {
               setTimeout( function() {gainNode.gain.value = 10; } , Time);
               Time = Time + signal_duration * 3;  
               setTimeout( function() {gainNode.gain.value = 0; } , Time);
+              Time = Time + signal_duration;
             }
+              setTimeout(function() { gainNode.gain.value = 10 }, Time);
+              Time = Time + signal_duration * 3;
+              setTimeout(function() {  gainNode.gain.value = 0 }, Time);
         }
         if (call[column] == 5) {
-            for (var s = 1; s <= 5; s++) {
+            for (var s = 1; s <= 4; s++) {
               setTimeout( function() {gainNode.gain.value = 10; } , Time);
               Time = Time + signal_duration;  
               setTimeout( function() {gainNode.gain.value = 0; } , Time);
+              Time = Time + signal_duration;
             }
+              setTimeout( function() {gainNode.gain.value = 10; } , Time);
+              Time = Time + signal_duration;  
+              setTimeout( function() {gainNode.gain.value = 0; } , Time);
         }
 
         if (call[column] >= 6 && call[column] <= 9) {
@@ -552,8 +565,13 @@ function cw_start(call ) {
               setTimeout( function() {gainNode.gain.value = 10; } , Time);
               Time = Time + signal_duration;
               setTimeout( function() {gainNode.gain.value = 0; } , Time);
+              Time = Time + signal_duration;
             }
+              setTimeout( function() {gainNode.gain.value = 10; } , Time);
+              Time = Time + signal_duration;
+              setTimeout( function() {gainNode.gain.value = 0; } , Time);
         }
+
         if (call[column] == '/') {
               setTimeout( function() {gainNode.gain.value = 10; } , Time);
               Time = Time + signal_duration * 3;
