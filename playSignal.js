@@ -95,8 +95,8 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10;}, Time);
           Time = Time + signal_duration;
           setTimeout( function() {gainNode.gain.value = 0;}, Time);
-
         }
+
         if (call[column] == 'D') {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration * 3;
@@ -110,6 +110,7 @@ function cw_start(call ) {
 
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;
+          setTimeout( function() { gainNode.gain.value = 0 }, Time);
         }
 
         if (call[column] == 'E')  {
@@ -326,20 +327,10 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
           Time = Time + signal_duration;
 
-
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration * 3;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
           Time = Time + signal_duration;
-
-          setTimeout( function() {gainNode.gain.value = 10; } , Time);
-          Time = Time + signal_duration * 3;
-          setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
-
-          setTimeout( function() {gainNode.gain.value = 10; } , Time);
-          Time = Time + signal_duration;
-          setTimeout( function() {gainNode.gain.value = 0; } , Time);
 
         }
         if (call[column] == 'R') {
@@ -382,7 +373,7 @@ function cw_start(call ) {
         if (call[column] == 'T') {
 
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
-          Time = Time + signal_duration;
+          Time = Time + signal_duration * 3;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
 
         }
@@ -392,8 +383,6 @@ function cw_start(call ) {
           Time = Time + signal_duration;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
           Time = Time + signal_duration;
-
-
 
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;

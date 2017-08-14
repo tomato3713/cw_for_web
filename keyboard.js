@@ -1,10 +1,12 @@
 //delとナンバーアルファベットキーのどちらが入力されたのか判断する。
 function keyboardButtonCheck(e) {
     var target = e.target;
-    if (target.value == "del") {
-        ClickOnDel();
-    } else {
-        ClickOn(target.value);
+    if(target.value != ""){
+      if (target.value == "del") {
+          ClickOnDel();
+      } else {
+          ClickOn(target.value);
+      }
     }
 }
 // ナンバー、アルファベットキーが押されたら、
