@@ -34,3 +34,14 @@ ol{
     vertical-align: middle;
     list-style: none;
 }
+
+#Speed{
+    size: 3;
+}
+
+#History{
+    column-span: 30;
+    line-height: 30;
+    grid-row-end: 20;
+}
+

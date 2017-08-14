@@ -14,14 +14,14 @@ function loadText(call_type) {
     if (call_type == 'Ja') {
         // console.log('select japan');
         call_name = [
-            ['J', 'A', '1', 'Z', 'G', 'P'],
-            ['J', 'H', '1', 'X', 'E', 'X'],
-            ['J', 'G', '1', 'M', 'J', 'Z'],
-            ['J', 'J', '1', 'K', 'K', 'X'],
-            ['J', 'A', '3', 'K', 'L', '/', '2'],
-            ['J', 'I', '8', 'I', 'S', 'S'],
-            ['J', 'H', '3', 'A', 'N', 'U'],
-            ['J', 'J', '1', 'X', 'Z', 'W'],
+            [('JA1ZGP').split],
+            [('JH1XEX').split],
+            [('JG1MJZ').split],
+            [('JJ1KKX').split],
+            [('JA3KL/2').split],
+            [('JI8ISS').split],
+            [('JH3ANU').split],
+            [('JJ1XZW').split],
             [('JA2KSJ').split]
         ];
     }
@@ -31,9 +31,14 @@ function loadText(call_type) {
             [('EI1JK').split],
             [('KD7RFZ').split],
             [('FR5DZ').split]
+          
         ]
     }
     addEndmark(call_name);
+  //符号を覚えるモードにする
+  //入力された文字を再生するためにフラグを立てる。
+  if(call_type == 'Learn'){
+  }
 }
 
 // used by loadText()
