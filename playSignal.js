@@ -35,9 +35,9 @@ function cw_start(call ) {
 
     //鳴らすシグナルのタイミングを設定する
 
-    var Time = 5;
+    var Time = 10;
   //短点の長さを取得する。
-  var signal_duration = (25 /  parseInt(document.getElementById("Speed").value) ) * 30; 
+  var signal_duration = (25 /  parseInt(document.getElementById("Speed").value) ) * 50; 
     //音量０で鳴らす
     oscNode.start(0);
 
@@ -53,8 +53,8 @@ function cw_start(call ) {
           //長点を流す予約をする
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration * 3;
-         setTimeout( function() {gainNode.gain.value = 0; }, Time);
         }
+
         if (call[column] == 'B') {
           setTimeout( function() {gainNode.gain.value = 10; } , Time );
           Time = Time + signal_duration * 3;
@@ -74,8 +74,8 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10;}, Time);
           Time = Time + signal_duration;
           setTimeout( function() {gainNode.gain.value = 0;}, Time);
-          Time = Time + signal_duration;
         }
+
         if (call[column] == 'C') {
           setTimeout( function() {gainNode.gain.value = 10;}, Time);
           Time = Time + signal_duration * 3;
@@ -95,7 +95,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10;}, Time);
           Time = Time + signal_duration;
           setTimeout( function() {gainNode.gain.value = 0;}, Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'D') {
@@ -111,16 +110,14 @@ function cw_start(call ) {
 
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;
-          setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
         }
 
         if (call[column] == 'E')  {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
         }
+
         if (call[column] == 'F') {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;
@@ -140,7 +137,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'G') {
@@ -157,8 +153,8 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
         }
+
         if (call[column] == 'H') {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;
@@ -178,7 +174,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'I') {
@@ -190,7 +185,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'J') {
@@ -212,7 +206,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration * 3;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'K') {
@@ -229,7 +222,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration * 3;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'L') {
@@ -251,7 +243,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'M') {
@@ -264,7 +255,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration * 3;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'N') {
@@ -277,7 +267,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'O') {
@@ -296,8 +285,8 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration * 3;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
         }
+
         if (call[column] == 'P') {
 
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
@@ -318,7 +307,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'Q') {
@@ -352,7 +340,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'R') {
@@ -371,7 +358,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'S') {
@@ -391,7 +377,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'T') {
@@ -399,7 +384,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'U') {
@@ -419,7 +403,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration * 3;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'V') {
@@ -444,7 +427,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration * 3;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'W') {
@@ -463,7 +445,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration * 3;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'X') {
@@ -489,7 +470,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration * 3;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
         }
         if (call[column] == 'Y') {
@@ -514,7 +494,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration * 3;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
 
 
         }
@@ -539,7 +518,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
         }
         //end alpahbet
 
@@ -550,7 +528,6 @@ function cw_start(call ) {
           setTimeout( function() {gainNode.gain.value = 10; } , Time);
           Time = Time + signal_duration * 3;
           setTimeout( function() {gainNode.gain.value = 0; } , Time);
-          Time = Time + signal_duration;
             }
         }
           //1~4の時
@@ -565,7 +542,6 @@ function cw_start(call ) {
               setTimeout( function() {gainNode.gain.value = 10; } , Time);
               Time = Time + signal_duration * 3;  
               setTimeout( function() {gainNode.gain.value = 0; } , Time);
-              Time = Time + signal_duration;
             }
         }
         if (call[column] == 5) {
@@ -573,7 +549,6 @@ function cw_start(call ) {
               setTimeout( function() {gainNode.gain.value = 10; } , Time);
               Time = Time + signal_duration;  
               setTimeout( function() {gainNode.gain.value = 0; } , Time);
-              Time = Time + signal_duration;
             }
         }
 
@@ -588,7 +563,6 @@ function cw_start(call ) {
               setTimeout( function() {gainNode.gain.value = 10; } , Time);
               Time = Time + signal_duration;
               setTimeout( function() {gainNode.gain.value = 0; } , Time);
-              Time = Time + signal_duration;
             }
         }
         if (call[column] == '/') {
@@ -615,7 +589,6 @@ function cw_start(call ) {
               setTimeout( function() {gainNode.gain.value = 10; } , Time);
               Time = Time + signal_duration;
               setTimeout( function() {gainNode.gain.value = 0; } , Time);
-              Time = Time + signal_duration;
         }
         if (call[column] == '?') {
               setTimeout( function() {gainNode.gain.value = 10; } , Time);
@@ -646,8 +619,8 @@ function cw_start(call ) {
               setTimeout( function() {gainNode.gain.value = 10; } , Time);
               Time = Time + signal_duration;
               setTimeout( function() {gainNode.gain.value = 0; } , Time);
-              Time = Time + signal_duration;
         }
+     Time = Time + signal_duration * 3; 
     }
   setTimeout(function() { oscNode.stop(); }, Time);
 }
