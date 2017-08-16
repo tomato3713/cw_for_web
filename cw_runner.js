@@ -1,11 +1,15 @@
-//call the function play()
-//by call_name which registered alphabet and number
-var call_name = new Array;
-var call_answer = new Array;
+var call_name = new Array; //コールサインのデータを格納する。
+var call_answer = new Array;　//回答となるコールサインを格納する。playボタンが押されるたびに変更される。
 var turn = 1;//flag of answercheck() able, 答えのターン:0 disable:1
 
+//
+//playボタンが押されたときに再生するコールサインを決定し、
+//答えをcall_answerに保存する。
+//cw_startを呼び出し、コールサインを再生する。
 function selectCallsign() {
+   //call_nameに格納されているコールサインのうちどれを再生するのかを決定する
     var row = Math.floor(Math.random() * (call_name.length));
+
 
     turn = 0;
 
@@ -20,6 +24,8 @@ function selectCallsign() {
   cw_start(call_answer);
 }
 
+//
+//数字かそれ以外化を判定する
 // 数字ならtrue,
   // それ以外はfalse
 // を返す。
@@ -34,6 +40,9 @@ function isNumber(value) {
   return result;
 }
 
+//
+//id:Speedの要素に入力された値が適正かどうかを判断する。
+//適正でない場合はその入力を無効にする。
 function speedCheck() {
   inputLine = document.getElementById('Speed').value;
   //入力された値が適正か判定する。
@@ -44,7 +53,8 @@ function speedCheck() {
 }
 
 
-// ユーザーの回答が正しいか判断する。
+// ユーザーの回答の採点を行う
+// turn = 0の時のみ実行する
 function answerCheck() {
   if (turn == 0) {
     //get the user's answer
@@ -63,9 +73,11 @@ function answerCheck() {
       }
     }
 
-
+    //現在の正当数、不可数を取得する。
     var right_counter = parseInt(document.getElementById("RightCount").value);
     var wrong_counter = parseInt(document.getElementById("WrongCount").value);
+
+    //回答が正しければ、正当数を1増やし、間違っていれば、不可数を1増やす。
     if (match_result == 0) {
       document.getElementById("Result_Now").value = 'R_' + result_dif.join(',');
       document.getElementById("RightCount").value = right_counter + 1;

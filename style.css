@@ -1,8 +1,6 @@
 * {
     text-align: center;
-    /*margin: 2px auto;*/
     margin-top: 3px;
-    marker-end: 3px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -40,8 +38,8 @@ ol{
 }
 
 #History{
-    column-span: 30;
-    line-height: 30;
-    grid-row-end: 20;
+    line-height: auto;
+    vertical-align: top;
+    height: 20em;
 }
 
