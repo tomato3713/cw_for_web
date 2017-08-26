@@ -1,21 +1,25 @@
-//$B%-!<%\!<%I$+$iF~NO$5$l$k$4$H$KLD$i$9(B
+//ƒL[ƒ{[ƒh‚Ìƒ{ƒ^ƒ“‚ð‰Ÿ‚³‚ê‚é“s“x‚É
+//‘Î‰ž‚·‚éƒ‚[ƒ‹ƒX•„†‚ðÄ¶‚·‚é
 function successivePlay(e) {
-  //div$B%?%0$,%/%j%C%/$5$l$?$H$-$NBP:v(B
+  //div—v‘f‚ðƒNƒŠƒbƒN‚³‚ê‚½‚Æ‚«‚Ì‘Îô
+  //•¶Žš‚Ì“ü‚Á‚Ä‚¢‚È‚¢ƒ{ƒ^ƒ“‚ðƒNƒŠƒbƒN‚³‚ê‚½‚Æ‚«‚Ì‘Îô
   if(e.target.value == null){
-}else {
+  }else {
     var target = e.target;
+    //cw_start‚Í”z—ñ‚ðŽó‚¯Žæ‚é‚½‚ß”z—ñ‚ðéŒ¾‚·‚é
     var text = new Array;
     text = target.value;
     cw_start(text);
   }
-
 }
 
+//textBox, id:Box‚É‘‚©‚ê‚Ä‚¢‚é•¶Žš—ñ‚Ìƒ‚[ƒ‹ƒX•„†‚ðÄ¶‚·‚é
 function play_all() {
-    var call = new Array;
+  var call = new Array;
+
   if ( document.getElementById("Box").value !=  '' ) {
     call = document.getElementById("Box").value.split('');
     
-  cw_start(call);
+    cw_start(call);
   }
 }

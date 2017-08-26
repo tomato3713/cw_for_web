@@ -9,6 +9,7 @@ function keyboardButtonCheck(e) {
       }
     }
 }
+
 // ナンバー、アルファベットキーが押されたら、
 // 対応する文字をテキストボックス（id:Box）に入力する。
 function ClickOn(key) {
