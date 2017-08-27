@@ -1,7 +1,4 @@
-<!--
-call_nameにcall_typeに対応するコールサイン、記号を代入する
-引数として、call_typeを受け取る
--->
+<!-- call_nameにcall_typeに対応するコールサイン、記号を代入する 引数として、call_typeを受け取る -->
 function loadText(call_type) {
   //ローマ字と数字
   if (call_type == 'Basic') {
