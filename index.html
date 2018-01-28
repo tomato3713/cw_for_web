@@ -1,116 +1,3 @@
-<<<<<<< HEAD
-<!--
-ja,DXではアマチュア無線局のコールサインの聞き取り練習を行う
-basicでは一文字ごとの聞き取り練習を行う。
--->
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="taichi" />
-    <meta name="description" content="practise CW">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-
-    <script type="text/javascript" src=".\cw_runner.js"></script>
-    <script type="text/javascript" src=".\keyboard.js"></script>
-    <script type="text/javascript" src=".\loadText.js"></script>
-    <script type="text/javascript" src=".\Runner_event.js"></script>
-    <script type="text/javascript" src=".\playSignal.js"></script>
-    <link rel="stylesheet" href=".\style.css" type="text/css" />
-
-    <title>CW WEB RUNNER</title>
-</head>
-<body>
-    <span>
-    <h1 class="title-h1">CW WEB RUNNER</h1>
-    <button type="button" id="PlayButton">Play</button>
-    <button type="button" id="AnswerButton">Answer</button>
-    <input type="text" id="Result_Now" value='_' size="10" readonly>
-    <br>
-    <span>Right <input type="text" id="RightCount" value=0 size="3" readonly> </span>
-    <span>Wrong <input type="text" id="WrongCount" value=0 size="3" readonly> </span>
-    <br>
-    <input type="text" id="Box" value="">
-    <br/>
-    </span>
-    <!--
-        there is the keyboard
-    -->
-    <div id="key">
-      <br>
-            <input type="button" value="1">
-            <input type="button" value="2">
-            <input type="button" value="3">
-            <input type="button" value="4">
-            <input type="button" value="5">
-            <input type="button" value="6">
-            <input type="button" value="7">
-            <input type="button" value="8">
-            <input type="button" value="9">
-            <input type="button" value="0">
-            <br>
-            <input type="button" value="Q">
-            <input type="button" value="W">
-            <input type="button" value="E">
-            <input type="button" value="R">
-            <input type="button" value="T">
-            <input type="button" value="Y">
-            <input type="button" value="U">
-            <input type="button" value="I">
-            <input type="button" value="O">
-            <input type="button" value="P">
-            <br>
-            <input type="button" value="A">
-            <input type="button" value="S">
-            <input type="button" value="D">
-            <input type="button" value="F">
-            <input type="button" value="G">
-            <input type="button" value="H">
-            <input type="button" value="J">
-            <input type="button" value="K">
-            <input type="button" value="L">
-            <br>
-            <input type="button" value="Z">
-            <input type="button" value="X">
-            <input type="button" value="C">
-            <input type="button" value="V">
-            <input type="button" value="B">
-            <input type="button" value="N">
-            <input type="button" value="M">
-            <input type="button" value="/">
-            <input type="button" value="?">
-            <input type="button" value="del">
-    </div>
-    <!--
-        end of keyboard
-    -->
-    <span>
-    <div>type</div>
-    <span id="radioButton">
-    <input type="radio" name="logType" value="DX">World
-    <input type="radio" name="logType" value="Ja">Japan
-    <input type="radio" name="logType" value="Basic" checked>Basic
-    </span>
-    <br>
-    <p>speed<input type="number" id="Speed" value="25" inputmode="numetic"></p> 
-    <textarea id="History" readonly>History of Training in the time.</textarea>
-    <br>
-    <a href="./cwTutor.html" >CW TUTOR FOR WEB</a>
-    <br>
-    </span>
-    <h5>遊び方</h5>
-    <ol>
-        <li>playボタンをタップする</li>
-        <li>CWの符号が流れるので聞き取り、キーボードで入力する。</li>
-        <li>Answerボタンをタップして答え合わせをする。</li>
-    </ol>
-    <footer>
-        2017/06/19 made basic mode.
-        2017/08/14 再生部分を修正。
-    </footer>
-</body>
-</html>
-=======
 <!--
 ja,DXではアマチュア無線局のコールサインの聞き取り練習を行う
 basicでは一文字ごとの聞き取り練習を行う。
@@ -204,7 +91,7 @@ basicでは一文字ごとの聞き取り練習を行う。
     <input type="radio" name="logType" value="Basic" checked>Basic
     </span>
     <br>
-    <p>speed<input type="number" id="Speed" value="25" inputmode="numetic"></p> 
+    <p>speed<input type="number" id="Speed" value="25" inputmode="numetic"></p>
     <textarea id="History" readonly>History of Training in the time.</textarea>
     <br>
     <a href="./cwTutor.html" >CW TUTOR FOR WEB</a>
@@ -224,4 +111,3 @@ basicでは一文字ごとの聞き取り練習を行う。
     </footer>
 </body>
 </html>
->>>>>>> origin/master
