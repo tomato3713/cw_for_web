@@ -29,13 +29,13 @@ basicでは一文字ごとの聞き取り練習を行う。
     <span>Right <input type="text" id="RightCount" value=0 size="3" readonly> </span>
     <span>Wrong <input type="text" id="WrongCount" value=0 size="3" readonly> </span>
     <br>
-    <input type="text" id="Box" value="">
+    <input type="text" id="Box" class="box" value="">
     <br/>
     </span>
     <!--
         there is the keyboard
     -->
-    <div id="key">
+    <div id="key" class="keyboard">
       <br>
             <input type="button" value="1">
             <input type="button" value="2">
@@ -91,8 +91,8 @@ basicでは一文字ごとの聞き取り練習を行う。
     <input type="radio" name="logType" value="Basic" checked>Basic
     </span>
     <br>
-    <p>speed<input type="number" id="Speed" value="25" inputmode="numetic"></p> 
-    <textarea id="History" readonly>History of Training in the time.</textarea>
+    <p>speed<input type="number" id="Speed" class="subbox" value="25" inputmode="numetic"></p>
+    <textarea id="History" class="subbox big" readonly>History of Training in the time.</textarea>
     <br>
     <a href="./cwTutor.html" >CW TUTOR FOR WEB</a>
     <br>
