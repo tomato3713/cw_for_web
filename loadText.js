@@ -1,5 +1,6 @@
 // call_nameにcall_typeに対応するコールサイン、記号を代入する 引数として、call_typeを受け取る
 const loadText = (call_type) => {
+	"use strict";
 	//ローマ字と数字
 	if (call_type == 'Basic') {
 		call_name = [
@@ -2334,11 +2335,13 @@ if (call_type == 'DX') {
 
 //modeを変更したときにコールサイン格納用の変数をからにする。
 const delcall = () => {
+	"use strict";
 	call_name.splice(call_name.length - 1, call_name);
 }
 
 
 //ラジオボタンが変更されたときにcall_nameを対応するデータを再読み込みする
 const RadioButton_changed = (e) => {
+	"use strict";
 	loadText(e.target.value);
 }

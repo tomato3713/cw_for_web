@@ -4,6 +4,7 @@ try {
 } catch (e) {
   throw new Error('Web Audio API is not supported.');
 }
+
 let context = new window.AudioContext || window.webkitAudioContext;
 let gainNode;
 

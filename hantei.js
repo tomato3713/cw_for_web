@@ -1,4 +1,5 @@
 window.onload = function(){
+	"use strict";
 	let domCalsign = document.getElementById('id_box');
 	let domCwPoint = document.getElementById('id_cw_point');
 

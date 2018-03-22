@@ -1,153 +1,158 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta name="author" content="taichi" />
-    <meta name="description" content="practise CW">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<head>
+		<meta name="author" content="taichi" />
+		<meta name="description" content="practise CW">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
-    <script type="text/javascript" src="./cw_runner.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./keyboard.js" charset="utf-8" ></script>
-    <script type="text/javascript" src="./playSignal.js" charset="shift_jis" ></script>
-    <script type="text/javascript" src="./tutorPlay.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./Tutor_event.js" charset="utf-8" ></script>
-    <link rel="stylesheet" href="./style.css" type="text/css" charset="utf-8"/>
+		<link rel="stylesheet" href="./style.css" type="text/css" charset="utf-8"/>
 
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>CW TUTOR FOR WEB</title>
-</head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>CW TUTOR FOR WEB</title>
+	</head>
 
-<body>
-    <span>
-    <h1 class="title-h1">CW TUTOR FOR WEB</h1>
-    <input type="button" id="PlayButton" value = "PLAY">
-    <br>
-    <input type="textbox" id="Box" class="box" value="">
-    <br/>
-    </span>
-    <!--
-        there is the keyboard
-    -->
-    <div id="key" class="keyboard">
-      <br>
-      <input type="button" value="1">
-      <input type="button" value="2">
-      <input type="button" value="3">
-      <input type="button" value="4">
-      <input type="button" value="5">
-      <input type="button" value="6">
-      <input type="button" value="7">
-      <input type="button" value="8">
-      <input type="button" value="9">
-      <input type="button" value="0">
-      <br>
-      <input type="button" value="Q">
-      <input type="button" value="W">
-      <input type="button" value="E">
-      <input type="button" value="R">
-      <input type="button" value="T">
-      <input type="button" value="Y">
-      <input type="button" value="U">
-      <input type="button" value="I">
-      <input type="button" value="O">
-      <input type="button" value="P">
-      <br>
-      <input type="button" value="A">
-      <input type="button" value="S">
-      <input type="button" value="D">
-      <input type="button" value="F">
-      <input type="button" value="G">
-      <input type="button" value="H">
-      <input type="button" value="J">
-      <input type="button" value="K">
-      <input type="button" value="L">
-      <br>
-      <input type="button" value="Z">
-      <input type="button" value="X">
-      <input type="button" value="C">
-      <input type="button" value="V">
-      <input type="button" value="B">
-      <input type="button" value="N">
-      <input type="button" value="M">
-      <input type="button" value="/">
-      <input type="button" value="?">
-      <input type="button" value="del">
-      <br>
-
-      <!-- japanese -->
-      <input type="button" value="わ">
-      <input type="button" value="ら">
-      <input type="button" value="や">
-      <input type="button" value="ま">
-      <input type="button" value="は">
-      <input type="button" value="な">
-      <input type="button" value="た">
-      <input type="button" value="さ">
-      <input type="button" value="か">
-      <input type="button" value="あ">
-      <br>
-
-      <input type="button" value="　">
-      <input type="button" value="り">
-      <input type="button" value="　">
-      <input type="button" value="み">
-      <input type="button" value="ひ">
-      <input type="button" value="に">
-      <input type="button" value="ち">
-      <input type="button" value="し">
-      <input type="button" value="き">
-      <input type="button" value="い">
-      <br>
-
-      <input type="button" value="　">
-      <input type="button" value="る">
-      <input type="button" value="ゆ">
-      <input type="button" value="む">
-      <input type="button" value="ふ">
-      <input type="button" value="ぬ">
-      <input type="button" value="つ">
-      <input type="button" value="す">
-      <input type="button" value="く">
-      <input type="button" value="う">
-      <br>
-
-      <input type="button" value="　">
-      <input type="button" value="れ">
-      <input type="button" value="　">
-      <input type="button" value="め">
-      <input type="button" value="へ">
-      <input type="button" value="ね">
-      <input type="button" value="て">
-      <input type="button" value="せ">
-      <input type="button" value="け">
-      <input type="button" value="え">
-      <br>
-
-      <input type="button" value="を">
-      <input type="button" value="ろ">
-      <input type="button" value="よ">
-      <input type="button" value="も">
-      <input type="button" value="ほ">
-      <input type="button" value="の">
-      <input type="button" value="と">
-      <input type="button" value="そ">
-      <input type="button" value="こ">
-      <input type="button" value="お">
-      <br>
-
-    </div>
-    <span>speed</span><input type="textbox" id="Speed" class="subbox" value="25">
-    <br>
-    <!--
-        end of keyboard
-    -->
-    <span>
-      <a href="./index.html">CW WEB RUNNER</a>
-    </span>
-    <footer>
-        2017/08/14 start
-    </footer>
-</body>
+	<body>
+		<span>
+			<h1 class="title-h1">CW TUTOR FOR WEB</h1>
+			<input type="button" id="PlayButton" value = "PLAY">
+			<br>
+			<input type="textbox" id="Box" class="box" value="">
+			<br/>
+		</span>
+		<!--
+	  there is the keyboard
+		-->
+		<table id="key" class="keyboard">
+			<tbody>
+				<tr>
+					<td><input type="button" value="1"></td>
+					<td><input type="button" value="2"></td>
+					<td><input type="button" value="3"></td>
+					<td><input type="button" value="4"></td>
+					<td><input type="button" value="5"></td>
+					<td><input type="button" value="6"></td>
+					<td><input type="button" value="7"></td>
+					<td><input type="button" value="8"></td>
+					<td><input type="button" value="9"></td>
+					<td><input type="button" value="0"></td>
+				</tr>
+				<tr>
+					<td><input type="button" value="Q"></td>
+					<td><input type="button" value="W"></td>
+					<td><input type="button" value="E"></td>
+					<td><input type="button" value="R"></td>
+					<td><input type="button" value="T"></td>
+					<td><input type="button" value="Y"></td>
+					<td><input type="button" value="U"></td>
+					<td><input type="button" value="I"></td>
+					<td><input type="button" value="O"></td>
+					<td><input type="button" value="P"></td>
+				</tr>
+				<tr>
+					<td><input type="button" value="A"></td>
+					<td><input type="button" value="S"></td>
+					<td><input type="button" value="D"></td>
+					<td><input type="button" value="F"></td>
+					<td><input type="button" value="G"></td>
+					<td><input type="button" value="H"></td>
+					<td><input type="button" value="J"></td>
+					<td><input type="button" value="K"></td>
+					<td><input type="button" value="L"></td>
+				</tr>
+				<tr>
+					<td><input type="button" value="Z"></td>
+					<td><input type="button" value="X"></td>
+					<td><input type="button" value="C"></td>
+					<td><input type="button" value="V"></td>
+					<td><input type="button" value="B"></td>
+					<td><input type="button" value="N"></td>
+					<td><input type="button" value="M"></td>
+					<td><input type="button" value="/"></td>
+					<td><input type="button" value="?"></td>
+					<td><input type="button" value="del"></td>
+				</tr>
+				<tr>
+					<!-- japanese -->
+					<td><input type="button" value="わ"></td>
+					<td><input type="button" value="ら"></td>
+					<td><input type="button" value="や"></td>
+					<td><input type="button" value="ま"></td>
+					<td><input type="button" value="は"></td>
+					<td><input type="button" value="な"></td>
+					<td><input type="button" value="た"></td>
+					<td><input type="button" value="さ"></td>
+					<td><input type="button" value="か"></td>
+					<td><input type="button" value="あ"></td>
+				</tr>
+				<tr>
+					<td><input type="button" value="　" class="notdisplay"></td>
+					<td><input type="button" value="り"></td>
+					<td><input type="button" value="　" class="notdisplay"></td>
+					<td><input type="button" value="み"></td>
+					<td><input type="button" value="ひ"></td>
+					<td><input type="button" value="に"></td>
+					<td><input type="button" value="ち"></td>
+					<td><input type="button" value="し"></td>
+					<td><input type="button" value="き"></td>
+					<td><input type="button" value="い"></td>
+				</tr>
+				<tr>
+					<td><input type="button" value="　" class="notdisplay"></td>
+					<td><input type="button" value="る"></td>
+					<td><input type="button" value="ゆ"></td>
+					<td><input type="button" value="む"></td>
+					<td><input type="button" value="ふ"></td>
+					<td><input type="button" value="ぬ"></td>
+					<td><input type="button" value="つ"></td>
+					<td><input type="button" value="す"></td>
+					<td><input type="button" value="く"></td>
+					<td><input type="button" value="う"></td>
+				</tr>
+				<tr>
+					<td><input type="button" value="　" class="notdisplay"></td>
+					<td><input type="button" value="れ"></td>
+					<td><input type="button" value="　" class="notdisplay"></td>
+					<td><input type="button" value="め"></td>
+					<td><input type="button" value="へ"></td>
+					<td><input type="button" value="ね"></td>
+					<td><input type="button" value="て"></td>
+					<td><input type="button" value="せ"></td>
+					<td><input type="button" value="け"></td>
+					<td><input type="button" value="え"></td>
+				</tr>
+				<tr>
+					<td><input type="button" value="を"></td>
+					<td><input type="button" value="ろ"></td>
+					<td><input type="button" value="よ"></td>
+					<td><input type="button" value="も"></td>
+					<td><input type="button" value="ほ"></td>
+					<td><input type="button" value="の"></td>
+					<td><input type="button" value="と"></td>
+					<td><input type="button" value="そ"></td>
+					<td><input type="button" value="こ"></td>
+					<td><input type="button" value="お"></td>
+				</tr>
+			</tbody>
+		</table>
+		<span>speed</span><input type="textbox" id="Speed" class="subbox" value="25">
+		<br>
+		<!--
+	  end of keyboard
+		-->
+		<span>
+			<a href="./index.html">CW WEB RUNNER</a>
+		</span>
+		<footer>
+			2017/08/14 start
+			2018/03/23 リファクタリンク
+		</footer>
+		<script type="text/javascript" src="./cw_runner.js" charset="utf-8"></script>
+		<script type="text/javascript" src="./keyboard.js" charset="utf-8" ></script>
+		<script type="text/javascript" src="./playSignal.js" charset="shift_jis" ></script>
+		<script type="text/javascript" src="./tutorPlay.js" charset="utf-8"></script>
+		<script type="text/javascript" src="./Tutor_event.js" charset="utf-8" ></script>
+	</body>
 </html>
 <!-- issue-->
 <!-- 間違えた文字を集中的に練習できるようにする-->
