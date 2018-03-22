@@ -6,7 +6,7 @@ window.onload = function () {
 }
 
 //イベントリスナーに関数を登録する。
-function initAddEvent() {
+const initAddEvent = () => {
   document.getElementById('Speed').addEventListener('change', speedCheck, false);
   document.getElementById('PlayButton').addEventListener('click', selectCallsign, false);
   document.getElementById('AnswerButton').addEventListener('click', answerCheck, false);
@@ -15,6 +15,6 @@ function initAddEvent() {
 }
 
 // コールサインを格納する変数にコールサインを読み込む
-function initData() {
+const initData = () => {
     loadText('Basic');
 }
