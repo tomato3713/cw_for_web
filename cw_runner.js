@@ -65,7 +65,7 @@ const answerCheck = () => {
 
 		let match_result = 0;
 		let result_dif = new Array();
-		for (i = 0; i <= call_answer.length - 1 && i <= myAnswer.length - 1; i++) {
+		for (let i = 0; i <= call_answer.length - 1 && i <= myAnswer.length - 1; i++) {
 			//check answer
 			// 答えと回答を比較する。
 			if (call_answer[i] == myAnswer[i].toUpperCase()) {
