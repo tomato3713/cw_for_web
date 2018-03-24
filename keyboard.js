@@ -1,7 +1,7 @@
 //delとナンバーアルファベットキーのどちらが入力されたのか判断する。
 const keyboardButtonCheck = (e) => {
 	"use strict";
-    let target = e.target;
+    const target = e.target;
     if(target.value != ""){
       if (target.value == "del") {
           ClickOnDel();

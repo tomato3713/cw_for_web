@@ -7,7 +7,6 @@ try {
 
 let context = new window.AudioContext || window.webkitAudioContext;
 let gainNode;
-let play = 0;
 
 const cw_start = (call) => {
 	"use strict";
@@ -64,7 +63,6 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-
 		if (call[column] == 'C') {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -78,7 +76,6 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-
 		if (call[column] == 'D') {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -89,12 +86,10 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-
 		if (call[column] == 'E')  {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-
 		if (call[column] == 'F') {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -108,7 +103,6 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-
 		if (call[column] == 'G') {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -119,7 +113,6 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-
 		if (call[column] == 'H') {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -133,7 +126,6 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-
 		if (call[column] == 'I') {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -141,7 +133,6 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-
 		if (call[column] == 'J') {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -155,7 +146,6 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-
 		if (call[column] == 'K') {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -166,7 +156,6 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-
 		if (call[column] == 'L') {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -204,7 +193,6 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-
 		if (call[column] == 'P') {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -362,7 +350,6 @@ const cw_start = (call) => {
 				gainNode.gain.setValueAtTime(0, time += signal_duration);
 			}
 		}
-
 		if (call[column] >= 6 && call[column] <= 9) {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -375,7 +362,6 @@ const cw_start = (call) => {
 				gainNode.gain.setValueAtTime(0, time += signal_duration);
 			}
 		}
-
 		if (call[column] == '/') {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -392,7 +378,6 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-
 		if (call[column] == '?') {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -451,7 +436,6 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-
 		if(call[column] == 'え'){
 			// -.---
 			gainNode.gain.setValueAtTime(10, time);
@@ -1121,5 +1105,4 @@ const cw_start = (call) => {
 		time += signal_duration * 3;
 	}
 	oscNode.stop(time);
-
 }

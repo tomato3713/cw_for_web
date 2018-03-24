@@ -76,27 +76,21 @@ const answerCheck = () => {
 			}
 		}
 
-		//現在の正当数、不可数を取得する。
-		let right_counter = parseInt(document.getElementById("RightCount").value);
-		let wrong_counter = parseInt(document.getElementById("WrongCount").value);
-
 		//回答が正しければ、正当数を1増やし、間違っていれば、不可数を1増やす。
 		if (match_result == 0) {
-			document.getElementById("Result_Now").value = 'R_' + result_dif.join(',');
+			document.getElementById("Result_Now").value = 'R_' + result_dif.join('');
+			const right_counter = parseInt(document.getElementById("RightCount").value);
 			document.getElementById("RightCount").value = right_counter + 1;
 		}
 		if (match_result != 0) {
-			document.getElementById("Result_Now").value = 'W_' + result_dif.join(',');
+			document.getElementById("Result_Now").value = 'W_' + result_dif.join('');
+			const wrong_counter = parseInt(document.getElementById("WrongCount").value);
 			document.getElementById("WrongCount").value = wrong_counter + 1;
 		}
 		document.getElementById('Box').value = '';
 		turn = 1;
 
 		// 過去の回答の記録に現在の回答を追加する。
-		let history = new String();
-		history = document.getElementById('History').value;
-		history += '\n';
-		history += call_answer.join('') + '-' + myAnswer.join('');
-		document.getElementById('History').value = history;
+		document.getElementById('History').value += '\n' + call_answer.join('') + '-' + myAnswer.join('');
 	}
 }
