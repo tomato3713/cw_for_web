@@ -105,7 +105,7 @@ const cw_start = (call) => {
 		}
 		if (call[column] == 'G') {
 			gainNode.gain.setValueAtTime(10, time);
-			gainNode.gain.setValueAtTime(0, time += signal_duration);
+			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -117,20 +117,20 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 
-			gainNode.gain.setValueAtTime(10, time);
+			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 
-			gainNode.gain.setValueAtTime(10, time);
+			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 
-			gainNode.gain.setValueAtTime(10, time);
+			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
 		if (call[column] == 'I') {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 
-			gainNode.gain.setValueAtTime(10, time);
+			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
 		if (call[column] == 'J') {
@@ -154,7 +154,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
-			gainNode.gain.setValueAtTime(0, time += signal_duration);
+			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
 		if (call[column] == 'L') {
 			gainNode.gain.setValueAtTime(10, time);
@@ -337,7 +337,7 @@ const cw_start = (call) => {
 				gainNode.gain.setValueAtTime(0, time += signal_duration);
 			}
 
-			for (let l = 1; l <= (5 - call[column] - 1); l++) {
+			for (let l = 1; l <= (5 - call[column] ); l++) {
 				gainNode.gain.setValueAtTime(10, time += signal_duration);
 				gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 			}
@@ -357,7 +357,7 @@ const cw_start = (call) => {
 				gainNode.gain.setValueAtTime(10, time += signal_duration);
 				gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 			}
-			for (let l = 1; l <= (5 - (call[column] - 5) - 1); l++) {
+			for (let l = 1; l <= (5 - (call[column] - 5) ); l++) {
 				gainNode.gain.setValueAtTime(10, time += signal_duration);
 				gainNode.gain.setValueAtTime(0, time += signal_duration);
 			}
@@ -400,7 +400,7 @@ const cw_start = (call) => {
 		}
 
 		//和文
-		if (call[column] == 'あ') {
+		if (call[column] == '\u3042') { // あ
 			// --.--
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -417,7 +417,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'い'){
+		if(call[column] == '\u3044'){ // い
 			// .-
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -425,7 +425,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'う'){
+		if(call[column] == '\u3046'){ // う
 			// ..-
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -436,7 +436,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'え'){
+		if(call[column] == '\u3048'){ // え
 			// -.---
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -453,7 +453,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'お'){
+		if(call[column] == '\u304A'){ // お
 			// .-...
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -470,7 +470,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'か'){
+		if(call[column] == '\u304B'){ // か
 			// .-..
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -484,7 +484,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'き'){
+		if(call[column] == '\u304D'){ // き
 			// -.-..
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -501,7 +501,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'く'){
+		if(call[column] == '\u304F'){ // く
 			// ...-
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -515,7 +515,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'け'){
+		if(call[column] == '\u3051'){ // け
 			// -.--
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -529,7 +529,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'こ'){
+		if(call[column] == '\u3053'){ // こ
 			// ----
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -543,7 +543,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'さ'){
+		if(call[column] == '\u3055'){ // さ
 			// -.-.-
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -560,7 +560,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'し'){
+		if(call[column] == '\u3057'){ // し
 			// --.-.
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -577,7 +577,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'す'){
+		if(call[column] == '\u3059'){ // す
 			// ---.-
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -594,7 +594,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'せ'){
+		if(call[column] == '\u305B'){ // せ
 			// .---.
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -611,7 +611,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'そ'){
+		if(call[column] == '\u305D'){ // そ
 			// ---.
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -625,7 +625,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'た'){
+		if(call[column] == '\u305F'){ // た
 			// -.
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -633,7 +633,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'ち'){
+		if(call[column] == '\u3061'){ // ち
 			// ..-.
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -647,7 +647,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'つ'){
+		if(call[column] == '\u3064'){ // つ
 			// .--.
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -661,7 +661,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'て'){
+		if(call[column] == '\u3066'){ // て
 			// .-.--
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -678,7 +678,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'と'){
+		if(call[column] == '\u3068'){ // と
 			// ..-..
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -695,7 +695,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'な') {
+		if(call[column] == '\u306A') { // な
 			// .-.
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -706,7 +706,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'に'){
+		if(call[column] == '\u306B'){ // に
 			// -.-.
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -720,7 +720,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'ぬ'){
+		if(call[column] == '\u306C'){ // ぬ
 			// ....
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -734,7 +734,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'ね'){
+		if(call[column] == '\u306D'){ // ね
 			// --.-
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -748,7 +748,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'の'){
+		if(call[column] == '\u306E'){ // の
 			// ..--
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -762,7 +762,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'は'){
+		if(call[column] == '\u306F'){ // は
 			// -...
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -776,7 +776,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'ひ'){
+		if(call[column] == '\u3072'){ // ひ
 			// --..-
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -793,7 +793,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'ほ'){
+		if(call[column] == '\u3075'){ // ふ
 			// --..
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -807,7 +807,26 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'ま'){
+		if(call[column] == '\u3078'){ // へ
+			// .
+			gainNode.gain.setValueAtTime(10, time);
+			gainNode.gain.setValueAtTime(0, time += signal_duration);
+		}
+		if(call[column] == '\u307B'){ // ほ
+			// --..
+			gainNode.gain.setValueAtTime(10, time);
+			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
+
+			gainNode.gain.setValueAtTime(10, time += signal_duration);
+			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
+
+			gainNode.gain.setValueAtTime(10, time += signal_duration);
+			gainNode.gain.setValueAtTime(0, time += signal_duration);
+
+			gainNode.gain.setValueAtTime(10, time += signal_duration);
+			gainNode.gain.setValueAtTime(0, time += signal_duration);
+		}
+		if(call[column] == '\u307E'){ // ま
 			// -..-
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -821,7 +840,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'み'){
+		if(call[column] == '\u307F'){ // み
 			// ..-.-
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -838,12 +857,12 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'む'){
+		if(call[column] == '\u3080'){ // む
 			// -
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'め'){
+		if(call[column] == '\u3081'){ // め
 			// -...-
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -860,7 +879,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'も'){
+		if(call[column] == '\u3082'){ // も
 			// -..-.
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -877,7 +896,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'や'){
+		if(call[column] == '\u3084'){ // や
 			// .--
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -888,7 +907,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'ゆ'){
+		if(call[column] == '\u3086'){ // ゆ
 			// -..--
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -905,7 +924,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'よ'){
+		if(call[column] == '\u3088'){ // よ
 			// --
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -913,7 +932,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'ら'){
+		if(call[column] == '\u3089'){ // ら
 			// ...
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -924,7 +943,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'り'){
+		if(call[column] == '\u308A'){ // り
 			// --.
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -935,7 +954,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'る'){
+		if(call[column] == '\u308B'){ // る
 			// -.--.
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -952,7 +971,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'れ'){
+		if(call[column] == '\u308C'){ // れ
 			// ---
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -963,7 +982,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'ろ'){
+		if(call[column] == '\u308D'){ // ろ
 			// .-.-
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -977,7 +996,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'わ'){
+		if(call[column] == '\u308F'){ // わ
 			// -.-
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -988,7 +1007,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'を'){
+		if(call[column] == '\u3092'){ // を
 			// .---
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -1002,7 +1021,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == 'ん'){
+		if(call[column] == '\u3093'){ // ん
 			// .-.-.
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -1019,7 +1038,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == '゛'){
+		if(call[column] == '\u309B'){ // ゛
 			// ..
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -1027,7 +1046,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == '゜'){
+		if(call[column] == '\u309C'){ // ゜
 			// ..--.
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
@@ -1044,7 +1063,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == 'ー'){
+		if(call[column] == '\u30FC'){ // ー
 			// .--.-
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
