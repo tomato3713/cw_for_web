@@ -1,10 +1,3 @@
-//htmlが読み込まれたときに
-//ボタンにイベントを登録する
-window.onload = function () {
-	initAddEvent();
-	initData();
-}
-
 //イベントリスナーに関数を登録する。
 const initAddEvent = () => {
 	"use strict";
@@ -20,3 +13,6 @@ const initData = () => {
 	"use strict";
 	loadText('Basic');
 }
+//ボタンにイベントを登録する
+initAddEvent();
+initData();

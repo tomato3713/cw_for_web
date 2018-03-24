@@ -36,7 +36,7 @@ const cw_start = (call) => {
 	//鳴らすシグナルのタイミングを設定する
 	let Time = 10;
 	//短点の長さを取得する。
-	let signal_duration = (25 /  parseInt(document.getElementById("Speed").value) ) * 50;
+	const signal_duration = (25 /  parseInt(document.getElementById("Speed").value) ) * 50;
 	//音量０で鳴らす
 	oscNode.start(0);
 
@@ -44,440 +44,440 @@ const cw_start = (call) => {
 		//alphabet
 		if (call[column] == 'A') {
 			//短点を流す予約をする。
-			setTimeout( function() {gainNode.gain.value = 10 ; } , Time );
+			setTimeout( () => {gainNode.gain.value = 10 ; } , Time );
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time  + signal_duration;
 
 			//長点を流す予約をする
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
 		}
 
 		if (call[column] == 'B') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time );
+			setTimeout( () => {gainNode.gain.value = 10; } , Time );
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time );
+			setTimeout( () => {gainNode.gain.value = 0; } , Time );
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; }, Time);
+			setTimeout( () => {gainNode.gain.value = 10; }, Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; }, Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10;}, Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0;}, Time);
+			setTimeout( () => {gainNode.gain.value = 0; }, Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10;}, Time);
+			setTimeout( () => {gainNode.gain.value = 10;}, Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0;}, Time);
+			setTimeout( () => {gainNode.gain.value = 0;}, Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10;}, Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0;}, Time);
 		}
 
 		if (call[column] == 'C') {
-			setTimeout( function() {gainNode.gain.value = 10;}, Time);
+			setTimeout( () => {gainNode.gain.value = 10;}, Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0;}, Time);
+			setTimeout( () => {gainNode.gain.value = 0;}, Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10;} , Time);
+			setTimeout( () => {gainNode.gain.value = 10;} , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0;}, Time);
+			setTimeout( () => {gainNode.gain.value = 0;}, Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10;}, Time);
+			setTimeout( () => {gainNode.gain.value = 10;}, Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0;}, Time);
+			setTimeout( () => {gainNode.gain.value = 0;}, Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10;}, Time);
+			setTimeout( () => {gainNode.gain.value = 10;}, Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0;}, Time);
+			setTimeout( () => {gainNode.gain.value = 0;}, Time);
 		}
 
 		if (call[column] == 'D') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() { gainNode.gain.value = 0 }, Time);
+			setTimeout( () => { gainNode.gain.value = 0 }, Time);
 		}
 
 		if (call[column] == 'E')  {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'F') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'G') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'H') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'I') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'J') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration * 3;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'K') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'L') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'M') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'N') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'O') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'P') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'Q') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 		}
 
 		if (call[column] == 'R') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'S') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'T') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'U') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'V') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'W') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration * 3;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'X') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'Y') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration * 3;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == 'Z') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 		//end alpahbet
 
@@ -485,1182 +485,1182 @@ const cw_start = (call) => {
 		//0の時は頂点を5回鳴らす
 		if (call[column] == 0) {
 			for (let s = 1; s <= 4; s++) {
-				setTimeout( function() {gainNode.gain.value = 10; } , Time);
+				setTimeout( () => {gainNode.gain.value = 10; } , Time);
 				Time = Time + signal_duration * 3;
-				setTimeout( function() {gainNode.gain.value = 0; } , Time);
+				setTimeout( () => {gainNode.gain.value = 0; } , Time);
 				Time = Time + signal_duration;
 			}
-			setTimeout(function() { gainNode.gain.value = 10 }, Time);
+			setTimeout(() => { gainNode.gain.value = 10 }, Time);
 			Time = Time + signal_duration *3;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 		}
 
 		//1~4の時
 		if (call[column] >= 1 && call[column] <= 4) {
 			for (let s = 1; s <= call[column]; s++) {
-				setTimeout( function() {gainNode.gain.value = 10; } , Time);
+				setTimeout( () => {gainNode.gain.value = 10; } , Time);
 				Time = Time + signal_duration;
-				setTimeout( function() {gainNode.gain.value = 0; } , Time);
+				setTimeout( () => {gainNode.gain.value = 0; } , Time);
 				Time = Time + signal_duration;
 			}
 
 			for (let l = 1; l <= (5 - call[column] - 1); l++) {
-				setTimeout( function() {gainNode.gain.value = 10; } , Time);
+				setTimeout( () => {gainNode.gain.value = 10; } , Time);
 				Time = Time + signal_duration * 3;
-				setTimeout( function() {gainNode.gain.value = 0; } , Time);
+				setTimeout( () => {gainNode.gain.value = 0; } , Time);
 				Time = Time + signal_duration;
 			}
-			setTimeout(function() { gainNode.gain.value = 10 }, Time);
+			setTimeout(() => { gainNode.gain.value = 10 }, Time);
 			Time = Time + signal_duration * 3;
-			setTimeout(function() {  gainNode.gain.value = 0 }, Time);
+			setTimeout(() => {  gainNode.gain.value = 0 }, Time);
 		}
 
 		if (call[column] == 5) {
 			for (let s = 1; s <= 4; s++) {
-				setTimeout( function() {gainNode.gain.value = 10; } , Time);
+				setTimeout( () => {gainNode.gain.value = 10; } , Time);
 				Time = Time + signal_duration;
-				setTimeout( function() {gainNode.gain.value = 0; } , Time);
+				setTimeout( () => {gainNode.gain.value = 0; } , Time);
 				Time = Time + signal_duration;
 			}
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] >= 6 && call[column] <= 9) {
 			for (let s = 1; s <= (call[column] - 5); s++) {
-				setTimeout( function() {gainNode.gain.value = 10; } , Time);
+				setTimeout( () => {gainNode.gain.value = 10; } , Time);
 				Time = Time + signal_duration * 3;
-				setTimeout( function() {gainNode.gain.value = 0; } , Time);
+				setTimeout( () => {gainNode.gain.value = 0; } , Time);
 				Time = Time + signal_duration;
 			}
 			for (let l = 1; l <= (5 - (call[column] - 5) - 1); l++) {
-				setTimeout( function() {gainNode.gain.value = 10; } , Time);
+				setTimeout( () => {gainNode.gain.value = 10; } , Time);
 				Time = Time + signal_duration;
-				setTimeout( function() {gainNode.gain.value = 0; } , Time);
+				setTimeout( () => {gainNode.gain.value = 0; } , Time);
 				Time = Time + signal_duration;
 			}
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == '/') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if (call[column] == '?') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		//和文
 		if (call[column] == 'あ') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration * 3;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'い'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'う'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'え'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration * 3;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'お'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'か'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'き'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'く'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'け'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration * 3;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'こ'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'さ'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 		}
 
 		if(call[column] == 'し'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 		}
 
 		if(call[column] == 'す'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 		}
 
 		if(call[column] == 'せ'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 		}
 
 		if(call[column] == 'そ'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 		}
 
 		if(call[column] == 'た'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 		}
 
 		if(call[column] == 'ち'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 		}
 
 		if(call[column] == 'つ'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 		}
 
 		if(call[column] == 'て'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 		}
 
 		if(call[column] == 'と'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 		}
 
 		if(call[column] == 'な') {
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'に'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'ぬ'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'ね'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'の'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'は'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0 ; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0 ; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'ひ'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'ほ'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'ま'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'み'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'む'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'め'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'も'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'や'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration * 3;
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 		}
 
 		if(call[column] == 'ゆ'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 		}
 
 		if(call[column] == 'よ'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 		}
 
 		if(call[column] == 'ら'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 			Time = Time + signal_duration;
 
-			setTimeout(function() { gainNode.gain.value = 10 }, Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
+			Time = Time + signal_duration;
+
+			setTimeout(() => { gainNode.gain.value = 10 }, Time);
+			Time = Time + signal_duration;
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 		}
 
 		if(call[column] == 'り'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 			Time = Time + signal_duration;
 
-			setTimeout(function() { gainNode.gain.value = 10 }, Time);
+			setTimeout(() => { gainNode.gain.value = 10 }, Time);
 			Time = Time + signal_duration;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 		}
 
 		if(call[column] == 'る'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 			Time = Time + signal_duration;
 
-			setTimeout(function() { gainNode.gain.value = 10 }, Time);
+			setTimeout(() => { gainNode.gain.value = 10 }, Time);
 			Time = Time + signal_duration;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 		}
 
 		if(call[column] == 'れ'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 			Time = Time + signal_duration;
 
-			setTimeout(function() { gainNode.gain.value = 10 }, Time);
+			setTimeout(() => { gainNode.gain.value = 10 }, Time);
 			Time = Time + signal_duration * 3;
-			setTimeout(function() { gainNode.gain.value = 0 }, Time);
+			setTimeout(() => { gainNode.gain.value = 0 }, Time);
 		}
 
 		if(call[column] == 'ろ'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'わ'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'を'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration * 3;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'ん'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == '゛'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == '゜'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == 'ー'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == '('){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		if(call[column] == ')'){
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
-			Time = Time + signal_duration;
-
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
-			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
+			Time = Time + signal_duration;
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
+			Time = Time + signal_duration;
+
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration * 3;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 			Time = Time + signal_duration;
 
-			setTimeout( function() {gainNode.gain.value = 10; } , Time);
+			setTimeout( () => {gainNode.gain.value = 10; } , Time);
 			Time = Time + signal_duration;
-			setTimeout( function() {gainNode.gain.value = 0; } , Time);
+			setTimeout( () => {gainNode.gain.value = 0; } , Time);
 		}
 
 		//符号と符号の間の空白短点三個分
 		Time = Time + signal_duration * 3;
 	}
 	//再生終了
-	setTimeout(function() { oscNode.stop(); }, Time);
+	setTimeout(() => { oscNode.stop(); }, Time);
 }
