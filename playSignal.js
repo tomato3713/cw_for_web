@@ -1,6 +1,6 @@
-//オーディオコンテキストを用意する。
+// check support
 try {
-	let SupportedAudioContext = window.AudioContext || window.webkitAudioContext;
+	const SupportedAudioContext = window.AudioContext || window.webkitAudioContext;
 } catch (e) {
 	throw new Error('Web Audio API is not supported.');
 }
@@ -11,23 +11,14 @@ let gainNode;
 const cw_start = (call) => {
 	"use strict";
 	//再生する文字が入った一次元配列を受け取って、
-	//その配列にある文字を前から順にWeb Audio APIを用いて
-	//再生していく
-	//最盛タイミングはsetTimeoutを用いて行っているため
-	//ミリ秒の単位で設定されるがブラウザによって
-	//最盛タイミングがずれる可能性がある
-	//この関数は何も返さない
-	//
-	//cwTutor for web, cw runner for web の用法で使用される
+	//その配列にある文字を前から順にWeb Audio APIを用いて再生していく
+	//cwTutor for web, cw runner for web の両方で使用される
 
 	//make the ocilitator
 	let oscNode = context.createOscillator();
-	oscNode.frequency.value = 550;
-	oscNode.type = 'sine';
 
 	// make the ocilitator to controll volume
 	gainNode = context.createGain();
-	gainNode.gain.value = 0;
 
 	// connect the speaker
 	oscNode.connect(gainNode);
@@ -35,10 +26,13 @@ const cw_start = (call) => {
 
 	let time = context.currentTime;
 
+	oscNode.type = 'sine';
+	oscNode.frequency.setValueAtTime(550, time);
+
 	//短点の長さを取得する。
 	const signal_duration = (parseInt(document.getElementById("Speed").value) / 500) ;
-	//音量０で鳴らす
-	oscNode.start(0);
+
+	oscNode.start();
 
 	for (let column = 0; column <= call.length - 1; column++) {
 		//alphabet

@@ -6,6 +6,7 @@ const keyboardButtonCheck = (e) => {
       if (target.value == "del") {
           ClickOnDel();
       } else {
+		  cw_start(target.value);
           ClickOn(target.value);
       }
     }
@@ -31,7 +32,7 @@ const ClickOn = (key) => {
 // テキストボックス（id:Box）のテキストの最後を一文字消す。
 const ClickOnDel = () => {
 	"use strict";
-    let Enter_Call = (document.getElementById("Box").value).split('');
+    let Enter_Call = document.getElementById("Box").value.split('');
     //delete the last char
     Enter_Call.pop();
     document.getElementById("Box").value = Enter_Call.join('');

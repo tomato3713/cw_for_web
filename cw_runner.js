@@ -3,10 +3,7 @@ let call_answer = new Array;　//回答となるコールサインを格納す�
 let turn = 1; //flag of answercheck() able, 答えのターン:0 disable:1
 //問題が再生される前にanswerボタンが押されても反応しないようにする
 
-//引数はとらない
-//
-//再生するコールサインを決定し、
-//答えをcall_answerに保存する。
+//再生するコールサインを決定し、答えをcall_answerに保存する。
 //cw_startを呼び出し、コールサインを再生する。
 const selectCallsign = () => {
 	"use strict";
@@ -16,7 +13,7 @@ const selectCallsign = () => {
 	call_answer.splice(call_answer.length - 1, call_answer.length);
 
 	//call_nameに格納されているコールサインのうちどれを再生するのかを決定する
-	let row = Math.floor(Math.random() * (call_name.length));
+	const row = Math.floor(Math.random() * (call_name.length));
 
 	//現在の答えをcall_answerに代入する。
 	for (let i = 0; i <= call_name[row].length -1 ; i++) {
@@ -26,14 +23,12 @@ const selectCallsign = () => {
 	cw_start(call_answer);
 }
 
-//数字かそれ以外化を判定する
-// 数字ならtrue, それ以外はfalseを返す。
-//引数として、値を一つ受け取る
+//数字かそれ以外かを判定する. 数字ならtrue, それ以外はfalseを返す。
 const isNumber = (value) => {
 	"use strict";
 	let result = Boolean(false);
 	if (value || value === 0) {
-		let typeValue = typeof (value);
+		const typeValue = typeof (value);
 		if (typeValue.match(/^(number|string)$/) && value !== NaN) {
 			result = true;
 		}
@@ -41,13 +36,13 @@ const isNumber = (value) => {
 	return result;
 }
 
-//id:Speedの要素に入力された値が適正かどうかを判断する。
-//適正でない場合はその入力を無効にする。
-//数値:　適正
-//非数値: 不適正、変更を無効化する
+// id:Speedの要素に入力された値が適正かどうかを判断する。
+// 適正でない場合はその入力を無効にする。
+// 数値:　適正
+// 非数値: 不適正
 const speedCheck = () => {
 	"use strict";
-	inputLine = document.getElementById('Speed').value;
+	const inputLine = document.getElementById('Speed').value;
 	//入力された値が適正か判定する。
 	//数値でない場合、Speedのvalueに元の値を代入する。
 	if (!(isNumber(inputLine))) {
@@ -61,7 +56,7 @@ const answerCheck = () => {
 	"use strict";
 	if (turn == 0) {
 		//get the user's answer
-		let myAnswer = document.getElementById("Box").value.split('');
+		const myAnswer = document.getElementById("Box").value.split('');
 
 		let match_result = 0;
 		let result_dif = new Array();
