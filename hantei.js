@@ -1,9 +1,9 @@
 "use strict";
-let domCalsign = document.getElementById('id_box');
-let domCwPoint = document.getElementById('id_cw_point');
-
 const hanteiEvent(){
-	let CallSignChar = domCalsign.value.split("");
+	let domCallsign = document.getElementById('id_box');
+	let domCwPoint = document.getElementById('id_cw_point');
+
+	let CallSignChar = domCallsign.value.split("");
 	let changedCWCallSign = new Array;
 
 

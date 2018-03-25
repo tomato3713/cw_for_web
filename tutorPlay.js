@@ -10,7 +10,7 @@ const play_all = () => {
 const keyboardButtonCheck = (e) => {
 	"use strict";
     const target = e.target;
-    if(target.value != ""){
+    if(target.type == 'button' && target.value != ""){
       if (target.value == "del") {
           ClickOnDel();
       } else {
