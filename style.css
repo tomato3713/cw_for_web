@@ -14,9 +14,10 @@
     padding: 5px 3px;
     margin: 2px auto;
 }
-.box{
+.callsign {
     text-align: left;
     text-align-last: left;
+	text-transform:uppercase;
 }
 button {
     font-size: x-large;

@@ -2404,14 +2404,14 @@ const answerCheck = () => {
 	"use strict";
 	if (turn == 0) {
 		//get the user's answer
-		const myAnswer = document.getElementById("Box").value.split('');
+		const myAnswer = document.getElementById("Box").value.toUpperCase().split('');
 
 		let match_result = 0;
 		let result_dif = new Array();
 		for (let i = 0; i <= call_answer.length - 1 && i <= myAnswer.length - 1; i++) {
 			//check answer
 			// 答えと回答を比較する。
-			if (call_answer[i] == myAnswer[i].toUpperCase()) {
+			if (call_answer[i] == myAnswer[i]) {
 				result_dif[i] = 'R';//right
 			} else {
 				result_dif[i] = 'W';//wrong
