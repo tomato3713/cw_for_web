@@ -2440,7 +2440,6 @@ const answerCheck = () => {
 //イベントリスナーに関数を登録する。
 const initAddEvent = () => {
 	"use strict";
-	document.getElementById('Speed').addEventListener('change', speedCheck, false);
 	document.getElementById('PlayButton').addEventListener('click', selectCallsign, false);
 	document.getElementById('AnswerButton').addEventListener('click', answerCheck, false);
 	document.getElementById('key').addEventListener('click', keyboardButtonCheck, false);

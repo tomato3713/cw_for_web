@@ -1,14 +1,6 @@
 let context = new window.AudioContext || window.webkitAudioContext;
 let gainNode;
 
-const speedCheck = () => {
-	// if not Integer, prompt to enter integer in speed box.
-	"use strict";
-	if ( !Number.isInteger(document.getElementById('Speed').value) ) {
-		alert("Enter Integer in speed box");
-	}
-}
-
 const cw_start = (call) => {
 	"use strict";
 	//再生する文字が入った一次元配列を受け取って、
