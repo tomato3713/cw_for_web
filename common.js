@@ -1,9 +1,8 @@
+"use strict";
 let context = new window.AudioContext || window.webkitAudioContext;
 let gainNode;
 
 const cw_start = (call) => {
-	"use strict";
-	//再生する文字が入った一次元配列を受け取って、
 	//その配列にある文字を前から順にWeb Audio APIを用いて再生していく
 	//cwTutor for web, cw runner for web の両方で使用される
 
