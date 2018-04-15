@@ -94,7 +94,7 @@ const cw_start = (call) => {
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
-			gainNode.gain.setValueAtTime(0, time += signal_duration);
+			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
