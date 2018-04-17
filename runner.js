@@ -1,9 +1,9 @@
 "use strict";
-// call_nameにcall_typeに対応するコールサイン、記号を代入する 引数として、call_typeを受け取る
+// g_calldataにcall_typeに対応するコールサイン、記号を代入する 引数として、call_typeを受け取る
 const loadText = (call_type) => {
 	//ローマ字と数字
 	if (call_type == 'Basic') {
-		call_name = [
+		g_calldata = [
 			['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G'],
 			['H'], ['I'], ['J'], ['K'], ['L'], ['M'], ['N'],
 			['O'], ['P'], ['Q'], ['R'], ['S'], ['T'], ['U'],
@@ -15,7 +15,7 @@ const loadText = (call_type) => {
 	//日本のコールサインを格納する。
 	if (call_type == 'Ja') {
 		// console.log('select japan');
-		call_name = [
+		g_calldata = [
 			['J', 'A', '1', 'Z', 'G', 'P'],
 			['J', 'H', '1', 'X', 'E', 'X'],
 			['J', 'G', '1', 'M', 'J', 'Z'],
@@ -47,7 +47,7 @@ const loadText = (call_type) => {
 			['J', 'A', '1', 'R', 'R', 'A'],
 			['J', 'K', '1', 'O', 'T', 'P'],
 			['J', 'O', '1', 'Z', 'R', 'T'],
-			['J', 'A', '1', 'O', 'T', 'T/1'],
+			['J', 'A', '1', 'O', 'T', 'T', '/', '1'],
 			['J', 'R', '1', 'Z', 'T', 'I'],
 			['J', 'H', '1', 'H', 'P', 'H'],
 			['J', 'A', '1', 'O', 'Q'],
@@ -371,7 +371,7 @@ const loadText = (call_type) => {
 			['J', 'A', '1', 'I', 'H', 'D'],
 			['J', 'O', '1', 'N', 'L', 'N'],
 			['J', 'R', '1', 'U', 'F', 'J'],
-			['J', 'H', '0', 'N', 'S', 'V/1'],
+			['J', 'H', '0', 'N', 'S', 'V', '/', '1'],
 			['J', 'M', '1', 'J', 'I', 'V'],
 			['J', 'L', '2', 'L', 'F', 'K'],
 			['J', 'I', '1', 'T', 'Y', 'Y'],
@@ -2029,7 +2029,7 @@ const loadText = (call_type) => {
 }
 //海外のコールサインを格納する。
 if (call_type == 'DX') {
-	call_name = [
+	g_calldata = [
 		['E', 'I', '1', 'J', 'K'],
 		['K', 'D', '7', 'R', 'F', 'Z'],
 		['F', 'R', '5', 'D', 'Z'],
@@ -2334,9 +2334,9 @@ if (call_type == 'DX') {
 }
 //modeを変更したときにコールサイン格納用の変数をからにする。
 const delcall = () => {
-	call_name.splice(call_name.length - 1, call_name);
+	g_calldata.splice(g_calldata.length - 1, g_calldata);
 }
-//ラジオボタンが変更されたときにcall_nameを対応するデータを再読み込みする
+//ラジオボタンが変更されたときにg_calldataを対応するデータを再読み込みする
 const RadioButton_changed = (e) => {
 	loadText(e.target.value);
 }
@@ -2373,41 +2373,41 @@ const ClickOnDel = () => {
 	document.getElementById("Box").value = Enter_Call.join('');
 }
 
-//再生するコールサインを決定し、答えをcall_answerに保存する。
+//再生するコールサインを決定し、答えをg_anscallに保存する。
 //cw_startを呼び出し、コールサインを再生する。
 const selectCallsign = () => {
-	turn = 0; //answercheck()を有効にする
-
 	//前の答えを消去する。
-	call_answer.splice(call_answer.length - 1, call_answer.length);
+	g_anscall = [];
 
-	//call_nameに格納されているコールサインのうちどれを再生するのかを決定する
-	const row = Math.floor(Math.random() * (call_name.length));
+	//g_calldataに格納されているコールサインのうちどれを再生するのかを決定する
+	const row = Math.floor(Math.random() * (g_calldata.length));
 
-	//現在の答えをcall_answerに代入する。
-	for (let i = 0; i <= call_name[row].length -1 ; i++) {
-		call_answer[i] = call_name[row][i];
+	//現在の答えをg_anscallに代入する。
+	for (let i = 0; i <= g_calldata[row].length -1 ; i++) {
+		g_anscall[i] = g_calldata[row][i];
 	}
 	//鳴らす
-	cw_start(call_answer);
+	cw_start(g_anscall);
+
+	turn = true; //answercheck()を有効にする
 }
 
 // ユーザーの回答の採点を行う
-// turn = 0の時のみ実行する
+// turn = trueの時のみ実行する
 const answerCheck = () => {
-	if (turn == 0) {
+	if (turn == true) {
 		//get the user's answer
 		const myAnswer = document.getElementById("Box").value.toUpperCase().split('');
 
 		let match_result = 0;
 		let result_dif = new Array();
-		for (let i = 0; i <= call_answer.length - 1 && i <= myAnswer.length - 1; i++) {
+		for (let i = 0; i <= g_anscall.length - 1 && i <= myAnswer.length - 1; i++) {
 			//check answer
 			// 答えと回答を比較する。
-			if (call_answer[i] == myAnswer[i]) {
-				result_dif[i] = 'R';//right
+			if (g_anscall[i] == myAnswer[i]) {
+				result_dif[i] = '〇';//right
 			} else {
-				result_dif[i] = 'W';//wrong
+				result_dif[i] = '×';//wrong
 				match_result++;
 			}
 		}
@@ -2424,29 +2424,55 @@ const answerCheck = () => {
 			document.getElementById("WrongCount").value = wrong_counter + 1;
 		}
 		document.getElementById('Box').value = '';
-		turn = 1;
+		turn = false;
 
 		// 過去の回答の記録に現在の回答を追加する。
-		document.getElementById('History').value += '\n' + call_answer.join('') + '-' + myAnswer.join('');
+		document.getElementById('History').value += '\n' + g_anscall.join('') + '-' + myAnswer.join('');
 	}
 }
+
+// if you use pc, register to event listener.
+const keyDown = (e) => {
+	// get key code
+	const keyCode = e.keyCode;
+	// if type enter key
+	if ( keyCode == 13 ) {
+		document.getElementById('AnswerButton').click();
+		document.getElementById('PlayButton').click();
+		document.getElementById('Box').focus();
+	}
+}
+
 //イベントリスナーに関数を登録する。
 const initAddEvent = () => {
 	document.getElementById('PlayButton').addEventListener('click', selectCallsign, false);
 	document.getElementById('AnswerButton').addEventListener('click', answerCheck, false);
 	document.getElementById('key').addEventListener('click', keyboardButtonCheck, false);
 	document.getElementById('radioButton').addEventListener('click', RadioButton_changed, false);
+
+	if(
+		navigator.userAgent.indexOf('iPhone') > 0 ||
+		navigator.userAgent.indexOf('iPad') > 0 ||
+		navigator.userAgent.indexOf('iPod') > 0 ||
+		navigator.userAgent.indexOf('Android') > 0 )
+	{
+		// if you use tablet,
+	} else
+	{
+		// if you use pc,
+		// define key command
+		document.addEventListener('keydown', keyDown);
+	}
 }
 
 // コールサインを格納する変数にコールサインを読み込む
 const initData = () => {
-	loadText('Basic');
+	loadText('Ja');
 }
 
-let call_name = new Array; //コールサインのデータを格納する。
-let call_answer = new Array;　//回答となるコールサインを格納する。playボタンが押されるたびに変更される。
-let turn = 1; //flag of answercheck() able, 答えのターン:0 disable:1
-//問題が再生される前にanswerボタンが押されても反応しないようにする
+let g_calldata = new Array;
+let g_anscall = new Array;
+let turn = false; //flag of answercheck() able, 答えのターン:true disable:false
 
 //ボタンにイベントを登録する
 initAddEvent();
