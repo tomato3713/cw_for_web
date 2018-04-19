@@ -1,31 +1,31 @@
 let context = new window.AudioContext || window.webkitAudioContext;
-let gainNode;
+let oscNode;
+// document.addEventListener('click', () => {
+// 	let oscNode = context.createOscillator();
+// 	oscNode.connect(context.destination);
+// 	gainNode.gain.setValueAtTime(10, time);
+// });
 
 const cw_start = (call) => {
 "use strict";
 	//その配列にある文字を前から順にWeb Audio APIを用いて再生していく
-
 	//make the ocilitator
-	let oscNode = context.createOscillator();
-
+	oscNode = context.createOscillator();
 	// make the ocilitator to controll volume
-	gainNode = context.createGain();
-
+	let gainNode = context.createGain();
 	// connect the speaker
+
 	oscNode.connect(gainNode);
 	gainNode.connect(context.destination);
 
 	let time = context.currentTime;
-
 	oscNode.type = 'sine';
-	oscNode.frequency.setValueAtTime(550, time);
+	oscNode.frequency.setValueAtTime(400, time);
 
 	//短点の長さを取得する。
 	const signal_duration = (parseInt(document.getElementById("Speed").value) / 500) ;
 
-	oscNode.start();
-
-	for (let column = 0; column <= call.length - 1; column++) {
+	for (let column = 0; column < call.length; column++) {
 		//alphabet
 		if (call[column] == 'A') {
 			//短点を流す予約をする。
@@ -1108,5 +1108,10 @@ const cw_start = (call) => {
 		//符号と符号の間の空白短点三個分
 		time += signal_duration * 3;
 	}
+	oscNode.start();
 	oscNode.stop(time);
+}
+
+const cw_stop = () => {
+	oscNode.stop( context.currentTime );
 }

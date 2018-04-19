@@ -2406,16 +2406,15 @@ const answerCheck = () => {
 		//get the user's answer
 		const myAnswer = document.getElementById("Box").value.toUpperCase().split('');
 
-		let match_result = 0;
+		let match_result = g_anscall.length;
 		let result_dif = new Array();
 		for (let i = 0; i <= g_anscall.length - 1 && i <= myAnswer.length - 1; i++) {
 			//check answer
-			// 答えと回答を比較する。
 			if (g_anscall[i] == myAnswer[i]) {
 				result_dif[i] = '〇';//right
+				match_result--;
 			} else {
 				result_dif[i] = '×';//wrong
-				match_result++;
 			}
 		}
 
@@ -2443,11 +2442,13 @@ const keyDown = (e) => {
 "use strict";
 	// get key code
 	const keyCode = e.keyCode;
-	// if type enter key
-	if ( keyCode == 13 ) {
+	if ( keyCode == 13 ) { // Enter key
 		document.getElementById('AnswerButton').click();
 		document.getElementById('PlayButton').click();
 		document.getElementById('Box').focus();
+	}
+	if( keyCode == 27 ) { // ESC key
+		cw_stop();
 	}
 }
 

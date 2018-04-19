@@ -27,6 +27,9 @@ Web audio apiを使っているため、IEには対応していません。
 聞き取れた符号をキーボードでテキストボックスに入力します。
 answerボタンをクリックし、答え合わせをします。
 
+Enter keyを押すことで再生、答え合わせがされます。
+また、ESCkeyを押すことで符号の再生を中断できます。
+
 自分が答えた履歴はページの一番下にあるテキストボックス中に記録されていきます。
 
 こちら[CW WEB RUNNER](https://homedm.github.io/cw_for_web/ "CW_FOR_WEB"), [CW TUTOR FOR WEB](https://homedm.github.io/cw_for_web/cwTutor.html)をブラウザで開けば使用できます。
