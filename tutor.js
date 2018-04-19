@@ -14,8 +14,8 @@ const keyboardButtonCheck = (e) => {
       if (target.value == "del") {
           ClickOnDel();
       } else {
-		  cw_start(target.value);
           ClickOn(target.value);
+		  cw_start(target.value);
       }
     }
 }
