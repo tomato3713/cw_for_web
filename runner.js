@@ -2384,7 +2384,7 @@ const selectCallsign = () => {
 
 	//現在の答えをg_anscallに代入する。
 	for (let i = 0; i <= g_calldata[row].length -1 ; i++) {
-		g_anscall[i] = g_calldata[row][i];
+		g_anscall.push(g_calldata[row][i]);
 	}
 	//鳴らす
 	cw_start(g_anscall);
