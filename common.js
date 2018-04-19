@@ -1,10 +1,15 @@
 let context = new window.AudioContext || window.webkitAudioContext;
 let oscNode;
-// document.addEventListener('click', () => {
-// 	let oscNode = context.createOscillator();
-// 	oscNode.connect(context.destination);
-// 	gainNode.gain.setValueAtTime(10, time);
-// });
+
+document.addEventListener('click', () => {
+	let node = context.createOscillator();
+	let gainNode = context.createGain();
+	gainNode.gain.setValueAtTime(0, context.currentTime);
+	node.connect(context.destination);
+	node.start();
+	node.stop( context.currentTime );
+	document.removeEventListener('click', this);
+});
 
 const cw_start = (call) => {
 "use strict";
