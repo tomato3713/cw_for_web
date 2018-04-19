@@ -2377,14 +2377,14 @@ const ClickOnDel = () => {
 //cw_startを呼び出し、コールサインを再生する。
 const selectCallsign = () => {
 	//前の答えを消去する。
-	g_anscall = [];
+	g_anscall.splice(0, g_anscall.length);
 
 	//g_calldataに格納されているコールサインのうちどれを再生するのかを決定する
 	const row = Math.floor(Math.random() * (g_calldata.length));
 
 	//現在の答えをg_anscallに代入する。
 	for (let i = 0; i <= g_calldata[row].length -1 ; i++) {
-		g_anscall[i] = g_calldata[row][i];
+		g_anscall.push(g_calldata[row][i]);
 	}
 	//鳴らす
 	cw_start(g_anscall);
