@@ -1,6 +1,6 @@
-"use strict";
 // g_calldataにcall_typeに対応するコールサイン、記号を代入する 引数として、call_typeを受け取る
 const loadText = (call_type) => {
+"use strict";
 	//ローマ字と数字
 	if (call_type == 'Basic') {
 		g_calldata = [
@@ -2334,14 +2334,17 @@ if (call_type == 'DX') {
 }
 //modeを変更したときにコールサイン格納用の変数をからにする。
 const delcall = () => {
+"use strict";
 	g_calldata.splice(g_calldata.length - 1, g_calldata);
 }
 //ラジオボタンが変更されたときにg_calldataを対応するデータを再読み込みする
 const RadioButton_changed = (e) => {
+"use strict";
 	loadText(e.target.value);
 }
 //delとナンバーアルファベットキーのどちらが入力されたのか判断する。
 const keyboardButtonCheck = (e) => {
+"use strict";
 	const target = e.target;
 	if(target.value != ""){
 		if (target.value == "del") {
@@ -2354,6 +2357,7 @@ const keyboardButtonCheck = (e) => {
 // ナンバー、アルファベットキーが押されたら、
 // 対応する文字をテキストボックス（id:Box）に入力する。
 const ClickOn = (key) => {
+"use strict";
 	let Enter_Call = new Array(document.getElementById("Box").value);
 	//add the char clicked
 	if ( Enter_Call[0] == '' ){
@@ -2367,6 +2371,7 @@ const ClickOn = (key) => {
 }
 // delキーが入力されたら、テキストボックス（id:Box）のテキストの最後を一文字消す。
 const ClickOnDel = () => {
+"use strict";
 	let Enter_Call = document.getElementById("Box").value.split('');
 	//delete the last char
 	Enter_Call.pop();
@@ -2376,6 +2381,7 @@ const ClickOnDel = () => {
 //再生するコールサインを決定し、答えをg_anscallに保存する。
 //cw_startを呼び出し、コールサインを再生する。
 const selectCallsign = () => {
+"use strict";
 	//前の答えを消去する。
 	g_anscall.splice(0, g_anscall.length);
 
@@ -2395,6 +2401,7 @@ const selectCallsign = () => {
 // ユーザーの回答の採点を行う
 // turn = trueの時のみ実行する
 const answerCheck = () => {
+"use strict";
 	if (turn == true) {
 		//get the user's answer
 		const myAnswer = document.getElementById("Box").value.toUpperCase().split('');
@@ -2433,6 +2440,7 @@ const answerCheck = () => {
 
 // if you use pc, register to event listener.
 const keyDown = (e) => {
+"use strict";
 	// get key code
 	const keyCode = e.keyCode;
 	// if type enter key
@@ -2445,6 +2453,7 @@ const keyDown = (e) => {
 
 //イベントリスナーに関数を登録する。
 const initAddEvent = () => {
+"use strict";
 	document.getElementById('PlayButton').addEventListener('click', selectCallsign, false);
 	document.getElementById('AnswerButton').addEventListener('click', answerCheck, false);
 	document.getElementById('key').addEventListener('click', keyboardButtonCheck, false);
@@ -2467,6 +2476,7 @@ const initAddEvent = () => {
 
 // コールサインを格納する変数にコールサインを読み込む
 const initData = () => {
+"use strict";
 	loadText('Ja');
 }
 
