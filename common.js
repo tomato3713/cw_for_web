@@ -9,15 +9,6 @@ catch(e) {
 }
 let oscNode;
 
-document.addEventListener('click', () => {
-	let node = context.createOscillator();
-	let gainNode = context.createGain();
-	gainNode.gain.setValueAtTime(0, 0);
-	node.connect(context.destination);
-	node.start( 0 );
-	node.stop( 10 );
-});
-
 const cw_start = (call) => {
 "use strict";
 	//その配列にある文字を前から順にWeb Audio APIを用いて再生していく
