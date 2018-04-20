@@ -4,10 +4,10 @@ let oscNode;
 document.addEventListener('click', () => {
 	let node = context.createOscillator();
 	let gainNode = context.createGain();
-	gainNode.gain.setValueAtTime(0, context.currentTime);
+	gainNode.gain.setValueAtTime(0, 0);
 	node.connect(context.destination);
-	node.start();
-	node.stop( context.currentTime+10 );
+	node.start( 0 );
+	node.stop( 10 );
 });
 
 const cw_start = (call) => {
