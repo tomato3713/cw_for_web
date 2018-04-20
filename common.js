@@ -7,8 +7,7 @@ document.addEventListener('click', () => {
 	gainNode.gain.setValueAtTime(0, context.currentTime);
 	node.connect(context.destination);
 	node.start();
-	node.stop( context.currentTime+1 );
-	document.removeEventListener('click', this);
+	node.stop( context.currentTime+10 );
 });
 
 const cw_start = (call) => {
