@@ -45,11 +45,39 @@ const ClickOnDel = () => {
     Enter_Call.pop();
     document.getElementById("Box").value = Enter_Call.join('');
 }
+
+// if you use pc, register to event listener.
+const keyDown = (e) => {
+"use strict";
+	// get key code
+	const keyCode = e.keyCode;
+	if ( keyCode == 13 ) { // Enter key
+		document.getElementById('PlayButton').click();
+	}
+	if( keyCode == 27 ) { // ESC key
+		cw_stop();
+	}
+}
+
 //イベントリスナーに関数を登録する。
 const initAddEvent = () => {
 "use strict";
 	document.getElementById('PlayButton').addEventListener('click', play_all , false);
 	document.getElementById('key').addEventListener('click', keyboardButtonCheck, false);
+
+	if(
+		navigator.userAgent.indexOf('iPhone') > 0 ||
+		navigator.userAgent.indexOf('iPad') > 0 ||
+		navigator.userAgent.indexOf('iPod') > 0 ||
+		navigator.userAgent.indexOf('Android') > 0 )
+	{
+		// if you use tablet,
+	} else
+	{
+		// if you use pc,
+		// define key command
+		document.addEventListener('keydown', keyDown);
+	}
 }
 
 initAddEvent();

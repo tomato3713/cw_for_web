@@ -1,4 +1,12 @@
-let context = new window.AudioContext || window.webkitAudioContext;
+let context;
+try {
+	window.AudioContext =
+		window.AudioContext || window.webkitAudioContext;
+	context = new AudioContext();
+}
+catch(e) {
+	alert('Web Audio API is not supported in this browser');
+}
 let oscNode;
 
 document.addEventListener('click', () => {
@@ -24,7 +32,8 @@ const cw_start = (call) => {
 
 	let time = context.currentTime;
 	oscNode.type = 'sine';
-	oscNode.frequency.setValueAtTime(400, time);
+	const freq = document.getElementById('Freq').value;
+	oscNode.frequency.setValueAtTime(freq, time);
 
 	//短点の長さを取得する。
 	const signal_duration = (parseInt(document.getElementById("Speed").value) / 500) ;
