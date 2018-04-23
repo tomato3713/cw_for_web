@@ -21,6 +21,7 @@ const cw_start = (call) => {
 	oscNode.connect(gainNode);
 	gainNode.connect(context.destination);
 
+	let stime= context.currentTime;
 	let time = context.currentTime;
 	oscNode.type = 'sine';
 	const freq = document.getElementById('Freq').value;
@@ -1112,8 +1113,10 @@ const cw_start = (call) => {
 		//符号と符号の間の空白短点三個分
 		time += signal_duration * 3;
 	}
+	time -= signal_duration * 3;
 	oscNode.start();
 	oscNode.stop(time);
+	return time - stime;
 }
 
 const cw_stop = () => {

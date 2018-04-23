@@ -2382,6 +2382,8 @@ const ClickOnDel = () => {
 //cw_startを呼び出し、コールサインを再生する。
 const selectCallsign = () => {
 "use strict";
+	// play button disabled
+	document.getElementById('PlayButton').disabled = true;
 	//前の答えを消去する。
 	g_anscall.splice(0, g_anscall.length);
 
@@ -2393,48 +2395,48 @@ const selectCallsign = () => {
 		g_anscall.push(g_calldata[row][i]);
 	}
 	//鳴らす
-	cw_start(g_anscall);
+	let time = cw_start(g_anscall);
 
-	turn = true; //answercheck()を有効にする
+	//answercheck()を有効にする
+	setTimeout(() => { document.getElementById('AnswerButton').disabled = false; }, time * 1000);
 }
 
 // ユーザーの回答の採点を行う
 // turn = trueの時のみ実行する
 const answerCheck = () => {
 "use strict";
-	if (turn == true) {
-		//get the user's answer
-		const myAnswer = document.getElementById("Box").value.toUpperCase().split('');
+	//get the user's answer
+	const myAnswer = document.getElementById("Box").value.toUpperCase().split('');
 
-		let match_result = g_anscall.length;
-		let result_dif = new Array();
-		for (let i = 0; i <= g_anscall.length - 1 && i <= myAnswer.length - 1; i++) {
-			//check answer
-			if (g_anscall[i] == myAnswer[i]) {
-				result_dif[i] = '〇';//right
-				match_result--;
-			} else {
-				result_dif[i] = '×';//wrong
-			}
+	let match_result = g_anscall.length;
+	let result_dif = new Array();
+	for (let i = 0; i <= g_anscall.length - 1 && i <= myAnswer.length - 1; i++) {
+		//check answer
+		if (g_anscall[i] == myAnswer[i]) {
+			result_dif[i] = '〇';//right
+			match_result--;
+		} else {
+			result_dif[i] = '×';//wrong
 		}
-
-		//回答が正しければ、正当数を1増やし、間違っていれば、不可数を1増やす。
-		if (match_result == 0) {
-			document.getElementById("Result_Now").value = 'R_' + result_dif.join('');
-			const right_counter = parseInt(document.getElementById("RightCount").value);
-			document.getElementById("RightCount").value = right_counter + 1;
-		}
-		if (match_result != 0) {
-			document.getElementById("Result_Now").value = 'W_' + result_dif.join('');
-			const wrong_counter = parseInt(document.getElementById("WrongCount").value);
-			document.getElementById("WrongCount").value = wrong_counter + 1;
-		}
-		document.getElementById('Box').value = '';
-		turn = false;
-
-		// 過去の回答の記録に現在の回答を追加する。
-		document.getElementById('History').value += '\n' + g_anscall.join('') + '-' + myAnswer.join('');
 	}
+
+	//回答が正しければ、正当数を1増やし、間違っていれば、不可数を1増やす。
+	if (match_result == 0) {
+		document.getElementById("Result_Now").value = 'R_' + result_dif.join('');
+		const right_counter = parseInt(document.getElementById("RightCount").value);
+		document.getElementById("RightCount").value = right_counter + 1;
+	}
+	if (match_result != 0) {
+		document.getElementById("Result_Now").value = 'W_' + result_dif.join('');
+		const wrong_counter = parseInt(document.getElementById("WrongCount").value);
+		document.getElementById("WrongCount").value = wrong_counter + 1;
+	}
+	document.getElementById('Box').value = '';
+
+	// 過去の回答の記録に現在の回答を追加する。
+	document.getElementById('History').value += '\n' + g_anscall.join('') + '-' + myAnswer.join('');
+	document.getElementById('PlayButton').disabled = false;
+	document.getElementById('AnswerButton').disabled = true;
 }
 
 // if you use pc, register to event listener.
@@ -2449,6 +2451,10 @@ const keyDown = (e) => {
 	}
 	if( keyCode == 27 ) { // ESC key
 		cw_stop();
+		document.getElementById('Box').value = "";
+		document.getElementById('Result_Now').value = "_";
+		document.getElementById('PlayButton').disabled = false;
+		document.getElementById('AnswerButton').disabled = true;
 	}
 }
 
@@ -2456,9 +2462,9 @@ const keyDown = (e) => {
 const initAddEvent = () => {
 "use strict";
 	document.getElementById('PlayButton').addEventListener('click', selectCallsign, false);
-	document.getElementById('AnswerButton').addEventListener('click', answerCheck, false);
 	document.getElementById('key').addEventListener('click', keyboardButtonCheck, false);
 	document.getElementById('radioButton').addEventListener('click', RadioButton_changed, false);
+	document.getElementById('AnswerButton').addEventListener('click', answerCheck);
 
 	if(
 		navigator.userAgent.indexOf('iPhone') > 0 ||
@@ -2473,6 +2479,8 @@ const initAddEvent = () => {
 		// define key command
 		document.addEventListener('keydown', keyDown);
 	}
+
+	document.getElementById('AnswerButton').disabled = true;
 }
 
 // コールサインを格納する変数にコールサインを読み込む
@@ -2483,7 +2491,6 @@ const initData = () => {
 
 let g_calldata = new Array;
 let g_anscall = new Array;
-let turn = false; //flag of answercheck() able, 答えのターン:true disable:false
 
 //ボタンにイベントを登録する
 initAddEvent();
