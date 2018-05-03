@@ -1,7 +1,5 @@
 "use strict";
-// g_calldataにcall_typeに対応するコールサイン、記号を代入する 引数として、call_typeを受け取る
 const loadText = (call_type) => {
-	//ローマ字と数字
 	if (call_type == 'Basic') {
 		g_calldata = [
 			['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G'],
@@ -12,9 +10,7 @@ const loadText = (call_type) => {
 			['6'], ['7'], ['8'], ['9'], ['0']
 		];
 	}
-	//日本のコールサインを格納する。
 	if (call_type == 'Ja') {
-		// console.log('select japan');
 		g_calldata = [
 			['JA1ZGP'],
 			['JH1XEX'],
@@ -2020,7 +2016,6 @@ const loadText = (call_type) => {
 			['JA2KSJ']
 		];
 }
-//海外のコールサインを格納する。
 if (call_type == 'DX') {
 	g_calldata = [
 		['EI1JK'],
@@ -2324,15 +2319,12 @@ if (call_type == 'DX') {
 	];
 }
 }
-//modeを変更したときにコールサイン格納用の変数をからにする。
 const delcall = () => {
 	g_calldata.splice(g_calldata.length - 1, g_calldata);
 }
-//ラジオボタンが変更されたときにg_calldataを対応するデータを再読み込みする
 const RadioButton_changed = (e) => {
 	loadText(e.target.value);
 }
-//delとナンバーアルファベットキーのどちらが入力されたのか判断する。
 const keyboardButtonCheck = (e) => {
 	const target = e.target;
 	if(target.value != ""){
@@ -2343,50 +2335,35 @@ const keyboardButtonCheck = (e) => {
 		}
 	}
 }
-// ナンバー、アルファベットキーが押されたら、
-// 対応する文字をテキストボックス（id:Box）に入力する。
 const ClickOn = (key) => {
 	let Enter_Call = new Array(document.getElementById("Box").value);
-	//add the char clicked
 	if ( Enter_Call[0] == '' ){
-		//not existed first char.
 		Enter_Call[0] = key;
 	} else {
-		//existed
 		Enter_Call.push(key);
 	}
 	document.getElementById("Box").value = Enter_Call.join('');
 }
-// delキーが入力されたら、テキストボックス（id:Box）のテキストの最後を一文字消す。
 const ClickOnDel = () => {
 	let Enter_Call = document.getElementById("Box").value.split('');
-	//delete the last char
 	Enter_Call.pop();
 	document.getElementById("Box").value = Enter_Call.join('');
 }
-
-//再生するコールサインを決定し、答えをg_anscallに保存する。
-//cw_startを呼び出し、コールサインを再生する。
 const selectCallsign = () => {
-	// play button disabled
 	document.getElementById('PlayButton').disabled = true;
 
 	const preans = document.getElementById('Result_Now').value;
-	if( preans.charAt(0) == 'R' ) { // 直前の符号を聞き取れているならば
+	if( preans.charAt(0) != 'W' ) { // 直前の符号を聞き取れているならば
 		const row = Math.floor(Math.random() * (g_calldata.length));
 		g_anscall = String(g_calldata[row]);
+	} else {
 	}
 
-	let time = cw_start(g_anscall);
+	const time = cw_start(g_anscall);
 
-	//answercheck()を有効にする
 	setTimeout(() => { document.getElementById('AnswerButton').disabled = false; }, time * 1000);
 }
-
-// ユーザーの回答の採点を行う
-// turn = trueの時のみ実行する
 const answerCheck = () => {
-	//get the user's answer
 	const urAns = new String(document.getElementById("Box").value.toUpperCase());
 	const ans = new String(g_anscall);
 
@@ -2395,14 +2372,13 @@ const answerCheck = () => {
 	for (let i = 0; i <= ans.length - 1 && i <= urAns.length - 1; i++) {
 		//check answer
 		if (ans.charAt(i) == urAns.charAt(i)) {
-			result_dif[i] = '〇';//right
+			result_dif[i] = '〇';
 			match_result--;
 		} else {
-			result_dif[i] = '×';//wrong
+			result_dif[i] = '×';
 		}
 	}
 
-	//回答が正しければ、正当数を1増やし、間違っていれば、不可数を1増やす。
 	if (match_result == 0) {
 		document.getElementById("Result_Now").value = 'R_' + result_dif;
 		const right_counter = parseInt(document.getElementById("RightCount").value);
@@ -2415,15 +2391,12 @@ const answerCheck = () => {
 	}
 	document.getElementById('Box').value = '';
 
-	// 過去の回答の記録に現在の回答を追加する。
 	document.getElementById('History').value += '\n' + g_anscall + '-' + urAns;
 	document.getElementById('PlayButton').disabled = false;
 	document.getElementById('AnswerButton').disabled = true;
 }
-
 // if you use pc, register to event listener.
 const keyDown = (e) => {
-	// get key code
 	const keyCode = e.keyCode;
 	if ( keyCode == 13 ) { // Enter key
 		document.getElementById('AnswerButton').click();
@@ -2456,21 +2429,15 @@ const initAddEvent = () => {
 	} else
 	{
 		// if you use pc,
-		// define key command
 		document.addEventListener('keydown', keyDown);
 	}
 
 	document.getElementById('AnswerButton').disabled = true;
 }
-
-// コールサインを格納する変数にコールサインを読み込む
 const initData = () => {
 	loadText('Ja');
 }
-
 let g_calldata = new Array;
 let g_anscall = new String;
-
-//ボタンにイベントを登録する
 initAddEvent();
 initData();

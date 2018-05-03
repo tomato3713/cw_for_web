@@ -1,26 +1,23 @@
 "use strict";
 let context;
-try {
-	window.AudioContext =
-		window.AudioContext || window.webkitAudioContext;
-	context = new AudioContext();
-}
-catch(e) {
-	alert('Web Audio API is not supported in this browser');
-}
 let oscNode;
 
 const cw_start = ( str ) => {
 	// call を一文字に分割する
+	if( context == undefined ) {
+		try {
+			window.AudioContext =
+				window.AudioContext || window.webkitAudioContext;
+			context = new AudioContext();
+		}
+		catch(e) {
+			alert('Web Audio API is not supported in this browser');
+		}
+	}
 	const call = new String(str).split('');
 
-	//その配列にある文字を前から順にWeb Audio APIを用いて再生していく
-	//make the ocilitator
 	oscNode = context.createOscillator();
-	// make the ocilitator to controll volume
 	let gainNode = context.createGain();
-	// connect the speaker
-
 	oscNode.connect(gainNode);
 	gainNode.connect(context.destination);
 
