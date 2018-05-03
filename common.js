@@ -1,3 +1,4 @@
+"use strict";
 let context;
 try {
 	window.AudioContext =
@@ -9,8 +10,10 @@ catch(e) {
 }
 let oscNode;
 
-const cw_start = (call) => {
-"use strict";
+const cw_start = ( str ) => {
+	// call を一文字に分割する
+	const call = new String(str).split('');
+
 	//その配列にある文字を前から順にWeb Audio APIを用いて再生していく
 	//make the ocilitator
 	oscNode = context.createOscillator();
@@ -21,7 +24,7 @@ const cw_start = (call) => {
 	oscNode.connect(gainNode);
 	gainNode.connect(context.destination);
 
-	let stime= context.currentTime;
+	const stime= context.currentTime;
 	let time = context.currentTime;
 	oscNode.type = 'sine';
 	const freq = document.getElementById('Freq').value;
