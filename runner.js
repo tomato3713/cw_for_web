@@ -2322,9 +2322,6 @@ if (call_type == 'DX') {
 const delcall = () => {
 	g_calldata.splice(g_calldata.length - 1, g_calldata);
 }
-const RadioButton_changed = (e) => {
-	loadText(e.target.value);
-}
 const keyboardButtonCheck = (e) => {
 	const target = e.target;
 	if(target.value != ""){
@@ -2352,11 +2349,21 @@ const ClickOnDel = () => {
 const selectCallsign = () => {
 	document.getElementById('PlayButton').disabled = true;
 
-	const preans = document.getElementById('Result_Now').value;
-	if( preans.charAt(0) != 'W' ) { // 直前の符号を聞き取れているならば
+	if(g_repeat_wrong_signal) {
+		const preans = document.getElementById('Result_Now').value;
+		if( preans.charAt(0) == 'R') { // 直前の符号を聞き取れているならば
+			const row = Math.floor(Math.random() * (g_calldata.length));
+			g_anscall = String(g_calldata[row]);
+		}
+	} else {
 		const row = Math.floor(Math.random() * (g_calldata.length));
 		g_anscall = String(g_calldata[row]);
-	} else {
+	}
+
+	// add DE
+	g_anscall = g_anscall.replace(/^DE /y, '$`');
+	if( g_addDe ) {
+		g_anscall = String('DE ' + g_anscall);
 	}
 
 	const time = cw_start(g_anscall);
@@ -2365,9 +2372,9 @@ const selectCallsign = () => {
 }
 const answerCheck = () => {
 	const urAns = new String(document.getElementById("Box").value.toUpperCase());
-	const ans = new String(g_anscall);
+	const ans = g_anscall.replace(/^DE /y, '$`');
 
-	let match_result = g_anscall.length;
+	let match_result = ans.length;
 	let result_dif = new Array();
 	for (let i = 0; i <= ans.length - 1 && i <= urAns.length - 1; i++) {
 		//check answer
@@ -2391,7 +2398,7 @@ const answerCheck = () => {
 	}
 	document.getElementById('Box').value = '';
 
-	document.getElementById('History').value += '\n' + g_anscall + '-' + urAns;
+	document.getElementById('History').value += '\n' + ans + '-' + urAns;
 	document.getElementById('PlayButton').disabled = false;
 	document.getElementById('AnswerButton').disabled = true;
 }
@@ -2416,7 +2423,9 @@ const keyDown = (e) => {
 const initAddEvent = () => {
 	document.getElementById('PlayButton').addEventListener('click', selectCallsign, false);
 	document.getElementById('key').addEventListener('click', keyboardButtonCheck, false);
-	document.getElementById('radioButton').addEventListener('click', RadioButton_changed, false);
+	document.getElementById('radioButton_log').addEventListener('click', (e) =>{ loadText(e.target.value); }, false);
+	document.getElementById('checkbox_addDe').addEventListener('click', () => { g_addDe = !g_addDe; }, false);
+	document.getElementById('checkbox_rws').addEventListener('click', () => { g_repeat_wrong_signal = !g_repeat_wrong_signal; }, false);
 	document.getElementById('AnswerButton').addEventListener('click', answerCheck);
 
 	if(
@@ -2439,5 +2448,7 @@ const initData = () => {
 }
 let g_calldata = new Array;
 let g_anscall = new String;
+let g_addDe = false;
+let g_repeat_wrong_signal = true;
 initAddEvent();
 initData();

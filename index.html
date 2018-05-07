@@ -15,7 +15,7 @@
 			<h1 class="title-h1">CW WEB RUNNER</h1>
 			<button type="button" id="PlayButton">Play</button>
 			<button type="button" id="AnswerButton">Answer</button>
-			<input type="text" id="Result_Now" value='_' size="10" readonly>
+			<input type="text" id="Result_Now" value='Right or Wrong' size="10" readonly>
 			<br>
 			<span>Right <input type="text" id="RightCount" value=0 size="3" readonly> </span>
 			<span>Wrong <input type="text" id="WrongCount" value=0 size="3" readonly> </span>
@@ -76,7 +76,7 @@
 		-->
 		<span>
 			<div>type</div>
-			<span id="radioButton">
+			<span id="radioButton_log">
 				<input type="radio" name="logType" value="DX">World
 				<input type="radio" name="logType" value="Ja" checked>Japan
 				<input type="radio" name="logType" value="Basic">Basic
@@ -84,6 +84,10 @@
 			<br>
 			<p>speed<input type="number" id="Speed" class="subbox" value="25" inputmode="numetic"></p>
 			<p>Freq<input type="number" id="Freq" class="subbox" value="500" inputmode="numetic"></p>
+			<p>
+				<input type="checkbox" name="addDe" id="checkbox_addDe" value="addDe">Add De
+				<input type="checkbox" name="repeat_wrong_signal" id="checkbox_rws" value="repeat_wrong_signal" checked>repeat wrong signal
+			</p>
 			<textarea id="History" class="subbox big" readonly>History of Training in the time.</textarea>
 			<br>
 			<a href="./cwTutor.html" >CW TUTOR FOR WEB</a>
@@ -103,7 +107,8 @@
 			2018/03/23 リファクタリング<br/>
 			2018/04/17 末尾がポータブルのみ再生される問題を解決<br />
 			デフォルトで再生される符号をJaコールに変更<br/>
-			PCでの操作性を向上
+			PCでの操作性を向上<br/>
+			2018/05/07 間違えた符号を繰り返し再生、deを初めに再生する機能を追加<br/>
 		</footer>
 		<script type="text/javascript" src=".\common.js"></script>
 		<script type="text/javascript" src=".\runner.js"></script>

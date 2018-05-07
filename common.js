@@ -309,7 +309,7 @@ const cw_start = ( str ) => {
 
 		//Number
 		//0の時は頂点を5回鳴らす
-		if (call[column] == 0) {
+		if (call[column] === '0') {
 			gainNode.gain.setValueAtTime(10, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 
@@ -1053,65 +1053,29 @@ const cw_start = ( str ) => {
 			gainNode.gain.setValueAtTime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] == '\u30FC'){ // ー
+		if(call[column] == '\u30fc'){ // ー
 			// .--.-
-			gainNode.gain.setValueAtTime(10, time);
-			gainNode.gain.setValueAtTime(0, time += signal_duration);
+			gainnode.gain.setvalueattime(10, time);
+			gainnode.gain.setvalueattime(0, time += signal_duration);
 
-			gainNode.gain.setValueAtTime(10, time += signal_duration);
-			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
+			gainnode.gain.setvalueattime(10, time += signal_duration);
+			gainnode.gain.setvalueattime(0, time += signal_duration * 3);
 
-			gainNode.gain.setValueAtTime(10, time += signal_duration);
-			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
+			gainnode.gain.setvalueattime(10, time += signal_duration);
+			gainnode.gain.setvalueattime(0, time += signal_duration * 3);
 
-			gainNode.gain.setValueAtTime(10, time += signal_duration);
-			gainNode.gain.setValueAtTime(0, time += signal_duration);
+			gainnode.gain.setvalueattime(10, time += signal_duration);
+			gainnode.gain.setvalueattime(0, time += signal_duration);
 
-			gainNode.gain.setValueAtTime(10, time += signal_duration);
-			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
-		}
-		if(call[column] == '('){
-			// -.--.-
-			gainNode.gain.setValueAtTime(10, time);
-			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
-
-			gainNode.gain.setValueAtTime(10, time += signal_duration);
-			gainNode.gain.setValueAtTime(0, time += signal_duration);
-
-			gainNode.gain.setValueAtTime(10, time += signal_duration);
-			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
-
-			gainNode.gain.setValueAtTime(10, time += signal_duration);
-			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
-
-			gainNode.gain.setValueAtTime(10, time += signal_duration);
-			gainNode.gain.setValueAtTime(0, time += signal_duration);
-
-			gainNode.gain.setValueAtTime(10, time += signal_duration);
+			gainnode.gain.setvalueattime(10, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] == ')'){
-			// .-..-.
-			gainNode.gain.setValueAtTime(10, time);
-			gainNode.gain.setValueAtTime(0, time += signal_duration);
-
-			gainNode.gain.setValueAtTime(10, time += signal_duration);
-			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
-
-			gainNode.gain.setValueAtTime(10, time += signal_duration);
-			gainNode.gain.setValueAtTime(0, time += signal_duration);
-
-			gainNode.gain.setValueAtTime(10, time += signal_duration);
-			gainNode.gain.setValueAtTime(0, time += signal_duration);
-
-			gainNode.gain.setValueAtTime(10, time += signal_duration);
-			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
-
-			gainNode.gain.setValueAtTime(10, time += signal_duration);
-			gainNode.gain.setValueAtTime(0, time += signal_duration);
+		if(call[column] == '\u0020' ) { // 半角空白
+			time += signal_duration * 7;
+		} else {
+			//符号と符号の間の空白短点三個分
+			time += signal_duration * 3;
 		}
-		//符号と符号の間の空白短点三個分
-		time += signal_duration * 3;
 	}
 	time -= signal_duration * 3;
 	oscNode.start();
