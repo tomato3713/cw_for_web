@@ -1,6 +1,6 @@
 "use strict";
 const loadText = (call_type) => {
-	if (call_type == 'Basic') {
+	if (call_type === 'Basic') {
 		g_calldata = [
 			['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G'],
 			['H'], ['I'], ['J'], ['K'], ['L'], ['M'], ['N'],
@@ -10,7 +10,7 @@ const loadText = (call_type) => {
 			['6'], ['7'], ['8'], ['9'], ['0']
 		];
 	}
-	if (call_type == 'Ja') {
+	if (call_type === 'Ja') {
 		g_calldata = [
 			['JA1ZGP'],
 			['JH1XEX'],
@@ -2016,7 +2016,7 @@ const loadText = (call_type) => {
 			['JA2KSJ']
 		];
 }
-if (call_type == 'DX') {
+if (call_type === 'DX') {
 	g_calldata = [
 		['EI1JK'],
 		['KD7RFZ'],
@@ -2325,7 +2325,7 @@ const delcall = () => {
 const keyboardButtonCheck = (e) => {
 	const target = e.target;
 	if(target.value != ""){
-		if (target.value == "del") {
+		if (target.value === "del") {
 			ClickOnDel();
 		} else {
 			ClickOn(target.value);
@@ -2334,7 +2334,7 @@ const keyboardButtonCheck = (e) => {
 }
 const ClickOn = (key) => {
 	let Enter_Call = new Array(document.getElementById("Box").value);
-	if ( Enter_Call[0] == '' ){
+	if ( Enter_Call[0] === '' ){
 		Enter_Call[0] = key;
 	} else {
 		Enter_Call.push(key);
@@ -2351,7 +2351,7 @@ const selectCallsign = () => {
 
 	if(g_repeat_wrong_signal) {
 		const preans = document.getElementById('Result_Now').value;
-		if( preans.charAt(0) == 'R') { // 直前の符号を聞き取れているならば
+		if( preans.charAt(0) === 'R') { // 直前の符号を聞き取れているならば
 			const row = Math.floor(Math.random() * (g_calldata.length));
 			g_anscall = String(g_calldata[row]);
 		}
@@ -2378,7 +2378,7 @@ const answerCheck = () => {
 	let result_dif = new Array();
 	for (let i = 0; i <= ans.length - 1 && i <= urAns.length - 1; i++) {
 		//check answer
-		if (ans.charAt(i) == urAns.charAt(i)) {
+		if (ans.charAt(i) === urAns.charAt(i)) {
 			result_dif[i] = '〇';
 			match_result--;
 		} else {
@@ -2386,7 +2386,7 @@ const answerCheck = () => {
 		}
 	}
 
-	if (match_result == 0) {
+	if (match_result === 0) {
 		document.getElementById("Result_Now").value = 'R_' + result_dif;
 		const right_counter = parseInt(document.getElementById("RightCount").value);
 		document.getElementById("RightCount").value = right_counter + 1;
@@ -2405,12 +2405,12 @@ const answerCheck = () => {
 // if you use pc, register to event listener.
 const keyDown = (e) => {
 	const keyCode = e.keyCode;
-	if ( keyCode == 13 ) { // Enter key
+	if ( keyCode === 13 ) { // Enter key
 		document.getElementById('AnswerButton').click();
 		document.getElementById('PlayButton').click();
 		document.getElementById('Box').focus();
 	}
-	if( keyCode == 27 ) { // ESC key
+	if( keyCode === 27 ) { // ESC key
 		cw_stop();
 		document.getElementById('Box').value = "";
 		document.getElementById('Result_Now').value = "_";
