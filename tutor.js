@@ -3,7 +3,9 @@
 const play_all = () => {
 	if ( document.getElementById("Box").value !=  '' ) {
 		const call = document.getElementById("Box").value.split('');
-		cw_start(call);
+		const freq = document.getElementById('Freq').value;
+		const speed = document.getElementById("Speed").value
+		cw_start(call, freq, speed);
 	}
 }
 //delとナンバーアルファベットキーのどちらが入力されたのか判断する。
@@ -13,8 +15,10 @@ const keyboardButtonCheck = (e) => {
       if (target.value === "del") {
           ClickOnDel();
       } else {
-          ClickOn(target.value);
-		  cw_start(target.value);
+		  ClickOn(target.value);
+		  const freq = document.getElementById('Freq').value;
+		  const speed = document.getElementById("Speed").value
+		  cw_start(target.value, freq, speed);
       }
     }
 }

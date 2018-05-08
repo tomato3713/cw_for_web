@@ -2,7 +2,7 @@
 let context;
 let oscNode;
 
-const cw_start = ( str ) => {
+const cw_start = ( str, freq, speed ) => {
 	// call を一文字に分割する
 	if( context === undefined ) {
 		try {
@@ -24,11 +24,10 @@ const cw_start = ( str ) => {
 	const stime= context.currentTime;
 	let time = context.currentTime;
 	oscNode.type = 'sine';
-	const freq = document.getElementById('Freq').value;
 	oscNode.frequency.setValueAtTime(freq, time);
 
 	//短点の長さを取得する。
-	const signal_duration = (parseInt(document.getElementById("Speed").value) / 500) ;
+	const signal_duration = (parseInt(speed) / 500) ;
 
 	for (let column = 0; column < call.length; column++) {
 		//alphabet

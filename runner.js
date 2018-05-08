@@ -2366,7 +2366,9 @@ const selectCallsign = () => {
 		g_anscall = String('DE ' + g_anscall);
 	}
 
-	const time = cw_start(g_anscall);
+	const freq = document.getElementById('Freq').value;
+	const speed = document.getElementById("Speed").value
+	const time = cw_start(g_anscall, freq, speed);
 
 	setTimeout(() => { document.getElementById('AnswerButton').disabled = false; }, time * 1000);
 }
