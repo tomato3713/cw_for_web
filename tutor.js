@@ -9,8 +9,8 @@ const play_all = () => {
 //delとナンバーアルファベットキーのどちらが入力されたのか判断する。
 const keyboardButtonCheck = (e) => {
     const target = e.target;
-    if(target.type == 'button' && target.value != ""){
-      if (target.value == "del") {
+    if(target.type === 'button' && target.value != ""){
+      if (target.value === "del") {
           ClickOnDel();
       } else {
           ClickOn(target.value);
@@ -24,7 +24,7 @@ const keyboardButtonCheck = (e) => {
 const ClickOn = (key) => {
     let Enter_Call = new Array(document.getElementById("Box").value);
     //add the char clicked
-    if ( Enter_Call[0] == '' ){
+    if ( Enter_Call[0] === '' ){
         //not existed first char.
         Enter_Call[0] = key;
     } else {
@@ -47,10 +47,10 @@ const ClickOnDel = () => {
 const keyDown = (e) => {
 	// get key code
 	const keyCode = e.keyCode;
-	if ( keyCode == 13 ) { // Enter key
+	if ( keyCode === 13 ) { // Enter key
 		document.getElementById('PlayButton').click();
 	}
-	if( keyCode == 27 ) { // ESC key
+	if( keyCode === 27 ) { // ESC key
 		cw_stop();
 	}
 }

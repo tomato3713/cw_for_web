@@ -4,7 +4,7 @@ let oscNode;
 
 const cw_start = ( str ) => {
 	// call を一文字に分割する
-	if( context == undefined ) {
+	if( context === undefined ) {
 		try {
 			window.AudioContext =
 				window.AudioContext || window.webkitAudioContext;
