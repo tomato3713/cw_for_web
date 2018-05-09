@@ -532,7 +532,7 @@ const cw_start = ( str, freq, speed ) => {
 			gainNode.gain.setValueAtTime(1.0, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] === '\u31.0'){ // さ
+		if(call[column] === '\u3055'){ // さ
 			// -.-.-
 			gainNode.gain.setValueAtTime(1.0, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -782,7 +782,7 @@ const cw_start = ( str, freq, speed ) => {
 			gainNode.gain.setValueAtTime(1.0, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
 		}
-		if(call[column] === '\u31.0'){ // ふ
+		if(call[column] === '\u3075'){ // ふ
 			// --..
 			gainNode.gain.setValueAtTime(1.0, time);
 			gainNode.gain.setValueAtTime(0, time += signal_duration * 3);
@@ -1052,7 +1052,7 @@ const cw_start = ( str, freq, speed ) => {
 			gainNode.gain.setValueAtTime(1.0, time += signal_duration);
 			gainNode.gain.setValueAtTime(0, time += signal_duration);
 		}
-		if(call[column] === '\u30fc'){ // ー
+		if(call[column] === '\u30FC'){ // ー
 			// .--.-
 			gainnode.gain.setvalueattime(1.0, time);
 			gainnode.gain.setvalueattime(0, time += signal_duration);
