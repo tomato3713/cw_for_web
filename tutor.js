@@ -4,7 +4,7 @@ const play_all = () => {
 	if ( document.getElementById("Box").value !=  '' ) {
 		const call = document.getElementById("Box").value.split('');
 		const freq = document.getElementById('Freq').value;
-		const speed = document.getElementById("Speed").value
+		const speed = document.getElementById("Speed").value / 1000;
 		cw_start(call, freq, speed);
 	}
 }
@@ -17,7 +17,7 @@ const keyboardButtonCheck = (e) => {
       } else {
 		  ClickOn(target.value);
 		  const freq = document.getElementById('Freq').value;
-		  const speed = document.getElementById("Speed").value
+		  const speed = document.getElementById("Speed").value / 1000;
 		  cw_start(target.value, freq, speed);
       }
     }

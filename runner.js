@@ -2367,7 +2367,7 @@ const selectCallsign = () => {
 	}
 
 	const freq = document.getElementById('Freq').value;
-	const speed = document.getElementById("Speed").value
+	const speed = document.getElementById("Speed").value / 1000;
 	const time = cw_start(g_anscall, freq, speed);
 
 	setTimeout(() => { document.getElementById('AnswerButton').disabled = false; }, time * 1000);

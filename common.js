@@ -27,7 +27,7 @@ const cw_start = ( str, freq, speed ) => {
 	oscNode.frequency.setValueAtTime(freq, time);
 
 	//短点の長さを取得する。
-	const signal_duration = (parseInt(speed) / 500) ;
+	const signal_duration = speed;
 
 	for (let column = 0; column < call.length; column++) {
 		//alphabet

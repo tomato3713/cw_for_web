@@ -82,8 +82,8 @@
 				<input type="radio" name="logType" value="Basic">Basic
 			</span>
 			<br>
-			<p>speed<input type="number" id="Speed" class="subbox" value="25" inputmode="numetic"></p>
-			<p>Freq<input type="number" id="Freq" class="subbox" value="500" inputmode="numetic"></p>
+			<p>Speed(ms)<input type="number" id="Speed" class="subbox" value="50" inputmode="numetic"></p>
+			<p>Freq(Hz)<input type="number" id="Freq" class="subbox" value="500" inputmode="numetic"></p>
 			<p>
 				<input type="checkbox" name="addDe" id="checkbox_addDe" value="addDe">Add De
 				<input type="checkbox" name="repeat_wrong_signal" id="checkbox_rws" value="repeat_wrong_signal" checked>repeat wrong signal
@@ -98,6 +98,7 @@
 			<li>playボタンをタップする</li>
 			<li>CWの符号が流れるので聞き取り、キーボードで入力する。</li>
 			<li>Answerボタンをタップして答え合わせをする。</li>
+			<li>Speedは短点の長さを表す。単位はミリ秒です。</li>
 		</ol>
 		<footer>
 			2017/06/19 made basic mode.<br/>
@@ -109,6 +110,7 @@
 			デフォルトで再生される符号をJaコールに変更<br/>
 			PCでの操作性を向上<br/>
 			2018/05/07 間違えた符号を繰り返し再生、deを初めに再生する機能を追加<br/>
+			2018/05/13 速度の表記を変更、短点の長さ単位はミリ秒にした。
 		</footer>
 		<script type="text/javascript" src=".\common.js"></script>
 		<script type="text/javascript" src=".\runner.js"></script>
