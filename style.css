@@ -1,41 +1,21 @@
 * {
     text-align: center;
-    margin-top: 0.5em;
-	margin-bottom: 0.5em;
-    margin-left: auto;
-    margin-right: auto;
 }
-.keyboard {
-    max-width:100%;
-    height: auto;
-}
-.keyboard > td > input{
-    vertical-align: auto;
-    padding: 5px 3px;
-    margin: 2px auto;
+.keyboard > input{
+    margin: 5px;
 }
 .callsign {
     text-align: left;
-    text-align-last: left;
 	text-transform:uppercase;
 }
-button {
-    font-size: x-large;
-    height: 1.5em;
+.ctl_button {
+    height: 2em;
     width: 100%;
 }
-
-ol{
-    vertical-align: middle;
-    list-style: none;
-}
-
 .subbox{
     size: 3;
 }
-
 .big {
-    line-height: auto;
     vertical-align: top;
     height: 20em;
 }
