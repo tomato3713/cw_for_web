@@ -2363,7 +2363,7 @@ const selectCallsign = () => {
 	// add DE
 	g_anscall = g_anscall.replace(/^DE /y, '$`');
 	if( g_addDe ) {
-		g_anscall = String('DE ' + g_anscall);
+		g_anscall = String(`DE ${g_anscall}`);
 	}
 
 	const freq = document.getElementById('Freq').value;
@@ -2389,18 +2389,18 @@ const answerCheck = () => {
 	}
 
 	if (match_result === 0) {
-		document.getElementById("Result_Now").value = 'R_' + result_dif;
+		document.getElementById("Result_Now").value = `R_${result_dif}`;
 		const right_counter = parseInt(document.getElementById("RightCount").value);
 		document.getElementById("RightCount").value = right_counter + 1;
 	}
 	if (match_result != 0) {
-		document.getElementById("Result_Now").value = 'W_' + result_dif;
+		document.getElementById("Result_Now").value = `W_${result_dif}`;
 		const wrong_counter = parseInt(document.getElementById("WrongCount").value);
 		document.getElementById("WrongCount").value = wrong_counter + 1;
 	}
 	document.getElementById('Box').value = '';
 
-	document.getElementById('History').value += '\n' + ans + '-' + urAns;
+	document.getElementById('History').value += `\n${ans}-${urAns}`;
 	document.getElementById('PlayButton').disabled = false;
 	document.getElementById('AnswerButton').disabled = true;
 }
