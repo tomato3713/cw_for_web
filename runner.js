@@ -2423,6 +2423,10 @@ const keyDown = (e) => {
 
 //イベントリスナーに関数を登録する。
 const initAddEvent = () => {
+	// If support service worker, register service-worker.js
+	if('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('./service-worker.js').then(() => {console.log('Service Worker Registered.');});
+	}
 	document.getElementById('PlayButton').addEventListener('click', selectCallsign, false);
 	document.getElementById('key').addEventListener('click', keyboardButtonCheck, false);
 	document.getElementById('radioButton_log').addEventListener('click', (e) =>{ loadText(e.target.value); }, false);

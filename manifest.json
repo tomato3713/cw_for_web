@@ -1,0 +1,14 @@
+{
+	"name": "CW Runner For Web",
+	"short_name": "CW Runner",
+	"background_color": "#0cebfc",
+	"icons": [
+		{
+			"src": "./img/icon/144.png",
+			"sizes": "144x144",
+			"type": "image/png"
+		}
+	],
+	"start_url": "/",
+	"display": "standalone"
+}
