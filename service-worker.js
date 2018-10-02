@@ -3,12 +3,13 @@
 const CACHE_NAME = 'cache-v1';
 const urlsToCache = [
 	'./',
-	'./img/icons/144.png'
+	'./img/icon/144.png'
 ];
 
 self.addEventListener('install', (event) => {
 	event.waitUntil(
-		caches.open(CACHE_NAME).then((cache) => {
+		caches.open(CACHE_NAME)
+		.then((cache) => {
 			console.log('Opened cache');
 
 			// Add resources to caches
@@ -36,31 +37,32 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
 	event.respondWith(
-		caches.match(event.request).then(
-			(response) => {
-				if(response) {
-					return response;
-				}
+		caches.match(event.request)
+		.then((response) => {
+			if(response) {
+				return response;
+			}
 
-				// Clone request
-				let fetchRequest = event.request.clone();
+			// Clone request For browser
+			let fetchRequest = event.request.clone();
 
-				return fetch(fetchRequest)
-					.then((response) => {
-						if(!response || response.status !== 200 || response.type !== 'basic') {
-							return response;
-						}
-
-						// Clone response
-						let responseToCache = response.clone();
-
-						caches.open(CACHE_NAME)
-							.then((cache) => {
-								cache.put(event.request, responseToCache);
-							});
-
+			return fetch(fetchRequest)
+				.then((response) => {
+					// Check if Response is right
+					if(!response || response.status !== 200 || response.type !== 'basic') {
 						return response;
-					});
-			})
+					}
+
+					// Clone response For Cache
+					let responseToCache = response.clone();
+
+					caches.open(CACHE_NAME)
+						.then((cache) => {
+							cache.put(event.request, responseToCache);
+						});
+
+					return response;
+				});
+		})
 	);
 });

@@ -2425,8 +2425,15 @@ const keyDown = (e) => {
 const initAddEvent = () => {
 	// If support service worker, register service-worker.js
 	if('serviceWorker' in navigator) {
-		navigator.serviceWorker.register('./service-worker.js').then(() => {console.log('Service Worker Registered.');});
+		navigator.serviceWorker.register('./service-worker.js')
+			.then((registration) => {
+				console.log('Service Worker Registered.');
+			})
+			.catch((err) => {
+				console.log('Service Worker Registration failed: ', err);
+			});
 	}
+
 	document.getElementById('PlayButton').addEventListener('click', selectCallsign, false);
 	document.getElementById('key').addEventListener('click', keyboardButtonCheck, false);
 	document.getElementById('radioButton_log').addEventListener('click', (e) =>{ loadText(e.target.value); }, false);
