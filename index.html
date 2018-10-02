@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="author" content="jj1hgp" />
@@ -17,12 +17,12 @@
 			<h1 class="title-h1">CW WEB RUNNER</h1>
 			<button type="button" class="ctl_button" id="PlayButton">Play</button>
 			<button type="button" class="ctl_button" id="AnswerButton">Answer</button>
-			<input type="text" id="Result_Now" value='Right or Wrong' size="10" readonly>
+			<input type="text" id="Result_Now" value='Right or Wrong' size="10" readonly/>
 			<br>
-			<span>Right <input type="text" id="RightCount" value=0 size="3" readonly> </span>
-			<span>Wrong <input type="text" id="WrongCount" value=0 size="3" readonly> </span>
+			<span>Right <input type="text" id="RightCount" value=0 size="3" readonly/> </span>
+			<span>Wrong <input type="text" id="WrongCount" value=0 size="3" readonly/> </span>
 			<br>
-			<input type="text" id="Box" class="callsign" value="">
+			<input type="text" id="Box" class="callsign" value=""/>
 			<br/>
 		</span>
 		<!--
@@ -78,16 +78,16 @@
 		<span>
 			<div>type</div>
 			<span id="radioButton_log">
-				<input type="radio" name="logType" value="DX">World
-				<input type="radio" name="logType" value="Ja" checked>Japan
-				<input type="radio" name="logType" value="Basic">Basic
+				<input type="radio" name="logType" value="DX"/>World
+				<input type="radio" name="logType" value="Ja" checked/>Japan
+				<input type="radio" name="logType" value="Basic"/>Basic
 			</span>
 			<br>
-			<p>Speed(ms)<input type="number" id="Speed" class="subbox" value="50" inputmode="numetic"></p>
-			<p>Freq(Hz)<input type="number" id="Freq" class="subbox" value="500" inputmode="numetic"></p>
+			<p>Speed(ms)<input type="number" id="Speed" class="subbox" value="50" inputmode="numetic"/></p>
+			<p>Freq(Hz)<input type="number" id="Freq" class="subbox" value="500" inputmode="numetic"/></p>
 			<p>
-				<input type="checkbox" name="addDe" id="checkbox_addDe" value="addDe">Add De
-				<input type="checkbox" name="repeat_wrong_signal" id="checkbox_rws" value="repeat_wrong_signal" checked>repeat wrong signal
+				<input type="checkbox" name="addDe" id="checkbox_addDe" value="addDe"/>Add De
+				<input type="checkbox" name="repeat_wrong_signal" id="checkbox_rws" value="repeat_wrong_signal" checked/>repeat wrong signal
 			</p>
 			<textarea id="History" class="subbox big" readonly>History of Training in the time.</textarea>
 			<br>
