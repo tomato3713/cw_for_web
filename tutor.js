@@ -2,7 +2,7 @@
 //textBox, id:Boxに書かれている文字列のモールス符号を再生する
 const play_all = () => {
 	if ( document.getElementById("Box").value !=  '' ) {
-		const call = document.getElementById("Box").value.split('');
+		const call = document.getElementById("Box").value.toUpperCase().split('');
 		const freq = document.getElementById('Freq').value;
 		const speed = document.getElementById("Speed").value / 1000;
 		cw_start(call, freq, speed);
