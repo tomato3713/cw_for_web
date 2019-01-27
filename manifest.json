@@ -1,28 +1,28 @@
 {
-	"name": "CW Web Runner",
-	"short_name": "CW Runner",
+    "name": "CW Web Runner",
+    "short_name": "CW Runner",
     "description": "このアプリはモールス符号の聞き取り練習をするために役立ちます。",
-	"start_url": ."/",
-	"display": "standalone",
+    "start_url": "/",
+    "display": "standalone",
 
-	"background_color": "#0cebfc",
-	"theme_color": "#0cebfc",
+    "background_color": "#0cebfc",
+    "theme_color": "#0cebfc",
 
-	"icons": [
-		{
-			"src": "./img/icon/144.png",
-			"sizes": "144x144",
-			"type": "image/png"
-		},
-		{
-			"src": "./img/icon/192.png",
-			"sizes": "192x192",
-			"type": "image/png"
-		},
-		{
-			"src": "./img/icon/512.png",
-			"sizes": "512x512",
-			"type": "image/png"
-		}
-	]
+    "icons": [
+        {
+            "src": "./img/icon/144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "./img/icon/192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "./img/icon/512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
 }
