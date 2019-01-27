@@ -38,4 +38,4 @@ PCで使用する場合はEnter keyを押すことで再生、答え合わせが
 
 回答履歴はページの一番下にあるテキストボックス中に記録されていきます。
 
-こちら[CW WEB RUNNER](https://homedm.github.io/cw_for_web/ "CW_FOR_WEB"), [CW TUTOR FOR WEB](https://homedm.github.io/cw_for_web/cwTutor.html)をブラウザで開けば使用できます。
+こちら[CW WEB RUNNER](https://homedm.eim.world/cw_for_web/ "CW_FOR_WEB"), [CW TUTOR FOR WEB](https://homedm.eim.world/cw_for_web/cwTutor.html)をブラウザで開けば使用できます。

@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_NAME = 'cache-v2';
+const CACHE_NAME = 'cache-v3';
 const urlsToCache = [
 	'./',
 	'./img/icon/144.png',

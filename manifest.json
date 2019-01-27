@@ -20,6 +20,6 @@
 			"type": "image/png"
 		}
 	],
-	"start_url": "https://homedm.github.io/cw_for_web/",
+	"start_url": "/cw_for_web",
 	"display": "standalone"
 }
