@@ -1,11 +1,15 @@
 "use strict";
 
-const CACHE_NAME = 'cache-v3';
+const CACHE_NAME = 'cache-v4';
 const urlsToCache = [
 	'./',
 	'./img/icon/144.png',
 	'./img/icon/192.png',
-	'./img/icon/512.png'
+	'./img/icon/512.png',
+    './img/circle.png',
+    './img/cross.png',
+    './img/frame.png',
+    './img/question-mark.png'
 ];
 
 self.addEventListener('install', (event) => {

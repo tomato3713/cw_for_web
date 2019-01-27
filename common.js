@@ -1077,6 +1077,9 @@ const cw_start = ( str, freq, speed ) => {
 		}
 	}
 	time -= signal_duration * 3;
+    if (time < 0) {
+        time = 0;
+    }
 	oscNode.start();
 	oscNode.stop(time);
 	return time - stime;

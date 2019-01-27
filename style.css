@@ -23,3 +23,19 @@
 	display:none;
 	pointer-events:none;
 }
+
+.item {
+    display: flex;
+    /* flex-wrap: nowrap; */
+    justify-content:center;
+    align-items: center;
+    height: 5em;
+}
+.item-image {
+}
+.item-text {
+    flex-wrap:wrap;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+}

@@ -2350,8 +2350,8 @@ const selectCallsign = () => {
 	document.getElementById('PlayButton').disabled = true;
 
 	if(g_repeat_wrong_signal) {
-		const preans = document.getElementById('Result_Now').value;
-		if( preans.charAt(0) === 'R') { // 直前の符号を聞き取れているならば
+		const pre_ans = document.getElementById('Result_Now').alt;
+        if( pre_ans != 'wrong' ) { // 直前の符号を聞き取れているならば
 			const row = Math.floor(Math.random() * (g_calldata.length));
 			g_anscall = String(g_calldata[row]);
 		}
@@ -2389,12 +2389,14 @@ const answerCheck = () => {
 	}
 
 	if (match_result === 0) {
-		document.getElementById("Result_Now").value = `R_${result_dif}`;
+		document.getElementById("Result_Now").src = "img/circle.png";
+        document.getElementById("Result_Now").alt = "right";
 		const right_counter = parseInt(document.getElementById("RightCount").value);
 		document.getElementById("RightCount").value = right_counter + 1;
 	}
 	if (match_result != 0) {
-		document.getElementById("Result_Now").value = `W_${result_dif}`;
+		document.getElementById("Result_Now").src = "img/cross.png";
+        document.getElementById("Result_Now").alt = "wrong";
 		const wrong_counter = parseInt(document.getElementById("WrongCount").value);
 		document.getElementById("WrongCount").value = wrong_counter + 1;
 	}
@@ -2416,7 +2418,7 @@ const keyDown = (e) => {
 	if( keyCode === 27 ) { // ESC key
 		cw_stop();
 		document.getElementById('Box').value = "";
-		document.getElementById('Result_Now').value = "_";
+		document.getElementById('Result_Now').src = "img/question-mark.png";
 		document.getElementById('PlayButton').disabled = false;
 		document.getElementById('AnswerButton').disabled = true;
 	}
