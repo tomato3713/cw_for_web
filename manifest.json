@@ -2,8 +2,6 @@
     "name": "CW Web Runner",
     "short_name": "CW Runner",
     "description": "このアプリはモールス符号の聞き取り練習をするために役立ちます。",
-    "start_url": "/",
-    "display": "standalone",
 
     "background_color": "#0cebfc",
     "theme_color": "#0cebfc",
@@ -24,5 +22,8 @@
             "sizes": "512x512",
             "type": "image/png"
         }
-    ]
+    ],
+
+    "start_url": "/",
+    "display": "standalone"
 }
