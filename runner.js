@@ -2408,6 +2408,7 @@ const answerCheck = () => {
 const keyDown = (e) => {
 	const keyCode = e.keyCode;
 	if ( keyCode === 13 ) { // Enter key
+        document.getElementById('Box').placeholder="Enter the code you heard";
 		document.getElementById('AnswerButton').click();
 		document.getElementById('PlayButton').click();
 		document.getElementById('Box').focus();
