@@ -39,3 +39,48 @@
     align-content:center;
     align-items:center;
 }
+
+.tooltip {
+    position: relative;
+    cursor: pointer;
+}
+
+.description {
+    display: none;
+    position: absolute;
+    padding:10px;
+    font-size:80%;
+    line-height: 1.6em;
+    color: #fff;
+    border-radius:5px;
+    background: #000;
+}
+
+.description-down:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    margin-left: -15px;
+    transform: rotateZ(180deg);
+}
+
+.tooltip:hover .description-down {
+    display: inline-block;
+    top: 45px;
+    left: 50px;
+}
+
+.description-up:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 90%;
+    margin-left: 15px;
+}
+
+.tooltip:hover .description-up {
+    display: inline-block;
+    top: -60px;
+    left: 100px;
+}

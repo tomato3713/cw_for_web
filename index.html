@@ -25,9 +25,15 @@
 	<body>
 		<span>
 			<h1 class="title-h1">CW WEB RUNNER</h1>
-			<button type="button" class="ctl_button" id="PlayButton">Play</button>
-			<button type="button" class="ctl_button" id="AnswerButton">Answer</button>
-			<!-- <input type="text" id="Result_Now" value='Right or Wrong' size="10" readonly/> -->
+            <div class="tooltip">
+                <input type="button" class="ctl_button" id="PlayButton" value="Play">
+                <div class="description-up description">Click or press enter key to play the Morse code.</div>
+            </div>
+            <div class="tooltip">
+                <input type="button" class="ctl_button" id="AnswerButton" value="Answer">
+                <div class="description-down description">After entering the code you heard, please click or press enter key to confirm your answer.</div>
+            </div>
+            <!-- <input type="text" id="Result_Now" value='Right or Wrong' size="10" readonly/> -->
             <div class="item">
                 <img class="item-image" id="Result_Now" height="50" width="50" src="./img/question-mark.png" alt="正誤">
                 <div class="item-text"><div>Right <input type="text" id="RightCount" value=0 size="3" readonly/> </div>
