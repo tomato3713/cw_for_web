@@ -26,12 +26,15 @@
 
 	<body>
 		<span>
-			<h1 class="title-h1">CW TUTOR FOR WEB</h1>
+			<h1 class="title-h1">CW WEB TUTOR</h1>
             <div class="tooltip">
                 <input type="button" class="ctl_button" id="PlayButton" value = "PLAY">
                 <div class="description-up description">Click or press enter key to play the Morse code.</div>
             </div>
-            <input type="textbox" id="Box" class="callsign" value=""><br/>
+            <div>
+                <input type="textbox" id="Box" class="text" value="" placeholder="Write your favorite text."><br/>
+                <div class="description-down description">You can play the text in the text box by clicking the Play button or pressing Enter key.</div>
+            </div>
         </span>
         <!--
             there is the keyboard
@@ -144,16 +147,19 @@
         -->
         <footer>
             <h5>遊び方</h5>
-            <ol>
+            <ol class="usage">
                 <li>playボタンをタップすることでテキストボックスに入った文字を再生します。</li>
                 <li>キーボードのボタンをタップすることでそのキーに対応した文字を再生します。</li>
                 <li>Speedは短点の長さを表す。単位はミリ秒です。</li>
             </ol>
-            <span>
-                <a href="https://homedm.eim.world/cw_for_web">CW WEB RUNNER</a>
-                <a href="history.html">History</a>
-                <a href="https://homedm.eim.world/about.html">Contact Page</a>
-            </span>
+            <nav class="menu-list">
+                <ul>
+                    <li><a href="https://homedm.eim.world">Home</a></li>
+                    <li><a href="https://homedm.eim.world/cw_for_web">CW WEB RUNNER</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="https://homedm.eim.world/about.html">Contact</a></li>
+                </ul>
+            </nav>
         </footer>
         <script type="text/javascript" src="./common.js" charset="utf-8" ></script>
         <script type="text/javascript" src="./tutor.js" charset="utf-8"></script>
