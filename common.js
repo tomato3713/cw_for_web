@@ -2,7 +2,7 @@
 let context;
 let oscNode;
 
-const cw_start = ( str, freq, speed ) => {
+const cw_start = ( str, freq, wpm ) => {
 	// call を一文字に分割する
 	if( context === undefined ) {
 		try {
@@ -27,7 +27,7 @@ const cw_start = ( str, freq, speed ) => {
 	oscNode.frequency.setValueAtTime(freq, time);
 
 	//短点の長さを取得する。
-	const signal_duration = speed;
+	const signal_duration = 60 / ( 50 * wpm );
 
 	for (let column = 0; column < call.length; column++) {
 		//alphabet
