@@ -35,7 +35,7 @@
     height: 20em;
 }
 .notdisplay {
-    display:none;
+    visibility:hidden;
     pointer-events:none;
 }
 
