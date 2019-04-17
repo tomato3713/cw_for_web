@@ -5,7 +5,7 @@ const play_all = () => {
 		const call = document.getElementById("Box").value.toUpperCase().split('');
 		const freq = document.getElementById('Freq').value;
 		const wpm = document.getElementById("Speed").value;
-		cw_start(call, freq, wpm);
+		playMorseNode(call, freq, wpm, context.currentTime, context);
 	}
 }
 //delとナンバーアルファベットキーのどちらが入力されたのか判断する。
@@ -18,7 +18,7 @@ const keyboardButtonCheck = (e) => {
 		  ClickOn(target.value);
 		  const freq = document.getElementById('Freq').value;
 		  const wpm = document.getElementById("Speed").value;
-		  cw_start(target.value, freq, wpm);
+		  playMorseNode(target.value, freq, wpm, context.currentTime, context);
       }
     }
 }
@@ -55,7 +55,7 @@ const keyDown = (e) => {
 		document.getElementById('PlayButton').click();
 	}
 	if( keyCode === 27 ) { // ESC key
-		cw_stop();
+		stopMorse(context.currentTime);
 	}
 }
 
@@ -79,4 +79,12 @@ const initAddEvent = () => {
 	}
 }
 
+try {
+    window.AudioContext =
+        window.AudioContext || window.webkitAudioContext;
+}
+catch(e) {
+    alert('Web Audio API is not supported in this browser');
+}
+let context = new AudioContext();
 initAddEvent();

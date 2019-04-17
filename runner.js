@@ -2368,7 +2368,7 @@ const selectCallsign = () => {
 
 	const freq = document.getElementById('Freq').value;
 	const wpm = document.getElementById("Speed").value;
-	const time = cw_start(g_anscall, freq, wpm);
+	const time = playMorseNode(g_anscall, freq, wpm, context.currentTime, context);
 
 	setTimeout(() => { document.getElementById('AnswerButton').disabled = false; }, time * 1000);
 }
@@ -2416,7 +2416,7 @@ const keyDown = (e) => {
 		document.getElementById('Box').focus();
 	}
 	if( keyCode === 27 ) { // ESC key
-		cw_stop();
+		stopMorse(context.currentTime);
 		document.getElementById('Box').value = "";
 		document.getElementById('Result_Now').src = "img/question-mark.png";
 		document.getElementById('PlayButton').disabled = false;
@@ -2466,5 +2466,13 @@ let g_calldata = new Array;
 let g_anscall = new String;
 let g_addDe = false;
 let g_repeat_wrong_signal = true;
+try {
+    window.AudioContext =
+        window.AudioContext || window.webkitAudioContext;
+}
+catch(e) {
+    alert('Web Audio API is not supported in this browser');
+}
+let context = new AudioContext();
 initAddEvent();
 initData();
