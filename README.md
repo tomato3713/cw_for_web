@@ -39,3 +39,14 @@ PCで使用する場合はEnter keyを押すことで再生、答え合わせが
 回答履歴はページの一番下にあるテキストボックス中に記録されていきます。
 
 こちら[CW WEB RUNNER](https://homedm.eim.world/cw_for_web/ "CW_FOR_WEB"), [CW TUTOR FOR WEB](https://homedm.eim.world/cw_for_web/cwTutor.html)をブラウザで開けば使用できます。
+
+
+# License
+Copyright (c) 2019 Taichi Watanabe
+Released-under the MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
