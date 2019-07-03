@@ -62,21 +62,10 @@ const keyDown = (e) => {
 //イベントリスナーに関数を登録する。
 const initAddEvent = () => {
 	document.getElementById('PlayButton').addEventListener('click', play_all , false);
-	document.getElementById('key').addEventListener('click', keyboardButtonCheck, false);
+	// document.getElementById('key').addEventListener('click', keyboardButtonCheck, false);
 
-	if(
-		navigator.userAgent.indexOf('iPhone') > 0 ||
-		navigator.userAgent.indexOf('iPad') > 0 ||
-		navigator.userAgent.indexOf('iPod') > 0 ||
-		navigator.userAgent.indexOf('Android') > 0 )
-	{
-		// if you use tablet,
-	} else
-	{
-		// if you use pc,
-		// define key command
-		document.addEventListener('keydown', keyDown);
-	}
+    // define key command
+    document.addEventListener('keydown', keyDown);
 }
 
 try {

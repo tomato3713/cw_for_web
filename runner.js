@@ -2497,25 +2497,12 @@ const initAddEvent = () => {
 	}
 
 	document.getElementById('PlayButton').addEventListener('click', selectCallsign, false);
-	document.getElementById('key').addEventListener('click', keyboardButtonCheck, false);
+	// document.getElementById('key').addEventListener('click', keyboardButtonCheck, false);
 	document.getElementById('radioButton_log').addEventListener('click', (e) =>{ loadText(e.target.value); }, false);
 	document.getElementById('checkbox_addDe').addEventListener('click', () => { g_addDe = !g_addDe; }, false);
 	document.getElementById('checkbox_rws').addEventListener('click', () => { g_repeat_wrong_signal = !g_repeat_wrong_signal; }, false);
 	document.getElementById('AnswerButton').addEventListener('click', answerCheck);
-
-	if(
-		navigator.userAgent.indexOf('iPhone') > 0 ||
-		navigator.userAgent.indexOf('iPad') > 0 ||
-		navigator.userAgent.indexOf('iPod') > 0 ||
-		navigator.userAgent.indexOf('Android') > 0 )
-	{
-		// if you use tablet,
-	} else
-	{
-		// if you use pc,
-		document.addEventListener('keydown', keyDown);
-	}
-
+    document.addEventListener('keydown', keyDown);
 	document.getElementById('AnswerButton').disabled = true;
 }
 const initData = () => {
