@@ -9,7 +9,7 @@
 アマチュア無線家でCWの練習をしたい方。モールス符号に興味を持っている方。
 
 もし、要望・ご意見等あれば、下記Twitter アカウントまたは、本リポジトリの Issue までご連絡ください。
-- [homedm](https://twitter.com/retasutomato)
+- [tomato3713](https://twitter.com/tomato3713)
 
 ## 目次
 - [Future](#Future)
