@@ -3,7 +3,7 @@
 
 どんなデバイスでもcw（モールス符号）の聞き取り練習を行えるようにします。
 
-こちら[CW WEB RUNNER](https://homedm.eim.world/cw_for_web/ "CW_FOR_WEB"), [CW TUTOR FOR WEB](https://homedm.eim.world/cw_for_web/cwTutor.html)をブラウザで開けば使用できます。
+こちら[CW WEB RUNNER](https://cw.eim.world/cw_for_web/ "CW_FOR_WEB"), [CW TUTOR FOR WEB](https://cw.eim.world/cw_for_web/cwTutor.html)をブラウザで開けば使用できます。
 
 ### 対象
 アマチュア無線家でCWの練習をしたい方。モールス符号に興味を持っている方。
