@@ -2409,6 +2409,7 @@ const ClickOnDel = () => {
 const selectCallsign = () => {
     document.getElementById('PlayButton').disabled = true;
 
+    // TODO: Type変更時に即座に変更後のtypeで練習できるようにする。
     if (g_repeat_wrong_signal) {
         const pre_ans = document.getElementById('Result_Now').alt;
         if (pre_ans != 'wrong') { // 直前の符号を聞き取れているならば
