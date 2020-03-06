@@ -1,8 +1,9 @@
 "use strict";
+
 const loadText = (call_type) => {
     document.getElementById('Result_Now').alt = 'result';
     if (call_type === 'Basic') {
-        g_calldata = [
+        state.strList = [
             ['A'], ['B'], ['C'], ['D'], ['E'], ['F'], ['G'],
             ['H'], ['I'], ['J'], ['K'], ['L'], ['M'], ['N'],
             ['O'], ['P'], ['Q'], ['R'], ['S'], ['T'], ['U'],
@@ -13,7 +14,7 @@ const loadText = (call_type) => {
     }
 
     if (call_type === 'Stamp') {
-        g_calldata = [
+        state.strList = [
             // Q code
             ['QRA'],
             ['QRL'],
@@ -68,7 +69,7 @@ const loadText = (call_type) => {
     }
 
     if (call_type === 'Ja') {
-        g_calldata = [
+        state.strList = [
             ['JA1ZGP'],
             ['JH1XEX'],
             ['JG1MJZ'],
@@ -2075,7 +2076,7 @@ const loadText = (call_type) => {
     }
 
     if (call_type === 'DX') {
-        g_calldata = [
+        state.strList = [
             ['EI1JK'],
             ['KD7RFZ'],
             ['FR5DZ'],
@@ -2378,9 +2379,6 @@ const loadText = (call_type) => {
     }
 }
 
-const delcall = () => {
-    g_calldata.splice(g_calldata.length - 1, g_calldata);
-}
 const keyboardButtonCheck = (e) => {
     const target = e.target;
     if (target.value != "") {
@@ -2406,36 +2404,36 @@ const ClickOnDel = () => {
     document.getElementById("Box").value = Enter_Call.join('');
 }
 
+// Play Button
 const selectCallsign = () => {
     document.getElementById('PlayButton').disabled = true;
 
-    // TODO: Type変更時に即座に変更後のtypeで練習できるようにする。
-    if (g_repeat_wrong_signal) {
+    if (state.repeat_wrong_signal) {
         const pre_ans = document.getElementById('Result_Now').alt;
         if (pre_ans != 'wrong') { // 直前の符号を聞き取れているならば
-            const row = Math.floor(Math.random() * (g_calldata.length));
-            g_anscall = String(g_calldata[row]);
+            const row = Math.floor(Math.random() * (state.strList.length));
+            state.answer = String(state.strList[row]);
         }
     } else {
-        const row = Math.floor(Math.random() * (g_calldata.length));
-        g_anscall = String(g_calldata[row]);
+        const row = Math.floor(Math.random() * (state.strList.length));
+        state.answer = String(state.strList[row]);
     }
 
     // add DE
-    g_anscall = g_anscall.replace(/^DE /y, '$`');
-    if (g_addDe) {
-        g_anscall = String(`DE ${g_anscall}`);
+    state.answer = state.answer.replace(/^DE /y, '$`');
+    if (state.de) {
+        state.answer = String(`DE ${state.answer}`);
     }
 
     const freq = document.getElementById('Freq').value;
     const wpm = document.getElementById("Speed").value;
-    const time = playMorseNode(g_anscall, freq, wpm, context.currentTime, context);
+    const time = playMorseNode(state.answer, freq, wpm, context.currentTime, context);
 
     setTimeout(() => { document.getElementById('AnswerButton').disabled = false; }, time * 1000);
 }
 const answerCheck = () => {
     const urAns = new String(document.getElementById("Box").value.toUpperCase());
-    const ans = g_anscall.replace(/^DE /y, '$`');
+    const ans = state.answer.replace(/^DE /y, '$`');
 
     let match_result = ans.length;
     let result_dif = new Array();
@@ -2497,23 +2495,41 @@ const initAddEvent = () => {
                 console.log('Service Worker Registration failed: ', err);
             });
     }
-
     document.getElementById('PlayButton').addEventListener('click', selectCallsign, false);
-    // document.getElementById('key').addEventListener('click', keyboardButtonCheck, false);
-    document.getElementById('radioButton_log').addEventListener('click', (e) => { loadText(e.target.value); }, false);
-    document.getElementById('checkbox_addDe').addEventListener('click', () => { g_addDe = !g_addDe; }, false);
-    document.getElementById('checkbox_rws').addEventListener('click', () => { g_repeat_wrong_signal = !g_repeat_wrong_signal; }, false);
     document.getElementById('AnswerButton').addEventListener('click', answerCheck);
     document.addEventListener('keydown', keyDown);
     document.getElementById('AnswerButton').disabled = true;
+
+    // Configuration
+    document.getElementById('radioButton_log').addEventListener('change', (e) => { loadText(e.target.value); }, false);
+    document.getElementById('checkbox_addDe').addEventListener('change', () => { state.toggleDe(); }, false);
+    document.getElementById('checkbox_rws').addEventListener('change', () => { state.toggleRWS(); }, false);
 }
 const initData = () => {
     loadText('Ja');
 }
-let g_calldata = new Array;
-let g_anscall = new String;
-let g_addDe = false;
-let g_repeat_wrong_signal = true;
+
+const State = class {
+    constructor(de, rws) {
+        this.de = de;
+        this.repeat_wrong_signal = rws;
+        this.answer = new String;
+        this.strList = new Array;
+    }
+    toggleRWS() {
+        this.repeat_wrong_signal = !this.repeat_wrong_signal;
+    }
+    toggleDe() {
+        this.de = !this.de;
+    }
+}
+
+let state = new State(
+    document.getElementById('checkbox_addDe').checked,
+    document.getElementById('checkbox_rws').checked
+)
+
+
 try {
     window.AudioContext =
         window.AudioContext || window.webkitAudioContext;
