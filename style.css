@@ -37,10 +37,12 @@
 }
 .subbox{
     size: 3;
+    width: 3em;
 }
 .big {
     vertical-align: top;
     height: 20em;
+    width: 15em;
 }
 .notdisplay {
     visibility:hidden;
