@@ -10,6 +10,7 @@ const keyboardButtonCheck = (e) => {
         }
     }
 }
+
 const ClickOn = (key) => {
     let Enter_Call = new Array(document.getElementById("Box").value);
     if (Enter_Call[0] === '') {
@@ -19,80 +20,44 @@ const ClickOn = (key) => {
     }
     document.getElementById("Box").value = Enter_Call.join('');
 }
+
 const ClickOnDel = () => {
     let Enter_Call = document.getElementById("Box").value.split('');
     Enter_Call.pop();
     document.getElementById("Box").value = Enter_Call.join('');
 }
 
-// return string
-const selectString = () => {
-    if (runner.repeat_wrong_signal) {
-        const pre_ans = document.getElementById('Result_Now').alt;
-        if (pre_ans != 'wrong') { // 直前の符号を聞き取れているならば
-            const row = Math.floor(Math.random() * (runner.strList.length));
-            return String(runner.strList[row]);
-        } else {
-            return runner.answer;
-        }
-    } else {
-        const row = Math.floor(Math.random() * (runner.strList.length));
-        return String(runner.strList[row]);
-    }
-}
-
-const play = () => {
+const playRunner = () => {
     document.getElementById('PlayButton').disabled = true;
-
-    let str = selectString();
-    runner.answer = str;
-
-    // add DE
-    if (runner.de) {
-        str = String(`DE ${runner.answer}`);
-    }
-
-    const freq = document.getElementById('Freq').value;
-    const wpm = document.getElementById("Speed").value;
-    const time = playMorseNode(str, freq, wpm, context.currentTime, context);
-
-    setTimeout(() => { document.getElementById('AnswerButton').disabled = false; }, time * 1000);
+    const time = runner.play();
+    setTimeout(
+        () => {
+            document.getElementById('AnswerButton').disabled = false;
+        },
+        time * 1000
+    );
 }
 
-const answerCheck = () => {
+const answerRunner = () => {
     const urAns = new String(document.getElementById("Box").value.toUpperCase());
-    const ans = runner.answer;
-
-    let match_result = ans.length;
-    let result_dif = new Array();
-    for (let i = 0; i <= ans.length - 1 && i <= urAns.length - 1; i++) {
-        //check answer
-        if (ans.charAt(i) === urAns.charAt(i)) {
-            result_dif[i] = '〇';
-            match_result--;
-        } else {
-            result_dif[i] = '×';
-        }
-    }
-
-    if (match_result === 0) {
+    if (runner.checkAnswer(urAns)) {
         document.getElementById("Result_Now").src = "img/circle.png";
         document.getElementById("Result_Now").alt = "right";
         const right_counter = parseInt(document.getElementById("RightCount").value);
         document.getElementById("RightCount").value = right_counter + 1;
-    }
-    if (match_result != 0) {
+    } else {
         document.getElementById("Result_Now").src = "img/cross.png";
         document.getElementById("Result_Now").alt = "wrong";
         const wrong_counter = parseInt(document.getElementById("WrongCount").value);
         document.getElementById("WrongCount").value = wrong_counter + 1;
     }
-    document.getElementById('Box').value = '';
 
-    document.getElementById('History').value += `\n${ans}-${urAns}`;
+    document.getElementById('Box').value = '';
+    document.getElementById('History').value += `\n${runner.answer}-${urAns}`;
     document.getElementById('PlayButton').disabled = false;
     document.getElementById('AnswerButton').disabled = true;
 }
+
 // if you use pc, register to event listener.
 const keyDown = (e) => {
     const keyCode = e.keyCode;
@@ -123,13 +88,13 @@ const initAddEvent = () => {
                 console.log('Service Worker Registration failed: ', err);
             });
     }
-    document.getElementById('PlayButton').addEventListener('click', play, false);
-    document.getElementById('AnswerButton').addEventListener('click', answerCheck);
+    document.getElementById('PlayButton').addEventListener('click', playRunner, false);
+    document.getElementById('AnswerButton').addEventListener('click', answerRunner);
     document.addEventListener('keydown', keyDown);
     document.getElementById('AnswerButton').disabled = true;
 
     // Configuration
-    document.getElementById('radioButton_log').addEventListener('change', (e) => { runner.loadText(e.target.value); }, false);
+    document.getElementById('radioButton_log').addEventListener('change', (e) => { runner.changeLogType(e.target.value); }, false);
     document.getElementById('checkbox_addDe').addEventListener('change', () => { runner.toggleDe(); }, false);
     document.getElementById('checkbox_rws').addEventListener('change', () => { runner.toggleRWS(); }, false);
 }
@@ -148,15 +113,26 @@ const getStrType = () => {
 }
 
 const Runner = class {
-    constructor(de, rws, type) {
+    constructor(de, rws, type, freq, wpm) {
         this.de = de;
         this.repeat_wrong_signal = rws;
         this.answer = new String;
         this.strList = new Array;
         this.loadText(type);
+
+        // reSelect is flag variable.
+        this.reSelect = true;
+
+        this.freq = freq;
+        this.wpm = wpm;
+    }
+    changeLogType(type) {
+        this.reSelect = true;
+        this.loadText(type);
     }
     toggleRWS() {
         this.repeat_wrong_signal = !this.repeat_wrong_signal;
+        this.reSelect = true;
     }
     toggleDe() {
         this.de = !this.de;
@@ -187,6 +163,60 @@ const Runner = class {
             loadJSONfromServer(this, 'http://localhost:8080/data/world.json');
         }
     }
+    // return string
+    selectString() {
+        if (this.reSelect) {
+            const row = Math.floor(Math.random() * (this.strList.length));
+            return String(this.strList[row]);
+        } else {
+            return this.answer;
+        }
+    }
+    play() {
+        let str = this.selectString();
+        this.answer = str;
+
+        // add DE
+        if (this.de) {
+            str = String(`DE ${this.answer}`);
+        }
+
+        const time = playMorseNode(
+            str,
+            this.freq,
+            this.wpm,
+            context.currentTime,
+            context
+        );
+    }
+    checkAnswer(resp) {
+        const ans = this.answer;
+        let match_result = ans.length;
+        let result_dif = new Array();
+
+        for (let i = 0; i <= ans.length - 1 && i <= resp.length - 1; i++) {
+            //check answer
+            if (ans.charAt(i) === resp.charAt(i)) {
+                result_dif[i] = '〇';
+                match_result--;
+            } else {
+                result_dif[i] = '×';
+            }
+        }
+
+        if (match_result === 0) {
+            // the answer is right.
+            this.reSelect = true;
+            return true;
+        }
+        // the answer is wrong.
+        if (!this.repeat_wrong_signal) {
+            this.reSelect = true;
+        } else {
+            this.reSelect = false;
+        }
+        return false;
+    }
 }
 
 try {
@@ -205,7 +235,9 @@ let runner = new Runner(
         const type = getStrType();
         if (type) return type
         else console.error("not checked type")
-    }()
-)
+    }(),
+    document.getElementById('Freq').value,
+    document.getElementById("Speed").value
+);
 
 initAddEvent();
