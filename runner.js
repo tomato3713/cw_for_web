@@ -94,7 +94,14 @@ const initAddEvent = () => {
     document.getElementById('AnswerButton').disabled = true;
 
     // Configuration
-    document.getElementById('radioButton_log').addEventListener('change', (e) => { runner.changeLogType(e.target.value); }, false);
+    document.getElementById('radioButton_log').addEventListener(
+        'change',
+        (e) => {
+            answerRunner();
+            runner.changeLogType(e.target.value);
+        },
+        false
+    );
     document.getElementById('checkbox_addDe').addEventListener('change', () => { runner.toggleDe(); }, false);
     document.getElementById('checkbox_rws').addEventListener('change', () => { runner.toggleRWS(); }, false);
 }
