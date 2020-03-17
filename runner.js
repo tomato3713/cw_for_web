@@ -27,17 +27,17 @@ const ClickOnDel = () => {
 
 // return string
 const selectString = () => {
-    if (state.repeat_wrong_signal) {
+    if (runner.repeat_wrong_signal) {
         const pre_ans = document.getElementById('Result_Now').alt;
         if (pre_ans != 'wrong') { // 直前の符号を聞き取れているならば
-            const row = Math.floor(Math.random() * (state.strList.length));
-            return String(state.strList[row]);
+            const row = Math.floor(Math.random() * (runner.strList.length));
+            return String(runner.strList[row]);
         } else {
-            return state.answer;
+            return runner.answer;
         }
     } else {
-        const row = Math.floor(Math.random() * (state.strList.length));
-        return String(state.strList[row]);
+        const row = Math.floor(Math.random() * (runner.strList.length));
+        return String(runner.strList[row]);
     }
 }
 
@@ -45,11 +45,11 @@ const play = () => {
     document.getElementById('PlayButton').disabled = true;
 
     let str = selectString();
-    state.answer = str;
+    runner.answer = str;
 
     // add DE
-    if (state.de) {
-        str = String(`DE ${state.answer}`);
+    if (runner.de) {
+        str = String(`DE ${runner.answer}`);
     }
 
     const freq = document.getElementById('Freq').value;
@@ -61,7 +61,7 @@ const play = () => {
 
 const answerCheck = () => {
     const urAns = new String(document.getElementById("Box").value.toUpperCase());
-    const ans = state.answer;
+    const ans = runner.answer;
 
     let match_result = ans.length;
     let result_dif = new Array();
@@ -129,9 +129,9 @@ const initAddEvent = () => {
     document.getElementById('AnswerButton').disabled = true;
 
     // Configuration
-    document.getElementById('radioButton_log').addEventListener('change', (e) => { state.loadText(e.target.value); }, false);
-    document.getElementById('checkbox_addDe').addEventListener('change', () => { state.toggleDe(); }, false);
-    document.getElementById('checkbox_rws').addEventListener('change', () => { state.toggleRWS(); }, false);
+    document.getElementById('radioButton_log').addEventListener('change', (e) => { runner.loadText(e.target.value); }, false);
+    document.getElementById('checkbox_addDe').addEventListener('change', () => { runner.toggleDe(); }, false);
+    document.getElementById('checkbox_rws').addEventListener('change', () => { runner.toggleRWS(); }, false);
 }
 
 const getStrType = () => {
@@ -147,7 +147,7 @@ const getStrType = () => {
     return ret;
 }
 
-const State = class {
+const Runner = class {
     constructor(de, rws, type) {
         this.de = de;
         this.repeat_wrong_signal = rws;
@@ -198,7 +198,7 @@ catch (e) {
 }
 
 let context = new AudioContext();
-let state = new State(
+let runner = new Runner(
     document.getElementById('checkbox_addDe').checked,
     document.getElementById('checkbox_rws').checked,
     function() {
