@@ -2,14 +2,14 @@
 let oscNode;
 
 // wpm2ms は WPM を短点の長さの秒単位表記の値に変換します。
-const wpm2ms = ( wpm ) => { return 60 / ( 50 * wpm ); }
+const wpm2ms = (wpm) => { return 60 / (50 * wpm); }
 
 // playMorseNode は 与えた文字列のモールス符号音声の再生時間を返します。
 // str: 再生する文字列, freq: サイン波の周波数
 // wpm: 速度, st: 再生開始時間, context: AudioContext
-const playMorseNode = ( str, freq, wpm, st, context ) => {
+const playMorseNode = (str, freq, wpm, st, context) => {
     let gainNode = context.createGain();
-    gainNode.gain.setValueAtTime=(1, st);
+    gainNode.gain.setValueAtTime = (1, st);
 
     // 受け取った文字列を位置文字ごとに分割して letter に入れる.
     const letter = new String(str).split('');
@@ -69,7 +69,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if (letter[column] === 'E')  {
+        if (letter[column] === 'E') {
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
@@ -315,12 +315,12 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
         if (letter[column] >= '1' && letter[column] <= '4') {
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
-            for (let s = 1; s <= letter[column] -1 ; s++) {
+            for (let s = 1; s <= letter[column] - 1; s++) {
                 oscNode.frequency.setValueAtTime(freq, time += duration);
                 oscNode.frequency.setValueAtTime(0, time += duration);
             }
 
-            for (let l = 1; l <= (5 - letter[column] ); l++) {
+            for (let l = 1; l <= (5 - letter[column]); l++) {
                 oscNode.frequency.setValueAtTime(freq, time += duration);
                 oscNode.frequency.setValueAtTime(0, time += duration * 3);
             }
@@ -340,7 +340,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
                 oscNode.frequency.setValueAtTime(freq, time += duration);
                 oscNode.frequency.setValueAtTime(0, time += duration * 3);
             }
-            for (let l = 1; l <= (5 - (letter[column] - 5) ); l++) {
+            for (let l = 1; l <= (5 - (letter[column] - 5)); l++) {
                 oscNode.frequency.setValueAtTime(freq, time += duration);
                 oscNode.frequency.setValueAtTime(0, time += duration);
             }
@@ -400,7 +400,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u3044'){ // い
+        if (letter[column] === '\u3044') { // い
             // .-
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -408,7 +408,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u3046'){ // う
+        if (letter[column] === '\u3046') { // う
             // ..-
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -419,7 +419,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u3048'){ // え
+        if (letter[column] === '\u3048') { // え
             // -.---
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -436,7 +436,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u304A'){ // お
+        if (letter[column] === '\u304A') { // お
             // .-...
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -453,7 +453,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u304B'){ // か
+        if (letter[column] === '\u304B') { // か
             // .-..
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -467,7 +467,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u304D'){ // き
+        if (letter[column] === '\u304D') { // き
             // -.-..
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -484,7 +484,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u304F'){ // く
+        if (letter[column] === '\u304F') { // く
             // ...-
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -498,7 +498,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u3051'){ // け
+        if (letter[column] === '\u3051') { // け
             // -.--
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -512,7 +512,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u3053'){ // こ
+        if (letter[column] === '\u3053') { // こ
             // ----
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -526,7 +526,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u3055'){ // さ
+        if (letter[column] === '\u3055') { // さ
             // -.-.-
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -543,7 +543,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u3057'){ // し
+        if (letter[column] === '\u3057') { // し
             // --.-.
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -560,7 +560,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u3059'){ // す
+        if (letter[column] === '\u3059') { // す
             // ---.-
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -577,7 +577,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u305B'){ // せ
+        if (letter[column] === '\u305B') { // せ
             // .---.
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -594,7 +594,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u305D'){ // そ
+        if (letter[column] === '\u305D') { // そ
             // ---.
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -608,7 +608,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u305F'){ // た
+        if (letter[column] === '\u305F') { // た
             // -.
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -616,7 +616,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u3061'){ // ち
+        if (letter[column] === '\u3061') { // ち
             // ..-.
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -630,7 +630,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u3064'){ // つ
+        if (letter[column] === '\u3064') { // つ
             // .--.
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -644,7 +644,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u3066'){ // て
+        if (letter[column] === '\u3066') { // て
             // .-.--
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -661,7 +661,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u3068'){ // と
+        if (letter[column] === '\u3068') { // と
             // ..-..
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -678,7 +678,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u306A') { // な
+        if (letter[column] === '\u306A') { // な
             // .-.
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -689,7 +689,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u306B'){ // に
+        if (letter[column] === '\u306B') { // に
             // -.-.
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -703,7 +703,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u306C'){ // ぬ
+        if (letter[column] === '\u306C') { // ぬ
             // ....
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -717,7 +717,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u306D'){ // ね
+        if (letter[column] === '\u306D') { // ね
             // --.-
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -731,7 +731,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u306E'){ // の
+        if (letter[column] === '\u306E') { // の
             // ..--
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -745,7 +745,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u306F'){ // は
+        if (letter[column] === '\u306F') { // は
             // -...
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -759,7 +759,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u3072'){ // ひ
+        if (letter[column] === '\u3072') { // ひ
             // --..-
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -776,7 +776,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u3075'){ // ふ
+        if (letter[column] === '\u3075') { // ふ
             // --..
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -790,12 +790,12 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u3078'){ // へ
+        if (letter[column] === '\u3078') { // へ
             // .
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u307B'){ // ほ
+        if (letter[column] === '\u307B') { // ほ
             // --..
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -806,7 +806,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u307E'){ // ま
+        if (letter[column] === '\u307E') { // ま
             // -..-
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -820,7 +820,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u307F'){ // み
+        if (letter[column] === '\u307F') { // み
             // ..-.-
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -837,12 +837,12 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u3080'){ // む
+        if (letter[column] === '\u3080') { // む
             // -
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u3081'){ // め
+        if (letter[column] === '\u3081') { // め
             // -...-
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -859,7 +859,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u3082'){ // も
+        if (letter[column] === '\u3082') { // も
             // -..-.
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -876,7 +876,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u3084'){ // や
+        if (letter[column] === '\u3084') { // や
             // .--
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -887,7 +887,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u3086'){ // ゆ
+        if (letter[column] === '\u3086') { // ゆ
             // -..--
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -904,7 +904,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u3088'){ // よ
+        if (letter[column] === '\u3088') { // よ
             // --
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -912,7 +912,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u3089'){ // ら
+        if (letter[column] === '\u3089') { // ら
             // ...
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -923,7 +923,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u308A'){ // り
+        if (letter[column] === '\u308A') { // り
             // --.
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -934,7 +934,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u308B'){ // る
+        if (letter[column] === '\u308B') { // る
             // -.--.
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -951,7 +951,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u308C'){ // れ
+        if (letter[column] === '\u308C') { // れ
             // ---
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -962,7 +962,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u308D'){ // ろ
+        if (letter[column] === '\u308D') { // ろ
             // .-.-
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -976,7 +976,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u308F'){ // わ
+        if (letter[column] === '\u308F') { // わ
             // -.-
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
@@ -987,7 +987,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u3092'){ // を
+        if (letter[column] === '\u3092') { // を
             // .---
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -1001,7 +1001,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u3093'){ // ん
+        if (letter[column] === '\u3093') { // ん
             // .-.-.
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -1018,7 +1018,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u309B'){ // ゛
+        if (letter[column] === '\u309B') { // ゛
             // ..
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -1026,7 +1026,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u309C'){ // ゜
+        if (letter[column] === '\u309C') { // ゜
             // ..--.
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -1043,7 +1043,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration);
         }
-        if(letter[column] === '\u30FC'){ // ー
+        if (letter[column] === '\u30FC') { // ー
             // .--.-
             oscNode.frequency.setValueAtTime(freq, time);
             oscNode.frequency.setValueAtTime(0, time += duration);
@@ -1060,7 +1060,7 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
             oscNode.frequency.setValueAtTime(freq, time += duration);
             oscNode.frequency.setValueAtTime(0, time += duration * 3);
         }
-        if(letter[column] === '\u0020' ) { // 半角空白
+        if (letter[column] === '\u0020') { // 半角空白
             time += duration * 7;
         } else {
             //符号と符号の間の空白短点三個分
@@ -1081,4 +1081,4 @@ const playMorseNode = ( str, freq, wpm, st, context ) => {
 }
 
 // モールス符号の再生を途中停止する。
-const stopMorse = (t) => { oscNode.stop( t ); }
+const stopMorse = (t) => { oscNode.stop(t); }

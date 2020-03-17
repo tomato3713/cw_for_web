@@ -70,6 +70,17 @@ PCで使用する場合はEnter keyを押すことで再生、答え合わせが
 テキストボックスに英数字または、ひらがなを入力後、PLAYボタンをクリックしてください。
 テキストボックスに入力された文字列に対応したモールス符号が再生されます。
 
+### JSON File
+
+```example.json
+{
+    "type": "example"
+    "str": [
+        "aaa",
+        "bbb"
+    ]
+}
+```
 
 ## License
 Copyright (c) 2019 Taichi Watanabe
