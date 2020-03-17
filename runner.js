@@ -156,18 +156,20 @@ const Runner = class {
                 .catch(err => console.error(err));
         }
 
+        const url = document.URL;
+
         document.getElementById('Result_Now').alt = 'result';
         if (call_type === 'Basic') {
-            loadJSONfromServer(this, 'http://localhost:8080/data/Basic.json');
+            loadJSONfromServer(this, `${url}data/Basic.json`);
         }
         if (call_type === 'Stamp') {
-            loadJSONfromServer(this, 'http://localhost:8080/data/rubber-stump.json');
+            loadJSONfromServer(this, `${url}data/rubber-stump.json`);
         }
         if (call_type === 'Ja') {
-            loadJSONfromServer(this, 'http://localhost:8080/data/ja.json');
+            loadJSONfromServer(this, `${url}data/ja.json`);
         }
         if (call_type === 'DX') {
-            loadJSONfromServer(this, 'http://localhost:8080/data/world.json');
+            loadJSONfromServer(this, `${url}data/world.json`);
         }
     }
     // return string
