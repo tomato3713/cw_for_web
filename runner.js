@@ -29,6 +29,23 @@ const ClickOnDel = () => {
 
 const playRunner = () => {
     document.getElementById('PlayButton').disabled = true;
+    const getFreq = () => {
+        let freq;
+        switch (getFreqOpt()) {
+            case 'random':
+                const max = 1000;
+                const min = 250;
+                freq = Math.floor(Math.random() * (max - min) + min);
+                break;
+            case 'constant':
+                freq = document.getElementById('Freq').value
+                break;
+            default:
+                console.log('Not selected error');
+        }
+        return freq;
+    };
+    runner.freq = getFreq();
     const time = runner.play();
     setTimeout(
         () => {
@@ -104,6 +121,19 @@ const initAddEvent = () => {
     );
     document.getElementById('checkbox_addDe').addEventListener('change', () => { runner.toggleDe(); }, false);
     document.getElementById('checkbox_rws').addEventListener('change', () => { runner.toggleRWS(); }, false);
+}
+
+const getFreqOpt = () => {
+    let ret = false;
+    const typesGroup = document.getElementById('radioButton_frequency').childNodes;
+    typesGroup.forEach((elm) => {
+        if (elm.type === 'radio' && elm.name == 'freqOpt') {
+            if (elm.checked) {
+                ret = elm.value;
+            }
+        }
+    });
+    return ret;
 }
 
 const getStrType = () => {
