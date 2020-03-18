@@ -15,6 +15,7 @@
 - [Future](#Future)
     - [Settings](#Settings)
         - [Type](#Type)
+        - [Frequency](#Frequency)
         - [Add De](#Add%20De)
         - [repeat wrong signal](#repeat%20wrong%20signal)
 - [Usage](#Usage)
