@@ -37,7 +37,7 @@ const playRunner = () => {
                 const min = 250;
                 freq = Math.floor(Math.random() * (max - min) + min);
                 break;
-            case 'constant':
+            case 'fixed':
                 freq = document.getElementById('Freq').value
                 break;
             default:
