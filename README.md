@@ -26,12 +26,12 @@
 ### CW WEB RUNNER
 詳細な、使用方法については[Usage](#usage)をご覧ください。
 
-![Mobile版](data/img/runner-mobile.png)
+![Mobile版](assets/img/runner-mobile.png)
 
 アマチュア無線家向けのモールス符号の聞き取り練習ソフトウェアです。
 
 ### CW TUTOR FOR WEB
-![Mobile版](data/img/tutor-mobile.png)
+![Mobile版](assets/img/tutor-mobile.png)
 
 モールス符号の暗記に使用できるソフトウェアです。入力した文字列に対応したモールス符号を聞くことができます。
 
