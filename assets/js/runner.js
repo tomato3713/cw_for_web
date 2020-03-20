@@ -29,23 +29,8 @@ const ClickOnDel = () => {
 
 const playRunner = () => {
     document.getElementById('PlayButton').disabled = true;
-    const getFreq = () => {
-        let freq;
-        switch (getFreqOpt()) {
-            case 'random':
-                const max = 1000;
-                const min = 250;
-                freq = Math.floor(Math.random() * (max - min) + min);
-                break;
-            case 'fixed':
-                freq = document.getElementById('Freq').value
-                break;
-            default:
-                console.log('Not selected error');
-        }
-        return freq;
-    };
     runner.freq = getFreq();
+    runner.wpm = getSpeed();
     const time = runner.play();
     setTimeout(
         () => {
@@ -58,12 +43,12 @@ const playRunner = () => {
 const answerRunner = () => {
     const urAns = new String(document.getElementById("Box").value.toUpperCase());
     if (runner.checkAnswer(urAns)) {
-        document.getElementById("Result_Now").src = "img/circle.png";
+        document.getElementById("Result_Now").src = "/assets/img/circle.png";
         document.getElementById("Result_Now").alt = "right";
         const right_counter = parseInt(document.getElementById("RightCount").value);
         document.getElementById("RightCount").value = right_counter + 1;
     } else {
-        document.getElementById("Result_Now").src = "img/cross.png";
+        document.getElementById("Result_Now").src = "/assets/img/cross.png";
         document.getElementById("Result_Now").alt = "wrong";
         const wrong_counter = parseInt(document.getElementById("WrongCount").value);
         document.getElementById("WrongCount").value = wrong_counter + 1;
@@ -87,7 +72,7 @@ const keyDown = (e) => {
     if (keyCode === 27) { // ESC key
         stopMorse(context.currentTime);
         document.getElementById('Box').value = "";
-        document.getElementById('Result_Now').src = "img/question-mark.png";
+        document.getElementById('Result_Now').src = "/assets/img/question-mark.png";
         document.getElementById('PlayButton').disabled = false;
         document.getElementById('AnswerButton').disabled = true;
     }
@@ -123,17 +108,64 @@ const initAddEvent = () => {
     document.getElementById('checkbox_rws').addEventListener('change', () => { runner.toggleRWS(); }, false);
 }
 
-const getFreqOpt = () => {
-    let ret = false;
-    const typesGroup = document.getElementById('radioButton_frequency').childNodes;
-    typesGroup.forEach((elm) => {
-        if (elm.type === 'radio' && elm.name == 'freqOpt') {
-            if (elm.checked) {
-                ret = elm.value;
+const getSpeed = () => {
+    const option = () => {
+        let ret = false;
+        const typesGroup = document.getElementById('radioButton_speed').childNodes;
+        typesGroup.forEach((elm) => {
+            if (elm.type === 'radio' && elm.name == 'speedOpt') {
+                if (elm.checked) {
+                    ret = elm.value;
+                }
             }
-        }
-    });
-    return ret;
+        });
+        return ret;
+    }
+
+    let speed;
+    switch (option()) {
+        case 'random':
+            const max = 50;
+            const min = 10;
+            speed = Math.floor(Math.random() * (max - min) + min);
+            break;
+        case 'fixed':
+            speed = document.getElementById('Speed').value
+            break;
+        default:
+            console.log('Not selected error');
+    }
+    return speed;
+}
+
+const getFreq = () => {
+    const option = () => {
+        let ret = false;
+        const typesGroup = document.getElementById('radioButton_frequency').childNodes;
+        typesGroup.forEach((elm) => {
+            if (elm.type === 'radio' && elm.name == 'freqOpt') {
+                if (elm.checked) {
+                    ret = elm.value;
+                }
+            }
+        });
+        return ret;
+    }
+
+    let freq;
+    switch (option()) {
+        case 'random':
+            const max = 1000;
+            const min = 250;
+            freq = Math.floor(Math.random() * (max - min) + min);
+            break;
+        case 'fixed':
+            freq = document.getElementById('Freq').value
+            break;
+        default:
+            console.log('Not selected error');
+    }
+    return freq;
 }
 
 const getStrType = () => {

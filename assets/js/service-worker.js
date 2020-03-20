@@ -2,14 +2,16 @@
 
 const CACHE_NAME = 'cache-v6';
 const urlsToCache = [
-    './',
-    './img/icon/144.png',
-    './img/icon/192.png',
-    './img/icon/512.png',
-    './img/circle.png',
-    './img/cross.png',
-    './img/frame.png',
-    './img/question-mark.png'
+    '/',
+    '/assets/js/',
+    '/assets/css/',
+    '/assets/img/icon/144.png',
+    '/assets/img/icon/192.png',
+    '/assets/img/icon/512.png',
+    '/assets/img/circle.png',
+    '/assets/img/cross.png',
+    '/assets/img/frame.png',
+    '/assets/img/question-mark.png'
 ];
 
 self.addEventListener('install', (event) => {

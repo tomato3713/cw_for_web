@@ -18,7 +18,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
         <link rel="manifest" href="/manifest.json"/>
-        <link rel="stylesheet" href="/style.css" type="text/css" />
+        <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
         <title>CW WEB RUNNER</title>
     </head>
     <body>
@@ -33,7 +33,7 @@
                 <div class="description-down description">After entering the code you heard, please click or press enter key to confirm your answer.</div>
             </div>
             <div class="item">
-                <img class="item-image" id="Result_Now" src="./img/question-mark.png" alt="result">
+                <img class="item-image" id="Result_Now" src="./assets/img/question-mark.png" alt="result">
                 <div class="item-text">
                     <div>Right<input type="text" id="RightCount" value=0 size="3" readonly/></div>
                     <div>Wrong<input type="text" id="WrongCount" value=0 size="3" readonly/></div>
@@ -43,7 +43,7 @@
             <br/>
         </span>
         <span>
-            <div class="option-box">type
+            <div class="option-box">Signal Type
                 <div id="radioButton_log">
                     <input type="radio" name="logType" value="DX"/>World
                     <input type="radio" name="logType" value="Ja" checked/>Japan
@@ -53,7 +53,12 @@
                 </div>
             </div>
             <div class="option-box">Speed (wpm)
-                <input type="number" id="Speed" class="subbox" value="25" inputmode="numetic"/>
+                <div id="radioButton_speed">
+                    <input type="radio" name="speedOpt" value="random"/>Random
+                    <br/>
+                    <input type="radio" name="speedOpt" value="fixed" checked/>Fixed
+                    <input type="number" id="Speed" class="subbox" value="25" inputmode="numetic"/>
+                </div>
             </div>
             <div class="option-box">Freq (Hz)
                 <div id="radioButton_frequency">
@@ -95,7 +100,7 @@
             </nav>
             <p>開発にご協力していただける方は、GitHub の <a href="https://github.com/tomato3713/cw_for_web/issues">issue</a> か <a href="https://twitter.com/tomato3713">Twitter</a> 等でご連絡ください. 感想等もお待ちしております.</p>
         </footer>
-        <script type="text/javascript" src="/common.js"></script>
-        <script type="text/javascript" src="/runner.js"></script>
+        <script type="text/javascript" src="/assets/js/common.js"></script>
+        <script type="text/javascript" src="/assets/js/runner.js"></script>
     </body>
 </html>
