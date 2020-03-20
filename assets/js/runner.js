@@ -207,13 +207,13 @@ const Runner = class {
         this.de = !this.de;
     }
     loadText(call_type) {
-        const loadJSONfromServer = (state, url) => {
+        const loadJSONfromServer = (self, url) => {
             fetch(url)
                 .then(function(resp) {
-                    return resp.json();
+                    return resp.text();
                 })
-                .then(function(json) {
-                    state.strList = json.str;
+                .then(function(text) {
+                    self.strList = text.split('\n');
                 })
                 .catch(err => console.error(err));
         }
@@ -222,16 +222,16 @@ const Runner = class {
 
         document.getElementById('Result_Now').alt = 'result';
         if (call_type === 'Basic') {
-            loadJSONfromServer(this, `${url}data/Basic.json`);
+            loadJSONfromServer(this, `${url}data/basic.txt`);
         }
         if (call_type === 'Stamp') {
-            loadJSONfromServer(this, `${url}data/rubber-stump.json`);
+            loadJSONfromServer(this, `${url}data/rubber-stump.txt`);
         }
         if (call_type === 'Ja') {
-            loadJSONfromServer(this, `${url}data/ja.json`);
+            loadJSONfromServer(this, `${url}data/ja.txt`);
         }
         if (call_type === 'DX') {
-            loadJSONfromServer(this, `${url}data/world.json`);
+            loadJSONfromServer(this, `${url}data/world.txt`);
         }
     }
     // return string
