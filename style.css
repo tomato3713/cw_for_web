@@ -61,6 +61,11 @@ body {
     height: 5em;
 }
 
+.item-image {
+    width: 50px;
+    height: 50px;
+}
+
 .item-text {
     flex-wrap:wrap;
     justify-content:center;
