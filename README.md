@@ -3,7 +3,8 @@
 
 どんなデバイスでもcw（モールス符号）の聞き取り練習を行えるようにします。
 
-こちら[CW WEB RUNNER](https://cw.eim.world/cw_for_web/ "CW_FOR_WEB"), [CW TUTOR FOR WEB](https://cw.eim.world/cw_for_web/cwTutor.html)をブラウザで開けば使用できます。
+こちら[CW WEB RUNNER](https://cw.eim.world/), 
+[CW TUTOR FOR WEB](https://cw.eim.world/cwTutor.html)をブラウザで開けば使用できます。
 
 ### 対象
 アマチュア無線家でCWの練習をしたい方。モールス符号に興味を持っている方。
@@ -25,12 +26,12 @@
 ### CW WEB RUNNER
 詳細な、使用方法については[Usage](#usage)をご覧ください。
 
-![Mobile版](img/runner-mobile.png)
+![Mobile版](data/img/runner-mobile.png)
 
 アマチュア無線家向けのモールス符号の聞き取り練習ソフトウェアです。
 
 ### CW TUTOR FOR WEB
-![Mobile版](img/tutor-mobile.png)
+![Mobile版](data/img/tutor-mobile.png)
 
 モールス符号の暗記に使用できるソフトウェアです。入力した文字列に対応したモールス符号を聞くことができます。
 
