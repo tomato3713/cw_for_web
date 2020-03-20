@@ -3,6 +3,8 @@
 const CACHE_NAME = 'cache-v7';
 const urlsToCache = [
     '/',
+    '/cwTutor.html',
+    '/history.html',
     '/assets/js/common.js',
     '/assets/js/runner.js',
     '/assets/js/tutor.js',
