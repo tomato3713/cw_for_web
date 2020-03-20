@@ -45,14 +45,13 @@ const answerRunner = () => {
     if (runner.checkAnswer(urAns)) {
         document.getElementById("Result_Now").src = "/assets/img/circle.png";
         document.getElementById("Result_Now").alt = "right";
-        const right_counter = parseInt(document.getElementById("RightCount").value);
-        document.getElementById("RightCount").value = right_counter + 1;
     } else {
         document.getElementById("Result_Now").src = "/assets/img/cross.png";
         document.getElementById("Result_Now").alt = "wrong";
-        const wrong_counter = parseInt(document.getElementById("WrongCount").value);
-        document.getElementById("WrongCount").value = wrong_counter + 1;
     }
+
+    document.getElementById("RightCount").value = runner.right_counter;
+    document.getElementById("WrongCount").value = runner.wrong_counter;
 
     document.getElementById('Box').value = '';
     document.getElementById('History').value += `\n${runner.answer}-${urAns}`;
@@ -194,6 +193,10 @@ const Runner = class {
 
         this.freq = freq;
         this.wpm = wpm;
+
+        this.correct = 0;
+        this.right_counter = 0;
+        this.wrong_counter = 0;
     }
     changeLogType(type) {
         this.reSelect = true;
@@ -207,13 +210,18 @@ const Runner = class {
         this.de = !this.de;
     }
     loadText(call_type) {
-        const loadJSONfromServer = (self, url) => {
+        const loadStrListFromServer = (strList, url) => {
             fetch(url)
                 .then(function(resp) {
                     return resp.text();
                 })
                 .then(function(text) {
-                    self.strList = text.split('\n');
+                    const strs = text.split(/\r?\n/)
+                    for (let i = 0; i < strs.length; ++i) {
+                        if (strs[i].length > 0) {
+                            strList.push(strs[i]);
+                        }
+                    }
                 })
                 .catch(err => console.error(err));
         }
@@ -222,16 +230,16 @@ const Runner = class {
 
         document.getElementById('Result_Now').alt = 'result';
         if (call_type === 'Basic') {
-            loadJSONfromServer(this, `${url}data/basic.txt`);
+            loadStrListFromServer(this.strList, `${url}data/basic.txt`);
         }
         if (call_type === 'Stamp') {
-            loadJSONfromServer(this, `${url}data/rubber-stump.txt`);
+            loadStrListFromServer(this.strList, `${url}data/rubber-stump.txt`);
         }
         if (call_type === 'Ja') {
-            loadJSONfromServer(this, `${url}data/ja.txt`);
+            loadStrListFromServer(this.strList, `${url}data/ja.txt`);
         }
         if (call_type === 'DX') {
-            loadJSONfromServer(this, `${url}data/world.txt`);
+            loadStrListFromServer(this.strList, `${url}data/world.txt`);
         }
     }
     // return string
@@ -261,7 +269,7 @@ const Runner = class {
         );
     }
     checkAnswer(resp) {
-        const ans = this.answer;
+        const ans = new String(this.answer);
         let match_result = ans.length;
         let result_dif = new Array();
 
@@ -277,10 +285,12 @@ const Runner = class {
 
         if (match_result === 0) {
             // the answer is right.
+            this.right_counter++;
             this.reSelect = true;
             return true;
         }
         // the answer is wrong.
+        this.wrong_counter++;
         if (!this.repeat_wrong_signal) {
             this.reSelect = true;
         } else {
