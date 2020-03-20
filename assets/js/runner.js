@@ -90,15 +90,15 @@ const initAddEvent = () => {
             });
     }
     document.getElementById('PlayButton').addEventListener('click', playRunner, false);
-    document.getElementById('AnswerButton').addEventListener('click', answerRunner);
-    document.addEventListener('keydown', keyDown);
+    document.getElementById('AnswerButton').addEventListener('click', answerRunner, false);
+    document.addEventListener('keydown', keyDown, false);
     document.getElementById('AnswerButton').disabled = true;
 
     // Configuration
     document.getElementById('radioButton_log').addEventListener(
         'change',
         (e) => {
-            answerRunner();
+            document.getElementById('AnswerButton').click();
             runner.changeLogType(e.target.value);
         },
         false
@@ -194,7 +194,6 @@ const Runner = class {
         this.freq = freq;
         this.wpm = wpm;
 
-        this.correct = 0;
         this.right_counter = 0;
         this.wrong_counter = 0;
     }
@@ -227,6 +226,7 @@ const Runner = class {
         }
 
         const url = document.URL;
+        this.strList.splice(0);
 
         document.getElementById('Result_Now').alt = 'result';
         if (call_type === 'Basic') {
