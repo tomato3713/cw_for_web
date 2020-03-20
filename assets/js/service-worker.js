@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_NAME = 'cache-v6';
+const CACHE_NAME = 'cache-v7';
 const urlsToCache = [
     '/',
     '/assets/js/',
