@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+body {
+    margin-bottom: 2em;
+}
+
 @media only screen and (min-device-width: 480px) {
     .keyboard {
         display:none;
@@ -56,8 +60,12 @@
     align-items: center;
     height: 5em;
 }
+
 .item-image {
+    width: 50px;
+    height: 50px;
 }
+
 .item-text {
     flex-wrap:wrap;
     justify-content:center;
@@ -119,10 +127,13 @@
     list-style-position: inside;
     padding-top: 10px;
     padding-bottom: 10px;
-    width: 60%;
 }
 
 .menu-list {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index:  999;
     text-align:center;
     justify-content:center;
 }
@@ -149,7 +160,6 @@
 .menu-list li a {
     display:block;
     text-decoration: none;
-    vertical-align:middle;
     color: #fff;
     font-weight:bold;
     line-height:1em;
@@ -160,4 +170,9 @@
     padding-top: 2px;
     padding-bottom: 2px;
     width: 100%;
+}
+
+.option-box {
+    margin-top: 10px;
+    margin-bottom: 5px;
 }

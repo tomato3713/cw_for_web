@@ -17,9 +17,8 @@
         <meta name="theme-color" content="#0cebfc">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
-        <link rel="manifest" href=".\manifest.json"/>
-        <link rel="stylesheet" href=".\style.css" type="text/css" />
-
+        <link rel="manifest" href="/manifest.json"/>
+        <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
         <title>CW WEB RUNNER</title>
     </head>
     <body>
@@ -33,38 +32,48 @@
                 <input type="button" class="ctl_button" id="AnswerButton" value="Answer">
                 <div class="description-down description">After entering the code you heard, please click or press enter key to confirm your answer.</div>
             </div>
-            <!-- <input type="text" id="Result_Now" value='Right or Wrong' size="10" readonly/> -->
             <div class="item">
-                <img class="item-image" id="Result_Now" height="50" width="50" src="./img/question-mark.png" alt="result">
-                <div class="item-text"><div>Right <input type="text" id="RightCount" value=0 size="3" readonly/> </div>
-                    <div>Wrong <input type="text" id="WrongCount" value=0 size="3" readonly/> </div>
+                <img class="item-image" id="Result_Now" src="./assets/img/question-mark.png" alt="result">
+                <div class="item-text">
+                    <div>Right<input type="text" id="RightCount" value=0 size="3" readonly/></div>
+                    <div>Wrong<input type="text" id="WrongCount" value=0 size="3" readonly/></div>
                 </div>
             </div>
             <input type="text" id="Box" class="callsign" value="" placeholder="Press Enter to start"/>
             <br/>
         </span>
         <span>
-            <div>type</div>
-            <span id="radioButton_log">
-                <input type="radio" name="logType" value="DX"/>World
-                <input type="radio" name="logType" value="Ja" checked/>Japan
-                <br>
-                <input type="radio" name="logType" value="Basic"/>Basic
-                <input type="radio" name="logType" value="Stamp"/>Rubber Stamp
-            </span>
-            <br>
-            <p>Speed(wpm)<input type="number" id="Speed" class="subbox" value="25" inputmode="numetic"/></p>
-            <div>Freq (Hz)</div>
-            <div id="radioButton_frequency">
-                <input type="radio" name="freqOpt" value="random"/>Random
-                <br/>
-                <input type="radio" name="freqOpt" value="constant" checked/>Constant
-                <input type="number" id="Freq" class="subbox" value="500" inputmode="numetic"/>
+            <div class="option-box">Signal Type
+                <div id="radioButton_log">
+                    <input type="radio" name="logType" value="DX"/>World
+                    <input type="radio" name="logType" value="Ja" checked/>Japan
+                    <br>
+                    <input type="radio" name="logType" value="Basic"/>Basic
+                    <input type="radio" name="logType" value="Stamp"/>Rubber Stamp
+                </div>
             </div>
-            <p>
+            <div class="option-box">Speed (wpm)
+                <div id="radioButton_speed">
+                    <input type="radio" name="speedOpt" value="random"/>Random
+                    <br/>
+                    <input type="radio" name="speedOpt" value="fixed" checked/>Fixed
+                    <input type="number" id="Speed" class="subbox" value="25" inputmode="numetic"/>
+                </div>
+            </div>
+            <div class="option-box">Freq (Hz)
+                <div id="radioButton_frequency">
+                    <input type="radio" name="freqOpt" value="random"/>Random
+                    <br/>
+                    <input type="radio" name="freqOpt" value="fixed" checked/>Fixed
+                    <input type="number" id="Freq" class="subbox" value="500" inputmode="numetic"/>
+                </div>
+            </div>
+            <div class="option-box">
                 <input type="checkbox" name="addDe" id="checkbox_addDe" value="addDe"/>Add De
+            </div>
+            <div class="option-box">
                 <input type="checkbox" name="repeat_wrong_signal" id="checkbox_rws" value="repeat_wrong_signal" checked/>repeat wrong signal
-            </p>
+            </div>
             <textarea id="History" class="subbox big" readonly>History of Training in the time.</textarea>
         </span>
         <footer>
@@ -83,15 +92,15 @@
             </ol>
             <nav class="menu-list">
                 <ul>
-                    <li><a href="https://cw.eim.world">Home</a></li>
-                    <li><a href="./cwTutor.html">CW WEB TUTOR</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="https://cw.eim.world/">Contact</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/cwTutor.html">CW WEB TUTOR</a></li>
+                    <li><a href="/history.html">History</a></li>
+                    <li><a href="https://std.eim.world">Contact</a></li>
                 </ul>
             </nav>
             <p>開発にご協力していただける方は、GitHub の <a href="https://github.com/tomato3713/cw_for_web/issues">issue</a> か <a href="https://twitter.com/tomato3713">Twitter</a> 等でご連絡ください. 感想等もお待ちしております.</p>
         </footer>
-        <script type="text/javascript" src=".\common.js"></script>
-        <script type="text/javascript" src=".\runner.js"></script>
+        <script type="text/javascript" src="/assets/js/common.js"></script>
+        <script type="text/javascript" src="/assets/js/runner.js"></script>
     </body>
 </html>
