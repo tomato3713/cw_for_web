@@ -81,7 +81,7 @@ const keyDown = (e) => {
 const initAddEvent = () => {
     // If support service worker, register service-worker.js
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./service-worker.js')
+        navigator.serviceWorker.register('/service-worker.js')
             .then((registration) => {
                 console.log('Service Worker Registered.');
             })

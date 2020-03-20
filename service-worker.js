@@ -3,15 +3,21 @@
 const CACHE_NAME = 'cache-v7';
 const urlsToCache = [
     '/',
-    '/assets/js/',
-    '/assets/css/',
+    '/assets/js/common.js',
+    '/assets/js/runner.js',
+    '/assets/js/tutor.js',
+    '/assets/css/style.css',
     '/assets/img/icon/144.png',
     '/assets/img/icon/192.png',
     '/assets/img/icon/512.png',
     '/assets/img/circle.png',
     '/assets/img/cross.png',
     '/assets/img/frame.png',
-    '/assets/img/question-mark.png'
+    '/assets/img/question-mark.png',
+    '/data/basic.txt',
+    '/data/ja.txt',
+    '/data/world.txt',
+    '/data/rubber-stump.txt'
 ];
 
 self.addEventListener('install', (event) => {
