@@ -267,6 +267,7 @@ const Runner = class {
             context.currentTime,
             context
         );
+        return time;
     }
     checkAnswer(resp) {
         const ans = new String(this.answer);
