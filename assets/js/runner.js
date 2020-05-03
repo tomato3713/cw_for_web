@@ -196,6 +196,9 @@ const Runner = class {
 
         this.right_counter = 0;
         this.wrong_counter = 0;
+
+        // preparing, listening, breaking
+        this.state = "preparing";
     }
     changeLogType(type) {
         this.reSelect = true;
@@ -252,6 +255,9 @@ const Runner = class {
         }
     }
     play() {
+        if (this.state === "listening") return 0;
+        this.state = "listening";
+
         let str = this.selectString();
         this.answer = str;
 
@@ -267,8 +273,11 @@ const Runner = class {
             context.currentTime,
             context
         );
+        return time;
     }
     checkAnswer(resp) {
+        if(this.state != "listening") return;
+        this.state = "breaking";
         const ans = new String(this.answer);
         let match_result = ans.length;
         let result_dif = new Array();
