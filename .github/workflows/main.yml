@@ -32,5 +32,5 @@ jobs:
         # Path of the files to test
         root: .
         # Checks css as well
-        css: true # optional
-        
+        css: false # optional
+
