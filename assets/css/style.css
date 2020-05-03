@@ -6,7 +6,7 @@ body {
     margin-bottom: 2em;
 }
 
-@media only screen and (min-device-width: 480px) {
+@media only screen and (min-width: 480px) {
     .keyboard {
         display:none;
     }
@@ -14,7 +14,7 @@ body {
         display:none;
     }
 }
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-width: 480px) {
     .pc-usage {
         display:none;
     }
@@ -40,7 +40,6 @@ body {
     width: 100%;
 }
 .subbox{
-    size: 3;
     width: 3em;
 }
 .big {
@@ -98,7 +97,7 @@ body {
     transform: rotateZ(180deg);
 }
 
-@media only screen and (min-device-width: 480px) {
+@media only screen and (min-width: 480px) {
     .tooltip:hover .description-down {
         display: inline-block;
         top: 45px;
@@ -114,7 +113,7 @@ body {
     margin-left: 15px;
 }
 
-@media only screen and (min-device-width: 480px) {
+@media only screen and (min-width: 480px) {
     .tooltip:hover .description-up {
         display: inline-block;
         top: -60px;

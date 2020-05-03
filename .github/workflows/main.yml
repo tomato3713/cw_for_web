@@ -33,4 +33,5 @@ jobs:
         root: .
         # Checks css as well
         css: true # optional
-        
+        Format: text
+
