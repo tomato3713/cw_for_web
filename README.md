@@ -1,4 +1,4 @@
-![HTML/CSS Validator](https://github.com/tomato3713/cw_for_web/workflows/html-css-validator/badge.svg?event=status)
+![HTML/CSS Validator](https://github.com/tomato3713/cw_for_web/workflows/html-css-validator/badge.svg)
 
 # cw_for_web
 ====
