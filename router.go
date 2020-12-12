@@ -26,17 +26,29 @@ func newRouter() *echo.Echo {
 
 	// service worker
 	e.Static("/assets", "static/assets")
-	e.File("/service-worker.js", "static/assets/js/service-worker.js")
 	e.File("/manifest.json", "static/manifest.json")
 
 	e.File("/favicon.ico", "static/assets/img/icon/favicon.ico")
 
-	e.GET("/", cwWebRunnerHandler)
+	e.GET("/", indexHandler)
+	e.GET("/runner", cwWebRunnerHandler)
+	e.GET("/tutor", cwWebTutorHandler)
+	e.GET("/history", historyHandler)
 	return e
 }
 
 func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
 	return t.templates.ExecuteTemplate(w, name, data)
+}
+
+func indexHandler(c echo.Context) error {
+	data := struct {
+		Info
+	}{
+		Info: info,
+	}
+
+	return c.Render(http.StatusOK, "index", data)
 }
 
 func cwWebRunnerHandler(c echo.Context) error {
@@ -47,4 +59,24 @@ func cwWebRunnerHandler(c echo.Context) error {
 	}
 
 	return c.Render(http.StatusOK, "runner", data)
+}
+
+func cwWebTutorHandler(c echo.Context) error {
+	data := struct {
+		Info
+	}{
+		Info: info,
+	}
+
+	return c.Render(http.StatusOK, "tutor", data)
+}
+
+func historyHandler(c echo.Context) error {
+	data := struct {
+		Info
+	}{
+		Info: info,
+	}
+
+	return c.Render(http.StatusOK, "history", data)
 }

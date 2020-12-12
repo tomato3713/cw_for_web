@@ -1,101 +1,10 @@
+{{ define "index" }}
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135505116-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-135505116-1');
-        </script>
-
-        <meta charset="UTF-8" />
-        <meta name="author" content="jj1hgp" />
-        <meta name="description" content="practise CW">
-        <meta name="theme-color" content="#0cebfc">
-
-        <link rel="manifest" href="/manifest.json"/>
-        <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
-        <title>CW WEB RUNNER</title>
-    </head>
+    {{ template "header" }}
     <body>
-        <h1 class="title-h1">CW WEB RUNNER</h1>
-        <div class="tooltip">
-            <input type="button" class="ctl_button" id="PlayButton" value="Play">
-            <div class="description-up description">Click or press enter key to play the Morse code.</div>
-        </div>
-        <div class="tooltip">
-            <input type="button" class="ctl_button" id="AnswerButton" value="Answer">
-            <div class="description-down description">After entering the code you heard, please click or press enter key to confirm your answer.</div>
-        </div>
-        <div class="item">
-            <img class="item-image" id="Result_Now" src="./assets/img/question-mark.png" alt="result">
-            <div class="item-text">
-                <div>Right<input type="text" id="RightCount" value=0 size="3" readonly/></div>
-                <div>Wrong<input type="text" id="WrongCount" value=0 size="3" readonly/></div>
-            </div>
-        </div>
-        <input type="text" id="Box" class="callsign" value="" placeholder="Press Enter to start"/>
-        <br/>
-        <div class="option-box">Signal Type
-            <div id="radioButton_log">
-                <input type="radio" name="logType" value="DX"/>World
-                <input type="radio" name="logType" value="Ja" checked/>Japan
-                <br>
-                <input type="radio" name="logType" value="Basic"/>Basic
-                <input type="radio" name="logType" value="Stamp"/>Rubber Stamp
-            </div>
-        </div>
-        <div class="option-box">Speed (wpm)
-            <div id="radioButton_speed">
-                <input type="radio" name="speedOpt" value="random"/>Random
-                <br/>
-                <input type="radio" name="speedOpt" value="fixed" checked/>Fixed
-                <input type="number" id="Speed" class="subbox" value="25" />
-            </div>
-        </div>
-        <div class="option-box">Freq (Hz)
-            <div id="radioButton_frequency">
-                <input type="radio" name="freqOpt" value="random"/>Random
-                <br/>
-                <input type="radio" name="freqOpt" value="fixed" checked/>Fixed
-                <input type="number" id="Freq" class="subbox" value="500" />
-            </div>
-        </div>
-        <div class="option-box">
-            <input type="checkbox" name="addDe" id="checkbox_addDe" value="addDe"/>Add De
-        </div>
-        <div class="option-box">
-            <input type="checkbox" name="repeat_wrong_signal" id="checkbox_rws" value="repeat_wrong_signal" checked/>repeat wrong signal
-        </div>
-        <textarea id="History" class="subbox big" readonly>History of Training in the time.</textarea>
-        <footer>
-            <h5>遊び方</h5>
-            <ol class="smartphone-usage">
-                <li>playボタンをタップする</li>
-                <li>CWの符号が流れるので聞き取り、キーボードで入力する。</li>
-                <li>Answerボタンをタップして答え合わせをする。</li>
-                <li>SpeedはWPMで指定できます。</li>
-            </ol>
-            <ol class="pc-usage">
-                <li>Enter keyを押す</li>
-                <li>CWの符号が流れるので聞き取り、キーボードで入力する。</li>
-                <li>再度Enter keyを入力して答え合わせを行う。次の符号が流れるのでそれを聞き取る。</li>
-                <li>SpeedはWPMで指定できます。</li>
-            </ol>
-            <nav class="menu-list">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/cwTutor.html">CW WEB TUTOR</a></li>
-                    <li><a href="/history.html">History</a></li>
-                    <li><a href="https://std.eim.world">Contact</a></li>
-                </ul>
-            </nav>
-            <p>開発にご協力していただける方は、GitHub の <a href="https://github.com/tomato3713/cw_for_web/issues">issue</a> か <a href="https://twitter.com/tomato3713">Twitter</a> 等でご連絡ください. 感想等もお待ちしております.</p>
-        </footer>
-        <script src="/assets/js/common.js"></script>
-        <script src="/assets/js/runner.js"></script>
+        <h1 class="title-h1">{{ .Info.Title }}</h1>
+        {{ template "footer" }}
     </body>
 </html>
+{{ end }}
