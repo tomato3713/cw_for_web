@@ -233,16 +233,16 @@ const Runner = class {
 
         document.getElementById('Result_Now').alt = 'result';
         if (call_type === 'Basic') {
-            loadStrListFromServer(this.strList, `${url}data/basic.txt`);
+            loadStrListFromServer(this.strList, `/assets/data/basic.txt`);
         }
         if (call_type === 'Stamp') {
-            loadStrListFromServer(this.strList, `${url}data/rubber-stump.txt`);
+            loadStrListFromServer(this.strList, `/assets/data/rubber-stump.txt`);
         }
         if (call_type === 'Ja') {
-            loadStrListFromServer(this.strList, `${url}data/ja.txt`);
+            loadStrListFromServer(this.strList, `/assets/data/ja.txt`);
         }
         if (call_type === 'DX') {
-            loadStrListFromServer(this.strList, `${url}data/world.txt`);
+            loadStrListFromServer(this.strList, `/assets/data/world.txt`);
         }
     }
     // return string
