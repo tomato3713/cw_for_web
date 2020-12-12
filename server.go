@@ -7,12 +7,18 @@ import (
 )
 
 func main() {
-	e := echo.New()
-	e.GET("/", index)
-	e.Logger.Fatal(e.Start(":1323"))
+    router := NewRouter()
+
+    router.Logger.Fatal(router.Start(":8080"))
 }
 
-func index(c echo.Context) error {
-    return c.String(http.StatusOK, "hello world")
+func NewRouter() *echo.Echo {
+	e := echo.New()
+	e.GET("/", cwWebRunnerHandler)
+    return e
+}
+
+func cwWebRunnerHandler(c echo.Context) error {
+    return c.String(http.StatusOK, "cw web runner")
 }
 
