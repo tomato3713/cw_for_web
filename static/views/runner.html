@@ -1,4 +1,16 @@
 {{define "runner"}}
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="author" content="jj1hgp" />
+        <meta name="description" content="practise CW">
+        <meta name="theme-color" content="#0cebfc">
+
+        <link rel="manifest" href="/manifest.json"/>
+        <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+        <title>CW WEB RUNNER</title>
+    </head>
+    <body>
     {{template "header" .}}
     <div class="tooltip">
         <input type="button" class="ctl_button" id="PlayButton" value="Play">
@@ -49,4 +61,7 @@
         <input type="checkbox" name="repeat_wrong_signal" id="checkbox_rws" value="repeat_wrong_signal" checked/>repeat wrong signal
     </div>
     <textarea id="History" class="subbox big" readonly>History of Training in the time.</textarea>
+    {{template "footer" .}}
+    </body>
+</html>
 {{end}}

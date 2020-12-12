@@ -29,7 +29,7 @@ func newRouter() *echo.Echo {
     e.File("/service-worker.js", "static/assets/js/service-worker.js")
     e.File("/manifest.json", "static/manifest.json")
 
-	e.File("/favicon.ico", "static/assets/img/favicon.ico")
+	e.File("/favicon.ico", "static/assets/img/icon/favicon.ico")
 
 	e.GET("/", cwWebRunnerHandler)
 	return e
