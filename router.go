@@ -14,20 +14,20 @@ type Template struct {
 }
 
 func newRouter() *echo.Echo {
-    t := &Template{
-        templates: template.Must(template.ParseGlob("static/views/*.html")),
-    }
+	t := &Template{
+		templates: template.Must(template.ParseGlob("static/views/*.html")),
+	}
 
 	e := echo.New()
 
-    e.Renderer = t
+	e.Renderer = t
 
 	e.Use(middleware.Logger())
 
-    // service worker
+	// service worker
 	e.Static("/assets", "static/assets")
-    e.File("/service-worker.js", "static/assets/js/service-worker.js")
-    e.File("/manifest.json", "static/manifest.json")
+	e.File("/service-worker.js", "static/assets/js/service-worker.js")
+	e.File("/manifest.json", "static/manifest.json")
 
 	e.File("/favicon.ico", "static/assets/img/icon/favicon.ico")
 
@@ -40,11 +40,11 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 }
 
 func cwWebRunnerHandler(c echo.Context) error {
-    data := struct {
-        Info
-    } {
-        Info: info,
-    }
+	data := struct {
+		Info
+	}{
+		Info: info,
+	}
 
 	return c.Render(http.StatusOK, "runner", data)
 }
