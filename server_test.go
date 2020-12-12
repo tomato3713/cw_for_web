@@ -9,7 +9,7 @@ import (
 )
 
 func TestCWWebRunnerHandler(t *testing.T) {
-	router := NewRouter()
+	router := newRouter()
 
 	req := httptest.NewRequest("GET", "/", nil)
 	rec := httptest.NewRecorder()
@@ -17,5 +17,6 @@ func TestCWWebRunnerHandler(t *testing.T) {
 	router.ServeHTTP(rec, req)
 
 	assert.Equal(t, http.StatusOK, rec.Code)
-	assert.Equal(t, "cw web runner", rec.Body.String())
+	assert.Contains(t, rec.Body.String(), "Play")
+	assert.Contains(t, rec.Body.String(), "Answer")
 }
