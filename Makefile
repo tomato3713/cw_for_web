@@ -9,5 +9,5 @@ fmt:
 lint:
 	go vet
 setup:
-	go get -u github.org/x/tools/cmd/goimports
-	go get -u github.org/x/lint/golint
+	go get -u golang.org/x/tools/cmd/goimports
+	go get -u golang.org/x/lint/golint
