@@ -17,6 +17,5 @@ func TestCWWebRunnerHandler(t *testing.T) {
 	router.ServeHTTP(rec, req)
 
 	assert.Equal(t, http.StatusOK, rec.Code)
-	assert.Contains(t, rec.Body.String(), "Play")
-	assert.Contains(t, rec.Body.String(), "Answer")
+	assert.Contains(t, rec.Body.String(), "CW Web Runner")
 }
