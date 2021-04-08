@@ -14,26 +14,24 @@ type Template struct {
 }
 
 func newRouter() *echo.Echo {
-	t := &Template{
-		templates: template.Must(template.ParseGlob("static/views/*.html")),
-	}
-
 	e := echo.New()
-
-	e.Renderer = t
-
 	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
 
 	// service worker
 	e.Static("/assets", "static/assets")
 	e.File("/manifest.json", "static/manifest.json")
-
 	e.File("/favicon.ico", "static/assets/img/icon/favicon.ico")
-
 	e.GET("/", indexHandler)
 	e.GET("/runner", cwWebRunnerHandler)
 	e.GET("/tutor", cwWebTutorHandler)
 	e.GET("/history", historyHandler)
+
+	t := &Template{
+		templates: template.Must(template.ParseGlob("static/views/*.html")),
+	}
+	e.Renderer = t
+
 	return e
 }
 
