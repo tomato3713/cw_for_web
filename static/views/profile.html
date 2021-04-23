@@ -1,0 +1,12 @@
+{{ define "profile" }}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+    {{ template "header" }}
+    </head>
+    <body>
+        <h1 class="title-h1">{{ .Info.Title }} - User Page</h1>
+        {{ template "footer" }}
+    </body>
+</html>
+{{ end }}

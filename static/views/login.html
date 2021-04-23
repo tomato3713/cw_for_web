@@ -1,9 +1,27 @@
 {{ define "login" }}
 <!DOCTYPE html>
 <html lang="ja">
-    {{ template "header" }}
+    <head>
+        {{ template "header" }}
+        <script type="text/javascript">
+            if(localStorage.getItem('token') !== null) {
+            location.href='/profile'}
+        </script>
+    </head>
     <body>
         <h1 class="title-h1">{{ .Info.Title }} - Login Page</h1>
+        <form id="login-form">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="username" v-model:value="name">
+            </div>
+            <div>
+                <label for="pwd">Password:</label>
+                <input type="password" id="pwd" name="password" v-model:value="password">
+            </div>
+            <button type="button" name="button" @click="login">login</button>
+        </form>
+        <script src="assets/js/login.js"></script>
         {{ template "footer" }}
     </body>
 </html>
