@@ -2,7 +2,12 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-    {{ template "header" }}
+        {{ template "header" }}
+        <script type="text/javascript">
+            if(localStorage.getItem('token') === null) {
+                location.href = '/'
+            }
+        </script>
     </head>
     <body>
         <h1 class="title-h1">{{ .Info.Title }} - User Page</h1>
