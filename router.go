@@ -33,6 +33,10 @@ func newRouter() *echo.Echo {
 	e.GET("/login", handler.Login)
 	e.POST("/login", handler.LoginProcess)
 
+	usr := e.Group("usr")
+	usr.Use(middleware.JWTWithConfig(handler.Config))
+	usr.GET("/profile", handler.GetProfile)
+
 	t := &Template{
 		templates: template.Must(template.ParseGlob("static/views/*.html")),
 	}

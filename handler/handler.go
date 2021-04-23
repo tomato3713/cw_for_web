@@ -65,10 +65,6 @@ func Signup(c echo.Context) error {
 	return c.Render(http.StatusOK, "signup", data)
 }
 
-func SignupProcess(c echo.Context) error {
-	return c.NoContent(http.StatusNoContent)
-}
-
 func Login(c echo.Context) error {
 	data := struct {
 		Info
@@ -79,6 +75,12 @@ func Login(c echo.Context) error {
 	return c.Render(http.StatusOK, "login", data)
 }
 
-func LoginProcess(c echo.Context) error {
-	return c.NoContent(http.StatusNoContent)
+func GetProfile(c echo.Context) error {
+	data := struct {
+		Info
+	}{
+		Info: info,
+	}
+
+	return c.Render(http.StatusOK, "profile", data)
 }
