@@ -75,7 +75,7 @@ func Login(c echo.Context) error {
 	return c.Render(http.StatusOK, "login", data)
 }
 
-func GetProfile(c echo.Context) error {
+func Profile(c echo.Context) error {
 	data := struct {
 		Info
 	}{
