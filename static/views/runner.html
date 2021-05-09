@@ -4,16 +4,20 @@
     <head>
         {{template "header" .}}
     </head>
-    <body>
+    <body class="text-center">
     <h1 class="title-h1">CW Web Runner</h1>
-    <div class="tooltip">
-        <input type="button" class="ctl_button" id="PlayButton" value="Play">
-        <div class="description-up description">Click or press enter key to play the Morse code.</div>
-    </div>
-    <div class="tooltip">
-        <input type="button" class="ctl_button" id="AnswerButton" value="Answer">
-        <div class="description-down description">After entering the code you heard, please click or press enter key to confirm your answer.</div>
-    </div>
+    <input type="button" 
+            class="btn btn-primary"
+            data-toggle="tooltip" 
+            data-placement="top"
+            id="PlayButton" 
+            title="Click or press enter key to play the Morse code."
+            value="Play"/>
+    <input type="button" 
+            class="btn btn-secondary"
+            id="AnswerButton" 
+            title="After entering the code you heard, please click or press enter key to confirm your answer."
+            value="Answer"/>
     <div class="item">
         <img class="item-image" id="Result_Now" src="./assets/img/question-mark.png" alt="result">
         <div class="item-text">

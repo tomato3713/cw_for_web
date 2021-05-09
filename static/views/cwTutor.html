@@ -6,13 +6,15 @@
     </head>
     <body>
         <h1 class="title-h1">CW WEB TUTOR</h1>
-        <div class="tooltip">
-            <input type="button" class="ctl_button" id="PlayButton" value = "PLAY">
-            <div class="description-up description">Click or press enter key to play the Morse code.</div>
-        </div>
-        <div>
-            <input type="text" id="Box" class="text" value="" placeholder="Write your favorite text."><br/>
-            <div class="description-down description">You can play the text in the text box by clicking the Play button or pressing Enter key.</div>
+        <input type="button"
+               class="btn btn-primary"
+               id="PlayButton"
+               data-toggle="tooltip"
+               data-placement="top"
+               title="Click or press enter key to play the Morse code."
+               value="Play"/>
+        <input type="text" id="Box" class="text" value="" placeholder="Write your favorite text."/><br/>
+        <div class="description-down description">You can play the text in the text box by clicking the Play button or pressing Enter key.</div>
         </div>
         <p>Speed(wpm)<input type="number" id="Speed" class="subbox" value="15"></p>
         <p>Freq(Hz)<input type="number" id="Freq" class="subbox" value="500"></p>
