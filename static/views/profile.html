@@ -11,6 +11,11 @@
     </head>
     <body>
         <h1 class="title-h1">{{ .Info.Title }} - User Page</h1>
+        <div id="profile">
+            <div></div>
+            <button type="button" name="logout" @click="logout()">logout</button>
+        </div>
+        <script src="assets/js/profile.js"></script>
         {{ template "footer" }}
     </body>
 </html>
