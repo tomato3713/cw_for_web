@@ -2,24 +2,6 @@ body {
     margin-bottom: 2em;
 }
 
-@media only screen and (min-width: 480px) {
-    .keyboard {
-        display:none;
-    }
-    .smartphone-usage {
-        display:none;
-    }
-}
-@media only screen and (max-width: 480px) {
-    .pc-usage {
-        display:none;
-    }
-}
-
-.keyboard > input{
-    margin: 1px;
-}
-
 .callsign {
     text-align: left;
     text-transform:uppercase;
@@ -31,21 +13,8 @@ body {
     margin: 7px;
 }
 
-.ctl_button {
-    height: 2em;
-    width: 100%;
-}
 .subbox{
     width: 3em;
-}
-.big {
-    vertical-align: top;
-    height: 20em;
-    width: 15em;
-}
-.notdisplay {
-    visibility:hidden;
-    pointer-events:none;
 }
 
 .item {
@@ -66,62 +35,6 @@ body {
     justify-content:center;
     align-content:center;
     align-items:center;
-}
-
-.tooltip {
-    position: relative;
-    cursor: pointer;
-}
-
-.description {
-    display: none;
-    position: absolute;
-    padding:10px;
-    font-size:80%;
-    line-height: 1.6em;
-    color: #fff;
-    border-radius:5px;
-    background: #000;
-}
-
-.description-down:before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    right: 50%;
-    margin-left: -15px;
-    transform: rotateZ(180deg);
-}
-
-@media only screen and (min-width: 480px) {
-    .tooltip:hover .description-down {
-        display: inline-block;
-        top: 45px;
-        left: 50px;
-    }
-}
-
-.description-up:before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 90%;
-    margin-left: 15px;
-}
-
-@media only screen and (min-width: 480px) {
-    .tooltip:hover .description-up {
-        display: inline-block;
-        top: -60px;
-        left: 100px;
-    }
-}
-
-.usage {
-    display: inline;
-    list-style-position: inside;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 .menu-list {
@@ -167,7 +80,3 @@ body {
     width: 100%;
 }
 
-.option-box {
-    margin-top: 10px;
-    margin-bottom: 5px;
-}
