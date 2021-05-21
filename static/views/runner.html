@@ -4,50 +4,66 @@
     <head>
         {{template "header" .}}
     </head>
-    <body class="text-center">
-    <h1 class="title-h1">CW Web Runner</h1>
-    <input type="button" 
-            class="btn btn-primary"
-            data-toggle="tooltip" 
-            data-placement="top"
-            id="PlayButton" 
-            title="Click or press enter key to play the Morse code."
-            value="Play"/>
-    <input type="button" 
-            class="btn btn-secondary"
-            id="AnswerButton" 
-            title="After entering the code you heard, please click or press enter key to confirm your answer."
-            value="Answer"/>
-    <div class="item">
-        <img class="item-image" id="Result_Now" src="./assets/img/question-mark.png" alt="result">
-        <div class="item-text">
-            <div>Right<input type="text" id="RightCount" value=0 size="3" readonly/></div>
-            <div>Wrong<input type="text" id="WrongCount" value=0 size="3" readonly/></div>
-        </div>
-    </div>
-    <input type="text" id="Box" class="callsign" value="" placeholder="Press Enter to start"/>
-    <br/>
+    <body>
+    <h1>CW Web Runner</h1>
     <div class="container">
-        <form>
-            <div class="form-group">Signal Type
-                <div id="radioButton_log">
-                    <input type="radio" class="form-check-input" name="logType" value="DX"/>World
-                    <input type="radio" class="form-check-input" name="logType" value="Ja" checked/>Japan
-                    <br>
-                    <input type="radio" class="form-check-input" name="logType" value="Basic"/>Basic
-                    <input type="radio" class="form-check-input" name="logType" value="Stamp"/>Rubber Stamp
+        <input type="button"
+                class="btn btn-primary"
+                data-toggle="tooltip"
+                data-placement="top"
+                id="PlayButton"
+                title="Click or press enter key to play the Morse code."
+                value="Play"/>
+        <input type="button"
+                class="btn btn-secondary"
+                id="AnswerButton"
+                title="After entering the code you heard, please click or press enter key to confirm your answer."
+                value="Answer"/>
+        <div class="item">
+            <img class="item-image" id="Result_Now" src="./assets/img/question-mark.png" alt="result">
+            <div class="item-text">
+                <div>Right<input type="text" id="RightCount" value=0 size="3" readonly/></div>
+                <div>Wrong<input type="text" id="WrongCount" value=0 size="3" readonly/></div>
+            </div>
+        </div>
+        <input type="text" id="Box" class="callsign" value="" placeholder="Press Enter to start"/>
+        <textarea id="History" class="subbox big" readonly>History of Training in the time.</textarea>
+    </div>
+    <div class="container">
+        <form class="row justify-content-center">
+            <div class="form-group row">
+                <legend class="col-form-label col-4">Signal Type</legend>
+                <div id="radioButton_log" class="col-auto">
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="logType" id="sig-type-1" value="DX"/>
+                        <label class="form-check-label text-left pull-left" for="sig-type-1">World</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="logType" id="sig-type-2" value="Ja" checked/>
+                        <label class="form-check-label text-left pull-left" for="sig-type-2">Japan</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="logType" id="sig-type-3" value="Basic"/>
+                        <label class="form-check-label text-left pull-left" for="sig-type-3">Basic</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="logType" id="sig-type-4" value="Stamp"/>
+                        <label class="form-check-label text-left pull-left" for="sig-type-4">Rubber Stamp</label>
+                    </div>
                 </div>
             </div>
-            <div class="form-group">Speed (wpm)
-                <div id="radioButton_speed">
+            <div class="form-group row">
+                <legend class="col-form-label col-4">Speed (wpm)</legend>
+                <div id="radioButton_speed" class="col-auto">
                     <input type="radio" name="speedOpt" value="random"/>Random
                     <br/>
                     <input type="radio" name="speedOpt" value="fixed" checked/>Fixed
                     <input type="number" id="Speed" class="subbox" value="25" />
                 </div>
             </div>
-            <div class="form-group">Freq (Hz)
-                <div id="radioButton_frequency">
+            <div class="form-group row">
+                <legend class="col-form-label col-4">Freq (Hz)</legend>
+                <div id="radioButton_frequency" class="col-auto">
                     <input type="radio" name="freqOpt" value="random"/>Random
                     <br/>
                     <input type="radio" name="freqOpt" value="fixed" checked/>Fixed
@@ -55,16 +71,15 @@
                 </div>
             </div>
             <div class="form-group form-switch form-check">
-                <input type="checkbox" name="addDe" id="checkbox_addDe" value="addDe" class="form-check-input"/>
                 <label for="checkbox_addDe" class="form-check-label">Add De</label>
+                <input type="checkbox" name="addDe" id="checkbox_addDe" value="addDe" class="form-check-input"/>
             </div>
             <div class="form-group form-switch form-check">
-                <input type="checkbox" name="repeat_wrong_signal" id="checkbox_rws" value="repeat_wrong_signal" class="form-check-input" checked/>
                 <label for="checkbox_rws" class="form-check-label">repeat wrong signal</label>
+                <input type="checkbox" name="repeat_wrong_signal" id="checkbox_rws" value="repeat_wrong_signal" class="form-check-input" checked/>
             </div>
         </form>
     </div>
-    <textarea id="History" class="subbox big" readonly>History of Training in the time.</textarea>
     {{template "footer" .}}
     <script src="/assets/js/common.js"></script>
     <script src="/assets/js/runner.js"></script>
