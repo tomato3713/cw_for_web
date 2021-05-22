@@ -1,11 +1,12 @@
-"use strict";
+import cw from './common.js';
+
 //textBox, id:Boxに書かれている文字列のモールス符号を再生する
 const play_all = () => {
     if (document.getElementById("Box").value != '') {
         const call = document.getElementById("Box").value.toUpperCase();
         const freq = document.getElementById('Freq').value;
         const wpm = document.getElementById("Speed").value;
-        playMorseNode(call, freq, wpm, context.currentTime, context);
+        cwplayer.playMorseNode(call, freq, wpm);
     }
 }
 
@@ -17,7 +18,7 @@ const keyDown = (e) => {
         document.getElementById('PlayButton').click();
     }
     if (keyCode === 27) { // ESC key
-        stopMorse(context.currentTime);
+        cwplayer.stopMorse();
     }
 }
 
@@ -36,5 +37,5 @@ try {
 catch (e) {
     alert('Web Audio API is not supported in this browser');
 }
-let context = new AudioContext();
+let cwplayer = new cw(new AudioContext());
 initAddEvent();
