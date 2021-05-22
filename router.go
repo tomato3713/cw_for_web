@@ -17,6 +17,7 @@ func newRouter() *echo.Echo {
 	e := echo.New()
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
+	e.Use(middleware.Secure())
 
 	// service worker
 	e.Static("/assets", "static/assets")
