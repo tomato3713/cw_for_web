@@ -11,14 +11,10 @@
     </head>
     <body>
         <h1 class="title-h1">{{ .Info.Title }}</h1>
-        <ul>
-            <li>
-                <a href="/login">Login</a>
-            </li>
-            <li>
-                <a href="/signup">Sign Up</a>
-            </li>
-            <ul>
+        <div>
+            <a href="/login" class="btn btn-primary btn-lg">Login</a>
+            <a href="/signup" class="btn btn-secondary btn-lg">Sign Up</a>
+        </div>
         {{ template "footer" }}
     </body>
 </html>
