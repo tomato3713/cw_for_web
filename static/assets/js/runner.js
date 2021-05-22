@@ -1,4 +1,4 @@
-"use strict";
+import cw from './common.js';
 
 const keyboardButtonCheck = (e) => {
     const target = e.target;
@@ -69,7 +69,7 @@ const keyDown = (e) => {
         document.getElementById('Box').focus();
     }
     if (keyCode === 27) { // ESC key
-        stopMorse(context.currentTime);
+        cwplayer.stopMorse();
         document.getElementById('Box').value = "";
         document.getElementById('Result_Now').src = "/assets/img/question-mark.png";
         document.getElementById('PlayButton').disabled = false;
@@ -266,13 +266,7 @@ const Runner = class {
             str = String(`DE ${this.answer}`);
         }
 
-        const time = playMorseNode(
-            str,
-            this.freq,
-            this.wpm,
-            context.currentTime,
-            context
-        );
+        const time = cwplayer.playMorseNode(str, this.freq, this.wpm);
         return time;
     }
     checkAnswer(resp) {
@@ -317,7 +311,7 @@ catch (e) {
     alert('Web Audio API is not supported in this browser');
 }
 
-let context = new AudioContext();
+let cwplayer = new cw(new AudioContext());
 let runner = new Runner(
     document.getElementById('checkbox_addDe').checked,
     document.getElementById('checkbox_rws').checked,
