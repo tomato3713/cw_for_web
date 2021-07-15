@@ -1,24 +1,8 @@
+{{ define "history" }}
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135505116-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-135505116-1');
-        </script>
-
-        <meta charset="UTF-8" />
-        <meta name="author" content="jj1hgp" />
-        <meta name="description" content="practise CW">
-        <meta name="theme-color" content="#0cebfc">
-
-        <link rel="manifest" href="/manifest.json"/>
-        <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
-        <title>CW WEB RUNNER | History</title>
+        {{ template "header" }}
     </head>
     <body>
         <section>
@@ -39,15 +23,7 @@
                 <dt>2020/03/21 CW TUTOR</dt><dd> 文字間・語間が長い問題を修正.</dd>
             </dl>
         </section>
-        <footer>
-            <nav class="menu-list">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/cwTutor.html">CW WEB TUTOR</a></li>
-                    <li><a href="/history.html">History</a></li>
-                    <li><a href="https://std.eim.world">Contact</a></li>
-                </ul>
-            </nav>
-        </footer>
+        {{ template "footer" }}
     </body>
 </html>
+{{ end }}
