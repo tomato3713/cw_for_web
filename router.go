@@ -2,6 +2,7 @@ package main
 
 import (
 	"io"
+	"mime"
 	"text/template"
 
 	"github.com/labstack/echo"
@@ -14,9 +15,13 @@ type Template struct {
 }
 
 func newRouter() *echo.Echo {
+	// for windows probrem: return incorrect MIME Type "text/plain"
+	mime.AddExtensionType(".js", "application/javascript")
+
 	e := echo.New()
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
+	e.Use(middleware.Secure())
 
 	// service worker
 	e.Static("/assets", "static/assets")
