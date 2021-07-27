@@ -22,10 +22,10 @@
     - [Settings](#Settings)
         - [Type](#Type)
         - [Frequency](#Frequency)
-        - [Add De](#Add%20De)
-        - [repeat wrong signal](#repeat%20wrong%20signal)
+        - [Add De](#Add-De)
+        - [repeat wrong signal](#repeat-wrong-signal)
 - [Usage](#Usage)
-- [How to build](#How%20to%20build)
+- [How to build](#How-to-build)
 - [License](#License)
 
 ## Future
