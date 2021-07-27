@@ -25,6 +25,7 @@
         - [Add De](#Add%20De)
         - [repeat wrong signal](#repeat%20wrong%20signal)
 - [Usage](#Usage)
+- [How to build](#How%20to%20build)
 - [License](#License)
 
 ## Future
@@ -90,6 +91,14 @@ PCで使用する場合はEnter keyを押すことで再生、答え合わせが
 aaa
 bbb
 ```
+
+## How to build
+This project use Go framework [Echo](https://echo.labstack.com/).
+1. `git clone git@github.com:tomato3713/cw_for_web.git`
+2. `cd cw_for_web`
+3. `go build .`
+4. Run program, `./cw_for_web` or `./cw_for_web.exe`
+5. Open browser in localhost:8080
 
 ## License
 Copyright (c) 2019 Taichi Watanabe
