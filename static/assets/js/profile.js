@@ -11,6 +11,14 @@ const profile = new Vue({
             localStorage.removeItem('token')
             location.href = '/'
         },
+        random_message() {
+            const msg = [
+                "Let's do our best today.",
+                "Sometimes breaks are important.",
+                "It's important to continue.",
+            ];
+            return msg[Math.floor(Math.random() * msg.length)];
+        },
     },
     created() {
         const date = new Date()
